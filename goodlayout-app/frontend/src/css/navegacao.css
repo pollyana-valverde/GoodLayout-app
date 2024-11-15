@@ -1,12 +1,13 @@
 .navegacaoLinks {
     border: 1px solid var(--tuscanRed);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
     position: fixed;
     top: 1rem;
     display: flex;
     justify-content: space-between;
     padding: 4px;
     border-radius: 50px;
+    z-index: 9;
 }
 
 .navegacaoLinks a {
@@ -15,7 +16,7 @@
     border-radius: 50px;
     margin: 0 3px;
     padding: 4px 15px;
-    border: 1px solid var(--white);
+    border: 1px solid transparent;
     transition: all .4s;
 }
 
