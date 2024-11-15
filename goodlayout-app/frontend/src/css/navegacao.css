@@ -1,0 +1,55 @@
+.navegacaoLinks {
+    border: 1px solid var(--tuscanRed);
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+    border-radius: 50px;
+}
+
+.navegacaoLinks a {
+    text-decoration: none;
+    color: var(--tuscanRed);
+    border-radius: 50px;
+    margin: 0 3px;
+    padding: 4px 15px;
+    border: 1px solid var(--white);
+    transition: all .4s;
+}
+
+.navegacaoLinks a:hover {
+    border: 1px solid var(--tuscanRed);
+}
+
+.navegacaoLinks a.activeLink {
+    position: relative;
+    padding-left: 20px;
+    background-color: var(--creamyBiscotti);
+    border: 1px solid var(--tuscanRed);
+}
+
+.navegacaoLinks a.activeLink::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    bottom: 40%;
+    width: 5px;
+    height: 5px;
+    background-color: var(--tuscanRed);
+    border-radius: 50px;
+}
+
+.navegacaoLogin a {
+    text-decoration: none;
+    background-color: var(--tuscanRed);
+    color: var(--white);
+    border-radius: 50px;
+    padding: 8px 15px;
+    transition: all .3s;
+}
+
+.navegacaoLogin a:hover {
+    box-shadow: 1px 1px 10px 1px var(--tuscanRed);
+}

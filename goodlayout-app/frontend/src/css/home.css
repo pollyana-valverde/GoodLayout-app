@@ -1,0 +1,187 @@
+.mainLeftHome {
+    position: relative;
+    background-image: url('../imagens/kawai6.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.mainLeftHome::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+
+/* .tagLeftHome{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    width: 840px;
+} */
+
+.tagLeftHome button {
+    z-index: 1;
+    padding: 6px 10px !important;
+    border-radius: 50px;
+    border: none;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    color: var(--white);
+    transition: all .3s;
+}
+
+.tagLeftHome button:hover {
+    background-color: var(--white);
+    color: var(--oliveWood);
+}
+
+.tagLeftHome button.activeTag {
+    background-color: var(--white);
+    color: var(--oliveWood);
+}
+
+.textLeftHome {
+    z-index: 1;
+}
+
+.textLeftHome h2,
+.textLeftHome p {
+    color: var(--white);
+}
+
+.textLeftHome h2 {
+    font-size: 60px;
+    font-weight: 400;
+    margin: unset;
+}
+
+.textLeftHome p {
+    font-size: 30px;
+    font-weight: 200;
+    margin-top: unset;
+    margin-bottom: 40px;
+}
+
+.callBacktLeftHome a button {
+    text-align: center;
+    font-size: 18px;
+    background-color: var(--white);
+    color: var(--oliveWood);
+    padding: 9px 12px !important;
+    border-radius: 50px;
+    border: none;
+    transition: all .3s;
+}
+
+.callBacktLeftHome a i {
+    text-align: center;
+    font-size: 14px;
+    background-color: var(--white);
+    color: var(--oliveWood);
+    padding: 15px !important;
+    border-radius: 50px;
+    border: none;
+    transition: all .3s;
+}
+
+.callBacktLeftHome a button:hover,
+.callBacktLeftHome a i:hover {
+    background-color: var(--creamyBiscotti);
+
+}
+
+.mainRightHome {
+    /* background-color: var(--creamyBiscotti); */
+    background-image: var(--bgMainRightHome);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+}
+
+.titleRightHome h1 {
+    color: var(--oliveWood);
+    font-size: 70px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.tagRightHome button {
+    border-radius: 50px;
+    border: 1px solid var(--creamyBiscottiDark);
+    background-color: transparent;
+    padding: 6px 10px !important;
+    color: var(--creamyBiscottiDark);
+    transition: all .3s;
+}
+
+.tagRightHome button:hover {
+    color: var(--palidRedDark);
+    border-color: var(--palidRedDark);
+}
+
+.tagRightHome button.activeTag {
+    color: var(--palidRedDark);
+    border-color: var(--palidRedDark);
+}
+
+.anuncioRightHome {
+    display: flex;
+    flex-wrap: wrap !important;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.anuncioRightHome .exclusive {
+    font-size: 18px;
+    width: fit-content;
+    background-color: var(--creamyBiscotti2);
+    color: var(--oliveWood);
+    padding: 9px 12px !important;
+    border-radius: 50px;
+}
+
+.anuncioRightHomeText h2, .anuncioRightHomeText p{
+    color: var(--oliveWood);
+}
+
+.anuncioRightHomeText p{
+    opacity: 0.6;
+}
+
+.anuncioRightHome img {
+    width: 100% !important;
+    height:250px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.anuncioRightHome a i {
+    background-color: var(--creamyBiscotti2);
+    color: var(--oliveWood);
+    padding: 12px !important;
+    border-radius: 50px;
+    transition: all .3s;
+}
+
+.anuncioRightHome a i:hover {
+    background-color: var(--creamyBiscottiDark);
+}

@@ -1,0 +1,29 @@
+/* cores light mode */
+:root {
+    /* cores sólidas */
+    --white: #fffbf2;
+    --black: #130000;
+    --oliveWood: #210706;
+    --tuscanRed: #891D1A;
+    --palidRed: #6d2932;
+    --palidRedDark: #561c24;
+    --slateBlue: #5E657B;
+    --creamyBiscotti: #F1E6D2;
+    --creamyBiscotti2: #E8D8C4;
+    --creamyBiscottiDark: #c7b7a3;
+
+    --bgMainRightHome: url('../imagens/mainRightHomeBG.svg');
+}
+
+
+[data-theme="dark"] {
+    --white: #130000;
+    --black: #fffbf2;
+}
+
+
+/* * {
+    transition: all .1s ease-in-out;
+} */
+
+/* para importar -> @import url(colors.css); */
