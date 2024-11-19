@@ -46,13 +46,7 @@ export default function Navbar() {
         localStorage.setItem("activeLink", JSON.stringify(link));
     };
 
-    // Efeito para atualizar o estado inicial com base no localStorage
-    // useEffect(() => {
-    //     const savedLink = localStorage.getItem("activeLink");
-    //     if (savedLink) {
-    //         setActiveLink(JSON.parse(savedLink));
-    //     }
-    // }, []);
+
 
     return (
         <Container fluid>

@@ -1,0 +1,56 @@
+.tagRightHome {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.tagRightHome ul.p-tabview-nav {
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tagRightHome ul li {
+    transition: all .5s;
+}
+
+.tagRightHome ul li.p-tabview-ink-bar {
+    width: 0;
+    height: 0;
+}
+
+.tagRightHome .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    border-radius: 50px;
+    border: 1px solid var(--creamyBiscottiDark);
+    background-color: transparent;
+    padding: 10px 10px !important;
+    color: var(--creamyBiscottiDark);
+    transition: all .3s;
+}
+
+.tagRightHome .p-tabview .p-tabview-nav li .p-tabview-nav-link:hover {
+    color: var(--palidRedDark);
+    border-color: var(--palidRedDark);
+}
+
+.tagRightHome .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    color: var(--palidRedDark);
+    border-color: var(--palidRedDark);
+    background-color: transparent;
+    border-radius: 20px;
+}
+
+.tagRightHome .p-tabview .p-tabview-panels {
+    background-color: transparent;
+    padding: unset;
+}
+
+.tagRightHome .p-tabview-title {
+font-weight: 500;
+}

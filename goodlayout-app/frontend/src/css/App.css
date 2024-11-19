@@ -3,3 +3,7 @@
 body{
   background-color: var(--white) !important;
 }
+
+a{
+  text-decoration: none !important;
+}

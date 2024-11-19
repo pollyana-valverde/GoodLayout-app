@@ -63,16 +63,16 @@
 }
 
 .textLeftHome h2 {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 400;
-    margin: unset;
+    margin: unset !important;
 }
 
 .textLeftHome p {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 200;
-    margin-top: unset;
-    margin-bottom: 40px;
+    margin-top: unset !important;
+    margin-bottom: 20px;
 }
 
 .callBacktLeftHome a button {
@@ -100,15 +100,9 @@
 .callBacktLeftHome a button:hover,
 .callBacktLeftHome a i:hover {
     background-color: var(--creamyBiscotti);
-
 }
 
 .mainRightHome {
-    /* background-color: var(--creamyBiscotti); */
-    background-image: var(--bgMainRightHome);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -118,41 +112,21 @@
 
 .titleRightHome h1 {
     color: var(--oliveWood);
-    font-size: 60px;
+    font-size: 40px;
     margin: 0 20px;
     font-weight: 400;
     text-align: left;
 }
 
-.tagRightHome button {
-    border-radius: 50px;
-    border: 1px solid var(--creamyBiscottiDark);
-    background-color: transparent;
-    padding: 6px 10px !important;
-    color: var(--creamyBiscottiDark);
-    transition: all .3s;
-}
-
-.tagRightHome button:hover {
-    color: var(--palidRedDark);
-    border-color: var(--palidRedDark);
-}
-
-.tagRightHome button.activeTag {
-    color: var(--palidRedDark);
-    border-color: var(--palidRedDark);
-}
-
 .anuncioRightHome {
     display: flex;
-    flex-wrap: wrap !important;
-    background-color: var(--white);
-    padding: 20px;
+    background-color: var(--creamyBiscotti);
+    padding: 15px;
     border-radius: 30px;
 }
 
 .anuncioRightHome .exclusive {
-    font-size: 18px;
+    font-size: 15px;
     width: fit-content;
     background-color: var(--creamyBiscotti2);
     color: var(--oliveWood);
@@ -160,17 +134,22 @@
     border-radius: 50px;
 }
 
-.anuncioRightHomeText h2, .anuncioRightHomeText p{
+.anuncioRightHomeText h4, .anuncioRightHomeText p{
     color: var(--oliveWood);
+}
+
+.anuncioRightHomeText h4{
+    font-size: 20px;
 }
 
 .anuncioRightHomeText p{
     opacity: 0.6;
+    font-size: 14px;
 }
 
 .anuncioRightHome img {
     width: 100% !important;
-    height:240px;
+    height:197px;
     object-fit: cover;
     border-radius: 20px;
 }
@@ -179,7 +158,7 @@
     background-color: var(--creamyBiscotti2);
     color: var(--oliveWood);
     padding: 12px !important;
-    border-radius: 50px;
+    border-radius: 40px;
     transition: all .3s;
 }
 
