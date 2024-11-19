@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const routes = require('./routes'); // Importa as rotas do backend
+const path = require('path');
 
 const app = express();
 const port = 3001; // Defina a porta que deseja utilizar

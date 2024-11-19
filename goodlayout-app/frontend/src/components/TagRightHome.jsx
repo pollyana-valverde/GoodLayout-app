@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { TabView, TabPanel } from 'primereact/tabview';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import '../css/tagRightHome.css';
 
 import AnuncioRightHome from "./AnuncioRightHome";

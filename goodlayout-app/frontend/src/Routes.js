@@ -5,6 +5,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 
 import Home from "./Pages/Home";
 import Login from './Pages/Login';
+import Cadastro from './Pages/Cadastro';
 
 import EnterAccount from "./Pages/EnterAccount";
 import Logout from "./Pages/Logout";
@@ -42,6 +43,10 @@ const Rotas = () => {
     {
       path: "/login",
       element: <Login />
+    },
+    {
+      path: "/cadastro",
+      element: <Cadastro />
     },
   ];
 

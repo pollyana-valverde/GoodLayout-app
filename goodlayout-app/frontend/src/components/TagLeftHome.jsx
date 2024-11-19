@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useState } from "react";
 
 export default function TagLeftHome() {
 

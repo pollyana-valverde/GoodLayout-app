@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import { useAuth } from '../provider/AuthProvider';
 import '../css/navegacao.css';
@@ -45,8 +45,6 @@ export default function Navbar() {
         setActiveLink(link);
         localStorage.setItem("activeLink", JSON.stringify(link));
     };
-
-
 
     return (
         <Container fluid>

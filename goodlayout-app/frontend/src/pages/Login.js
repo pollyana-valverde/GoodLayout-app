@@ -12,15 +12,15 @@ const Login = () => {
     const { setToken } = useAuth();
     const navegacao = useNavigate();
 
-    const [cpf, setCpf] = useState('');
+    const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [data, setData] = useState(null);
+    const [data] = useState(null);
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`http://localhost:3001/login/${cpf}/${senha}`, {
-                auth: { cpf, senha }
+            const response = await axios.post(`http://localhost:3001/login/${email}/${senha}`, {
+                auth: { email, senha }
             });
 
             if (Array.isArray(response.data) && response.data.length > 0) {
@@ -45,47 +45,39 @@ const Login = () => {
         document.title = "Login";
     }, []);
 
-    const handleCpfChange = (e) => {
-        let value = e.target.value.replace(/\D/g, '');
-        value = value.replace(/(\d{3})(\d)/, '$1.$2');
-        value = value.replace(/(\d{3})(\d)/, '$1.$2');
-        value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-        setCpf(value);
-    };
 
     return (
-        <Container>
+        <Container className="login" >
             <Toast ref={toast} />
             <Row>
                 <Col lg={6} className="loginContainer flex flex-column justify-content-center align-items-center">
                     <h2 className="mt-4">Bem-vindo de volta!</h2>
-                    <p>Entre na sua conta e tenha acesso a tudo no nosso site!</p>
+                    <p>Entre na sua conta e volte de onde parou!</p>
                     <form onSubmit={handleLogin} className="w-12 mt-4">
-                        <Form.Group controlId="formCpf" className="mb-3">
+                        <Form.Group controlId="formemail" className="mb-3 relative">
                             <label>Email</label>
                             <Form.Control
                                 type="text"
-                                name="cpf"
-                                placeholder="CPF"
-                                value={cpf}
-                                onChange={handleCpfChange}
-                                maxLength="14"
+                                name="email"
+                                placeholder="Coloque seu email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </Form.Group>
-                        <Form.Group controlId="formPassword" className="mb-3">
+                        <Form.Group controlId="formPassword" className="mb-3 relative">
                             <label>Senha</label>
                             <Form.Control
                                 type="password"
                                 name="senha"
-                                placeholder="Senha"
+                                placeholder="Coloque sua senha"
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
                             />
                         </Form.Group>
-                        <Link to="/cadastro">Esqueceu sua senha?</Link>
+                        <div className="text-right"><Link to="#">Esqueceu sua senha?</Link></div>
                         <button className="w-12 my-3 " type="submit">Entrar</button>
                         <div className="flex justify-content-center mt-5">
-                            <p className="mr-2">Não possui uma conta?</p> <Link to="/cadastro">Cadastre-se</Link>
+                            <p className="mr-2">Não possui uma conta?</p> <Link to="/cadastro">Cadrastre-se</Link>
                         </div>
                     </form>
                 </Col>

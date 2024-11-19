@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
+import React  from "react";
+import { Col } from 'react-bootstrap';
 import ImgExclusive from '../imagens/jardimChic.jpg';
 
 export default function AnuncioRightHome({titulo, desc, tag, }) {

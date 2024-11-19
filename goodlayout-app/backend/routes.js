@@ -111,10 +111,10 @@ router.delete('/cadastros/:idCadastro', (req, res) => {
 /////////////////////////////////////////////login///////////////////////////////////////////////////
 
 //Rota para buscar o cfp e senha necessários no login
-router.post('/login/:cpf/:senha', (req, res) => {
-    const { cpf, senha } = req.params;
+router.post('/login/:email/:senha', (req, res) => {
+    const { email, senha } = req.params;
 
-    connection.query('SELECT * FROM cadastro WHERE cpf = ? and senha = ?', [cpf, senha], (err, results) => {
+    connection.query('SELECT * FROM cadastro WHERE email = ? and senha = ?', [email, senha], (err, results) => {
         if (err) {
             console.error('Erro ao buscar o registro do cadastro:', err);
             res.status(500).json({ error: 'Erro ao buscar o cadastro' });
