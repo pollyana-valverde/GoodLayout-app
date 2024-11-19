@@ -98,7 +98,7 @@ export default function Navbar() {
                     </Col>
                     <Col lg={3}>
                         <div className="navegacaoLogin">
-                            <a href="/login">Logout</a>
+                            <a href="/Logout"><i className="pi pi-sign-out"></i></a>
                         </div>
                     </Col>
                 </Row>

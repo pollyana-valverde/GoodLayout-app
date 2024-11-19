@@ -6,6 +6,10 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import Home from "./Pages/Home";
 import Login from './Pages/Login';
 
+import EnterAccount from "./Pages/EnterAccount";
+import Logout from "./Pages/Logout";
+
+
 const Rotas = () => {
   const { tokenGL } = useAuth();
 
@@ -19,9 +23,13 @@ const Rotas = () => {
           element: < Home />
         },
         {
-            path: "/login",
-            element: <Login />
-          },
+          path: '/EnterAccount',
+          element: <EnterAccount />,
+        },
+        {
+          path: "/Logout",
+          element: <Logout />,
+        },
       ],
     },
   ];
@@ -31,7 +39,7 @@ const Rotas = () => {
       path: "/",
       element: <Home />,
     },
-     {
+    {
       path: "/login",
       element: <Login />
     },
