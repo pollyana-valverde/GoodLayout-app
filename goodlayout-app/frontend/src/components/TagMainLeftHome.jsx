@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function TagLeftHome() {
+export default function TagMainLeftHome() {
 
     const [tabMainLeftHome] = useState([
         {

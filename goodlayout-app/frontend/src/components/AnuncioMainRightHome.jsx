@@ -1,8 +1,8 @@
 import React  from "react";
 import { Col } from 'react-bootstrap';
-import ImgExclusive from '../imagens/jardimChic.jpg';
+import ImgExclusive from '../imagens/jardim1.jpg';
 
-export default function AnuncioRightHome({titulo, desc, tag, }) {
+export default function AnuncioMainRightHome({titulo, desc, tag, imgJardim}) {
     return (
         <>
             <Col className="flex flex-wrap justify-content-center  ">
@@ -14,12 +14,12 @@ export default function AnuncioRightHome({titulo, desc, tag, }) {
                             <p> {desc}
                             </p>
                         </div>
-                        <a href="#">
+                        <a href="/login">
                             <i className="pi pi-arrow-up-right"></i>
                         </a>
                     </Col>
                     <Col lg={6}>
-                        <img src={ImgExclusive} alt="ImgExclusive" />
+                        <img src={imgJardim} alt="ImgExclusive" />
                     </Col>
                 </div>
             </Col>

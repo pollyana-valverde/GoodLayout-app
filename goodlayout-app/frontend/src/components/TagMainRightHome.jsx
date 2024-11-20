@@ -3,9 +3,15 @@ import { TabView, TabPanel } from 'primereact/tabview';
 import { Col } from 'react-bootstrap';
 import '../css/tagRightHome.css';
 
-import AnuncioRightHome from "./AnuncioRightHome";
+import AnuncioRightHome from "./AnuncioMainRightHome";
 
-export default function TagRightHome() {
+import Imgjardim1 from '../imagens/jardim1.jpg';
+import Imgjardim2 from '../imagens/jardim2.avif';
+import Imgjardim3 from '../imagens/jardim3.avif';
+import Imgjardim4 from '../imagens/jardim4.avif';
+
+
+export default function TagMainRightHome() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const tabMainRightHome = [
@@ -13,38 +19,43 @@ export default function TagRightHome() {
             header: 'Exclusivo',
             content:
                 <AnuncioRightHome
-                    titulo='Jardim caseiro chic'
+                    titulo='Estufa clássica'
                     desc='Bonito, aconchegante e estiloso Bonito, aconchegante e estiloso'
                     tag='Exclusivo'
+                    imgJardim={Imgjardim1}
                 />
         },
         {
             header: 'Moderno',
             content:
                 <AnuncioRightHome
-                    titulo='Jardim caseiro chic'
+                    titulo='Estufa moderna'
                     desc='Bonito, aconchegante e estiloso Bonito, aconchegante e estiloso'
                     tag='Moderno'
+                    imgJardim={Imgjardim2}
                 />
         },
         {
             header: 'Caro',
             content:
                 <AnuncioRightHome
-                    titulo='Jardim caseiro chic'
+                    titulo='Jardim de margaridas'
                     desc='Bonito, aconchegante e estiloso Bonito, aconchegante e estiloso'
                     tag='Caro'
+                    imgJardim={Imgjardim3}
                 />
         },
         {
             header: 'Barato',
             content:
                 <AnuncioRightHome
-                    titulo='Jardim caseiro chic'
+                    titulo='Jardim caseiro'
                     desc='Bonito, aconchegante e estiloso Bonito, aconchegante e estiloso'
                     tag='Barato'
+                    imgJardim={Imgjardim4}
                 />
         },
+        
 
     ];
 
@@ -52,7 +63,7 @@ export default function TagRightHome() {
         <>
             <Col className="flex gap-3 align-content-center justify-content-center tagRightHome">
                 <TabView
-                    className='flex tagRightHome relative overflow-hidden'
+                    className='flex flex-column relative overflow-hidden'
                     activeIndex={activeIndex}
                     onTabChange={(e) => setActiveIndex(e.index)}
                 >

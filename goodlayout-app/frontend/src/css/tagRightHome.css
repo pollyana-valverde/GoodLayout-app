@@ -1,9 +1,4 @@
-.tagRightHome {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-}
+
 
 .tagRightHome ul.p-tabview-nav {
     background-color: transparent;

@@ -1,6 +1,6 @@
 .mainLeftHome {
     position: relative;
-    background-image: url('../imagens/jardimChic.jpg');
+    background-image: url('../imagens/jardim5.avif');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -77,10 +77,11 @@
 
 .callBacktLeftHome a button {
     text-align: center;
-    font-size: 18px;
+    align-self: center !important;
+    font-size: 14px;
     background-color: var(--white);
     color: var(--oliveWood);
-    padding: 9px 12px !important;
+    padding: 6px 12px !important;
     border-radius: 50px;
     border: none;
     transition: all .3s;
@@ -91,7 +92,7 @@
     font-size: 14px;
     background-color: var(--white);
     color: var(--oliveWood);
-    padding: 15px !important;
+    padding: 10px !important;
     border-radius: 50px;
     border: none;
     transition: all .3s;
