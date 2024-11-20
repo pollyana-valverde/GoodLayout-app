@@ -7,6 +7,8 @@ import "../css/login.css";
 import { Toast } from 'primereact/toast';
 import { Form } from 'react-bootstrap';
 
+import imgLogin from '../imagens/imgLogin.svg';
+
 const Login = () => {
     const toast = useRef(null);
     const { setToken } = useAuth();
@@ -81,6 +83,9 @@ const Login = () => {
                         </div>
                     </form>
                 </Col>
+                <Col lg={6}> 
+                <img src={imgLogin} alt='imgLogin' className='z-3  relative' width={505} height={505}/>
+                 </Col>
             </Row>
         </Container>
     );

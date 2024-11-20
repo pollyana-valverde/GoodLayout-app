@@ -5,6 +5,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Toast } from 'primereact/toast';
 // import "../css/formulario.css";
 
+import imgCadastro from '../imagens/imgCadastro.svg';
+
 const Cadastro = () => {
     const toast = useRef(null);
     const navigate = useNavigate();
@@ -140,7 +142,9 @@ const Cadastro = () => {
         <Container className="cadastro">
             <Toast ref={toast} />
             <Row >
-                <Col lg={6}></Col>
+                <Col lg={6}> 
+                <img src={imgCadastro} alt='imgCadastro' className='z-3  relative' width={505} height={505}/>
+                 </Col>
                 <Col lg={6} className="loginContainer flex flex-column justify-content-center align-items-center">
                     <h2 className="mt-4">Criar conta</h2>
                     <p>Crie uma conta e tenha acesso a tudo no nosso site!</p>
