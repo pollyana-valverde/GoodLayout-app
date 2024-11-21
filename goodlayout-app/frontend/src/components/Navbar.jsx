@@ -51,7 +51,7 @@ export default function Navbar() {
             {!tokenGL && (
                 <Row className="flex justify-content-between my-4 align-items-center text-center">
                     <Col lg={3}>
-                        <a href="#">Logo</a>
+                        <a style={{color:'var(--oliveWood)'}} className="text-lg font-bold" href="#">RoadGarden</a>
                     </Col>
                     <Col lg={3}>
                         <div className="navegacaoLinks">

@@ -13,8 +13,7 @@ CREATE TABLE `cadastro` (
   `senha` VARCHAR(45) NOT NULL,
   CONSTRAINT `PRIMARY` PRIMARY KEY (`idCadastro`),
   CONSTRAINT `unique_email` UNIQUE (`email`),
-  CONSTRAINT `unique_cpf` UNIQUE (`cpf`),
-  CONSTRAINT `unique_senha` UNIQUE (`senha`)
+  CONSTRAINT `unique_cpf` UNIQUE (`cpf`)
 );
 
 
