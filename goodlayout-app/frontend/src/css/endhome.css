@@ -1,0 +1,28 @@
+.anuncioEndtHome {
+    position: relative;
+    background-image: url('../imagens/jardim6.avif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* width: 30%; */
+    height: 80vh;
+    overflow: hidden;
+}
+
+.anuncioEndtHome::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+/* faq end home */

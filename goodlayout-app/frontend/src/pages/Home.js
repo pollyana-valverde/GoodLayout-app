@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import MainHome from "../components/MainHome";
 import MediumHome from "../components/MediumHome";
-
+import EndHome from "../components/EndHome";
 
 import '../css/home.css';
 
@@ -15,6 +15,9 @@ export default function Home() {
             </Row>
             <Row className="flex flex-column my-5">
                 <MediumHome/>
+            </Row>
+            <Row className="flex my-5">
+                <EndHome/>
             </Row>
         </Container>
     )

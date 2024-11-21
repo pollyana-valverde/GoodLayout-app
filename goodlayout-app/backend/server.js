@@ -5,7 +5,7 @@ const routes = require('./routes'); // Importa as rotas do backend
 const path = require('path');
 
 const app = express();
-const port = 3001; // Defina a porta que deseja utilizar
+const port = 3002; // Defina a porta que deseja utilizar
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
