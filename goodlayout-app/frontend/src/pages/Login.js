@@ -78,13 +78,13 @@ const Login = () => {
                         </Form.Group>
                         <div className="text-right"><Link to="#">Esqueceu sua senha?</Link></div>
                         <button className="w-12 my-3 " type="submit">Entrar</button>
-                        <div className="flex justify-content-center mt-5">
+                        <div className="flex justify-content-center mt-3">
                             <p className="mr-2">Não possui uma conta?</p> <Link to="/cadastro">Cadrastre-se</Link>
                         </div>
                     </form>
                 </Col>
                 <Col lg={6}> 
-                <img src={imgLogin} alt='imgLogin' className='z-3  relative' width={505} height={505}/>
+                <img src={imgLogin} alt='imgLogin' className='z-3  relative' width={550} height={480}/>
                  </Col>
             </Row>
         </Container>

@@ -33,6 +33,17 @@ export default function Navbar() {
         }
     ]);
 
+    const [linksAutenticados] = useState([
+        {
+            caminho: "/",
+            nome: "Home",
+        },
+        {
+            caminho: "#2",
+            nome: "Catálogo",
+        },
+    ]);
+
     // Estado para rastrear o link ativo
     const [activeLink, setActiveLink] = useState(() => {
         // Recupera o link ativo do localStorage, se existir
@@ -78,11 +89,11 @@ export default function Navbar() {
             {tokenGL && (
                 <Row className="flex justify-content-between my-4 align-items-center text-center">
                     <Col lg={3}>
-                        <a href="#">Logo</a>
+                    <a style={{color:'var(--oliveWood)'}} className="text-lg font-bold" href="#">RoadGarden</a>
                     </Col>
                     <Col lg={3}>
                         <div className="navegacaoLinks">
-                            {linksPublicos.map((link) => (
+                            {linksAutenticados.map((link) => (
                                 <a
                                     key={link.nome}
                                     href={link.caminho}

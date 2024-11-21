@@ -143,7 +143,7 @@ const Cadastro = () => {
             <Toast ref={toast} />
             <Row >
                 <Col lg={6}> 
-                <img src={imgCadastro} alt='imgCadastro' className='z-3  relative' width={505} height={505}/>
+                <img src={imgCadastro} alt='imgCadastro' className='z-3  relative' width={480} height={480}/>
                  </Col>
                 <Col lg={6} className="loginContainer flex flex-column justify-content-center align-items-center">
                     <h2 className="mt-4">Criar conta</h2>
@@ -297,7 +297,7 @@ const Cadastro = () => {
                         </div>
                     </form>
 
-                    <div className="flex justify-content-center mt-5">
+                    <div className="flex justify-content-center mt-3">
                         <p className="mr-2">Já possui uma conta?</p> <Link to="/login">Faça Login</Link>
                     </div>
                 </Col>
