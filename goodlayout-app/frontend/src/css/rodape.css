@@ -1,0 +1,19 @@
+.rodape{
+    background-color: var(--oliveWood);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: unset !important;
+}
+
+.rodape h5{
+    margin: unset;
+    color: var(--creamyBiscotti);
+    font-size: 15px;
+}
+
+.rodape a{
+    margin: unset;
+    color: var(--creamyBiscotti);
+    font-size: 14px;
+    opacity: 0.8;
+}

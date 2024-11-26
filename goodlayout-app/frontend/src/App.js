@@ -8,7 +8,7 @@ function App() {
   return (
     <AuthProvider>
       <Navbar />
-      {/* <Footer /> */}
+      <Footer />
     </AuthProvider>
   );
 }
