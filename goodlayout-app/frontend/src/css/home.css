@@ -166,3 +166,84 @@
 .anuncioRightHome a i:hover {
     background-color: var(--creamyBiscottiDark);
 }
+
+.newsLetterHome {
+    position: relative;
+    background-image: url('../imagens/jardim7.avif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.newsLetterHome::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+
+.newsLetterHomeText {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsLetterHomeText h2 {
+    font-size: 50px;
+    font-weight: 400;
+    color: var(--creamyBiscotti);
+    margin-bottom: 20px;
+}
+
+
+.newsLetterHomeSubscribe input{
+    background-color: transparent;
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--creamyBiscotti);
+    padding: 7px 20px;
+    color: var(--creamyBiscotti);
+    transition: all .2s ease;
+}
+
+.newsLetterHomeSubscribe input:focus{
+    outline: none;
+    border: 2px solid var(--creamyBiscotti);
+}
+
+.newsLetterHomeSubscribe input::placeholder{
+    color: var(--creamyBiscotti);
+}
+
+.newsLetterHomeSubscribe button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: var(--creamyBiscotti);
+    border-radius: 50px;
+    border: 1px solid var(--creamyBiscotti);
+    padding: 7px 20px;
+    color: var(--oliveWood);
+    transition: all .3s ease;
+}
+
+.newsLetterHomeSubscribe button:hover{
+    background-color: var(--creamyBiscottiDark);
+    border-color: var(--creamyBiscottiDark);
+}
