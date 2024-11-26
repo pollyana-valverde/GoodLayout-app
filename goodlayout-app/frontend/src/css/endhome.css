@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     /* width: 30%; */
-    height: 80vh;
+    height: 85vh;
     overflow: hidden;
 }
 
@@ -26,3 +26,40 @@
 }
 
 /* faq end home */
+.accordion-item{
+    border-radius: 10px !important;
+    background-color: transparent !important;
+}
+
+.accordion-header button.accordion-button.collapsed{
+    border: 1px solid var(--creamyBiscotti2) !important;
+    border-radius: 10px  !important;
+}
+
+.accordion-header button.accordion-button{
+    font-size: 20px !important;
+    color: var(--oliveWood);
+    font-weight: 600;
+    background-color: transparent;
+    box-shadow: none !important;
+    border: 1px solid var(--oliveWood) !important;
+    border-bottom: none !important;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.accordion-collapse.collapse.show{
+    background-color: transparent !important;
+    border-radius:0 0 10px 10px !important;
+    border: 1px solid var(--oliveWood) !important;
+    border-top: none !important;
+}
+.accordion-collapse.collapsing{
+    background-color: transparent !important;
+    border-radius:0 0 10px 10px !important;
+    border: 1px solid var(--oliveWood) !important;
+    border-top: none !important;
+}
+
+.accordion-body{
+    padding-top: unset !important;
+}
