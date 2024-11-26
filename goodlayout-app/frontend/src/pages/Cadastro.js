@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Toast } from 'primereact/toast';
-// import "../css/formulario.css";
 
 import imgCadastro from '../imagens/imgCadastro.svg';
 
@@ -90,7 +89,7 @@ const Cadastro = () => {
         }
 
         try {
-            await axios.post('http://localhost:3001/cadastroNovoUsuario', formData);
+            await axios.post('http://localhost:3002/cadastroNovoUsuario', formData);
             toast.current.show({
                 severity: 'success',
                 summary: 'Cadastro concluído com sucesso!',
@@ -126,7 +125,6 @@ const Cadastro = () => {
     const handlePrivaciadeClick = () => {
         window.open(`/Privacidade`, '_blank');
     };
-
 
     const handleCpfChange = (e) => {
         let value = e.target.value.replace(/\D/g, '');

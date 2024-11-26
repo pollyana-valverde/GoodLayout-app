@@ -12,10 +12,10 @@ export default function Footer() {
                 <Col lg={2}>
                     <div className="flex flex-column text-left gap-1 ">
                         <h5>Serviço</h5>
-                        <a key='#' href="#" >
+                        <a key='#' href="/Suporte" >
                             Suporte
                         </a>
-                        <a key='#' href="#" >
+                        <a key='#' href="/Privacidade" >
                             Privacidade
                         </a>
                     </div>
@@ -26,13 +26,13 @@ export default function Footer() {
                         <a key='#' href="#" >
                             Coloque seu email
                         </a>
-                        <a key='/Login' href="#" >
+                        <a key='login' href="/Login" >
                             Login
                         </a>
                     </div>
                 </Col>
                 <Col lg={3} >
-                    <a style={{ color: 'var(--creamyBiscotti)', opacity: '1' }} className="text-3xl font-bold " href="#">RoadGarden</a>
+                    <a style={{ color: 'var(--creamyBiscotti)', opacity: '1' }} className="text-3xl font-bold " href="/">RoadGarden</a>
                 </Col>
                 <Col lg={2}>
                     <div className="flex flex-column text-left gap-1">

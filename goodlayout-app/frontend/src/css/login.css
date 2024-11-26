@@ -54,6 +54,10 @@
     color: var(--oliveWood);
 }
 
+.loginContainer h2{
+    font-size: 30px;
+}
+
 .loginContainer p {
     opacity: 0.7;
 }

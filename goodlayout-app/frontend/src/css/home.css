@@ -63,7 +63,7 @@
 }
 
 .textLeftHome h2 {
-    font-size: 50px;
+    font-size: 42px;
     font-weight: 400;
     margin: unset !important;
 }
@@ -115,6 +115,7 @@
     color: var(--oliveWood);
     font-size: 40px;
     margin: 0 20px;
+    opacity: 0.6;
     font-weight: 400;
     text-align: left;
 }
@@ -203,7 +204,7 @@
 }
 
 .newsLetterHomeText h2 {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 400;
     color: var(--creamyBiscotti);
     margin-bottom: 20px;
@@ -233,7 +234,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     background-color: var(--creamyBiscotti);
     border-radius: 50px;

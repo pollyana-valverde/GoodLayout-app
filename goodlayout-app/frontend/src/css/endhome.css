@@ -1,6 +1,6 @@
 .anuncioEndtHome {
     position: relative;
-    background-image: url('../imagens/jardim6.avif');
+    background-image: url('../imagens/jardim9.avif');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,18 +24,60 @@
     pointer-events: none;
 }
 
+.anuncioEndHomeContent {
+    z-index: 1;
+    /* background-color: var(--creamyBiscotti); */
+    background-color: transparent;
+    backdrop-filter: blur(6px);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.anuncioEndHomeContent h4 {
+    color: var(--creamyBiscotti);
+    margin: unset;
+    font-weight: 400;
+}
+
+.anuncioEndHomeContent p{
+    margin: unset;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--creamyBiscotti);
+    opacity: 0.7;
+}
+
+.anuncioEndHomeContent button{
+    border-radius: 50px;
+    background-color: transparent;
+    border: 1px solid var(--creamyBiscotti);
+    color: var(--creamyBiscotti);
+    padding: 8px 20px;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+
+.anuncioEndHomeContent button:hover{
+    border-color: transparent;
+}
+
 /* faq end home */
-.accordion-item{
-    border-radius: 10px !important;
+.faqEndHome .accordion-item {
+    border: none;
+    border-radius: 50px !important;
     background-color: transparent !important;
 }
 
-.accordion-header button.accordion-button.collapsed{
+.faqEndHome .accordion-header button.accordion-button.collapsed {
     border: 1px solid var(--creamyBiscotti2) !important;
-    border-radius: 10px  !important;
+    color: var(--oliveWood);
+    opacity: 0.6;
+    border-radius: 50px !important;
 }
 
-.accordion-header button.accordion-button{
+.faqEndHome .accordion-header button.accordion-button {
     font-size: 20px !important;
     color: var(--oliveWood);
     font-weight: 600;
@@ -46,19 +88,20 @@
     border-radius: 10px 10px 0 0 !important;
 }
 
-.accordion-collapse.collapse.show{
+.faqEndHome .accordion-collapse.collapse.show {
     background-color: transparent !important;
-    border-radius:0 0 10px 10px !important;
-    border: 1px solid var(--oliveWood) !important;
-    border-top: none !important;
-}
-.accordion-collapse.collapsing{
-    background-color: transparent !important;
-    border-radius:0 0 10px 10px !important;
+    border-radius: 0 0 10px 10px !important;
     border: 1px solid var(--oliveWood) !important;
     border-top: none !important;
 }
 
-.accordion-body{
+.faqEndHome .accordion-collapse.collapsing {
+    background-color: transparent !important;
+    border-radius: 0 0 10px 10px !important;
+    border: 1px solid var(--oliveWood) !important;
+    border-top: none !important;
+}
+
+.faqEndHome .accordion-body {
     padding-top: unset !important;
 }

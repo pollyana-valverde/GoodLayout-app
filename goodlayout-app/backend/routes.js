@@ -47,6 +47,7 @@ router.get('/cadastros/:idCadastro', (req, res) => {
         res.json(results[0]);
     });
 });
+
 // Rota para criar um novo registro
 router.post('/cadastroNovoUsuario', upload.single('imgPerfilCadastro'), (req, res) => {
     const { nome, sobrenome, email, cpf, endereco, telefone, senha, } = req.body;
@@ -80,6 +81,7 @@ router.put('/cadastros/:idCadastro', upload.single('imgPerfilCadastro'), (req, r
         });
 });
 
+// Rota para atualizar uma senha existente pelo ID
 router.put('/cadastrosSenha/:idCadastro', (req, res) => {
     const { idCadastro } = req.params;
     const { senha } = req.body;
@@ -122,6 +124,34 @@ router.post('/login/:email/:senha', (req, res) => {
         }
         if (results.length === 0) {
             res.status(404).json({ error: 'Cadastro não encontrado' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
+/////////////////////////// new letter //////////////////////////
+// Rota para criar um novo registro
+router.post('/newsletter', (req, res) => {
+    const { email } = req.body;
+
+    connection.query('INSERT INTO newsletter ( email) VALUES (?)',
+        [email], (err, result) => {
+            if (err) {
+                console.error('Erro ao criar o registro:', err);
+                res.status(500).json({ error: 'Erro ao criar o registro' });
+                return;
+            }
+            res.status(201).json({ message: 'Registro criado com sucesso', id: result.insertId });
+        });
+});
+
+// Rota para listar todos os registros
+router.get('/newsletter', (req, res) => {
+    connection.query('SELECT * FROM newsletter', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
             return;
         }
         res.json(results);

@@ -20,7 +20,7 @@ export default function Navbar() {
             nome: "Catálogo",
         },
         {
-            caminho: "#3",
+            caminho: "/Suporte",
             nome: "Suporte",
         },
         {

@@ -26,3 +26,10 @@ VALUES
 ('Julia', 'Costa', 'julia.costa@example.com', '51987654321', '654.987.321-05', 'Rua Augusta, 2022, São Paulo, SP', '/uploads/1730590096023-274339815.png', 'julia321'),
 ('Rafael', 'Mendes', 'rafael.mendes@example.com', '61987654321', '789.123.456-06', 'Rua das Acácias, 3033, Salvador, BA', '/uploads/1730590497286-752398882.png', 'rafa456');
 
+
+CREATE TABLE `newsletter` ( 
+  `idNewsletter` INT AUTO_INCREMENT NOT NULL,
+  `email` VARCHAR(150) NOT NULL,
+  CONSTRAINT `PRIMARY` PRIMARY KEY (`idNewsletter`),
+  CONSTRAINT `unique_email` UNIQUE (`email`)
+);

@@ -6,6 +6,8 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import Home from "./Pages/Home";
 import Login from './Pages/Login';
 import Cadastro from './Pages/Cadastro';
+import Privacidade from "./Pages/Privacidade";
+import Suporte from "./Pages/Suporte";
 
 import EnterAccount from "./Pages/EnterAccount";
 import Logout from "./Pages/Logout";
@@ -47,6 +49,14 @@ const Rotas = () => {
     {
       path: "/cadastro",
       element: <Cadastro />
+    },
+    {
+      path: "/Privacidade",
+      element: <Privacidade />
+    },
+    {
+      path: "/Suporte",
+      element: <Suporte />
     },
   ];
 
