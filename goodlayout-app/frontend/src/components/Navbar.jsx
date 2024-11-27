@@ -16,7 +16,7 @@ export default function Navbar() {
             nome: "Home",
         },
         {
-            caminho: "#2",
+            caminho: "/Catalogo",
             nome: "Catálogo",
         },
         {
@@ -24,7 +24,7 @@ export default function Navbar() {
             nome: "Suporte",
         },
         {
-            caminho: "#4",
+            caminho: "/AboutUs",
             nome: "Sobre nós",
         },
         {

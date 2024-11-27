@@ -33,15 +33,15 @@ export default function NewsLetterHome() {
             if (formData.email === '') {
                 console.error('Erro ao se inscrever:', error);
                 toast.current.show({
-                    severity: 'error',
-                    summary: 'Erro ao se inscrever. O campo não pode estar vazio.',
+                    severity: 'warn',
+                    summary: 'O campo não pode estar vazio.',
                     life: 3000
                 });
             } else {
                 console.error('Erro ao se inscrever:', error);
             toast.current.show({
                 severity: 'error',
-                summary: 'Erro ao se inscrever. Esse email já foi inscrito.',
+                summary: 'Esse email já foi inscrito.',
                 life: 3000
             }); 
             }
@@ -50,9 +50,10 @@ export default function NewsLetterHome() {
     };
 
     return (
-        <>
+        <div>
             <Toast ref={toast} />
-            <form onSubmit={handleSubmit} className="newsLetterHomeText mt-2">
+            <div className="newsLetterHome p-4">
+               <form onSubmit={handleSubmit} className="newsLetterHomeText mt-2">
                 <h2>Se inscreva no nosso Newsletter</h2>
                 <div className="flex gap-2 newsLetterHomeSubscribe">
                     <input
@@ -63,7 +64,9 @@ export default function NewsLetterHome() {
                         onChange={handleChange} />
                     <button type="submit">Inscrever-se</button>
                 </div>
-            </form>
-        </>
+            </form> 
+            </div>
+            
+        </div>
     )
 };

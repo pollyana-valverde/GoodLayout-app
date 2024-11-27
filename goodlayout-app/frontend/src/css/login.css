@@ -4,7 +4,6 @@
     object-fit: cover;
     padding:  1rem 3rem !important;
     border-radius: 30px;
-    /* box-shadow: 1px 1px 15px 1px var(--palidRedDark)inset !important ; */
 }
 
 .login::after {
@@ -25,7 +24,6 @@
     object-fit: cover;
     padding:  1rem 3rem !important;
     border-radius: 30px;
-    box-shadow: 1px 1px 15px 1px var(--oliveWood)inset !important ;
 }
 
 .cadastro::after {

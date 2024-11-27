@@ -8,7 +8,7 @@ export default function Footer() {
 
     return (
         <Container fluid>
-            <Row className="flex justify-content-between mt-4 align-items-center text-center rodape">
+            <Row className="flex justify-content-between mt-4 m-2 align-items-center text-center rodape">
                 <Col lg={2}>
                     <div className="flex flex-column text-left gap-1 ">
                         <h5>Serviço</h5>
@@ -23,8 +23,8 @@ export default function Footer() {
                 <Col lg={2}>
                     <div className="flex flex-column text-left gap-1" >
                         <h5>NewsLetter</h5>
-                        <a key='#' href="#" >
-                            Coloque seu email
+                        <a key='#' href="/AboutUs" >
+                            Sobre nós
                         </a>
                         <a key='login' href="/Login" >
                             Login

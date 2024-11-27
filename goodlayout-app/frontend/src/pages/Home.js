@@ -20,7 +20,7 @@ export default function Home() {
             <Row className="flex my-5">
                 <EndHome />
             </Row>
-            <Row className="newsLetterHome p-4 ">
+            <Row >
                 <NewsLetterHome />
             </Row>
         </Container>

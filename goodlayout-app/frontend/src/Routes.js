@@ -8,6 +8,8 @@ import Login from './Pages/Login';
 import Cadastro from './Pages/Cadastro';
 import Privacidade from "./Pages/Privacidade";
 import Suporte from "./Pages/Suporte";
+import AboutUs from "./Pages/AboutUs";
+import Catalogo from "./Pages/Catalogo";
 
 import EnterAccount from "./Pages/EnterAccount";
 import Logout from "./Pages/Logout";
@@ -57,6 +59,14 @@ const Rotas = () => {
     {
       path: "/Suporte",
       element: <Suporte />
+    },
+    {
+      path: "/AboutUs",
+      element: <AboutUs />
+    },
+    {
+      path: "/Catalogo",
+      element: <Catalogo />
     },
   ];
 
