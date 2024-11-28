@@ -39,13 +39,13 @@ export default function NewsLetterHome() {
                 });
             } else {
                 console.error('Erro ao se inscrever:', error);
-            toast.current.show({
-                severity: 'error',
-                summary: 'Esse email já foi inscrito.',
-                life: 3000
-            }); 
+                toast.current.show({
+                    severity: 'error',
+                    summary: 'Esse email já foi inscrito.',
+                    life: 3000
+                });
             }
-           
+
         }
     };
 
@@ -53,20 +53,20 @@ export default function NewsLetterHome() {
         <div>
             <Toast ref={toast} />
             <div className="newsLetterHome p-4">
-               <form onSubmit={handleSubmit} className="newsLetterHomeText mt-2">
-                <h2>Se inscreva no nosso Newsletter</h2>
-                <div className="flex gap-2 newsLetterHomeSubscribe">
-                    <input
-                        type="email"
-                        placeholder="Digite seu e-mail"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange} />
-                    <button type="submit">Inscrever-se</button>
-                </div>
-            </form> 
+                <form onSubmit={handleSubmit} className="newsLetterHomeText mt-2">
+                    <h2>Se inscreva no nosso Newsletter</h2>
+                    <div className="flex gap-2 newsLetterHomeSubscribe">
+                        <input
+                            type="email"
+                            placeholder="Digite seu e-mail"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange} />
+                        <button type="submit">Inscrever-se</button>
+                    </div>
+                </form>
             </div>
-            
+
         </div>
     )
 };

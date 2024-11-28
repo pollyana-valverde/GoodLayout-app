@@ -35,6 +35,10 @@ const Rotas = () => {
           path: "/Logout",
           element: <Logout />,
         },
+        {
+          path: "/Catalogo",
+          element: <Catalogo />
+        },
       ],
     },
   ];

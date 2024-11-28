@@ -39,7 +39,7 @@ export default function Navbar() {
             nome: "Home",
         },
         {
-            caminho: "#2",
+            caminho: "/Catalogo",
             nome: "Catálogo",
         },
     ]);
