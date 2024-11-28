@@ -33,3 +33,13 @@ CREATE TABLE `newsletter` (
   CONSTRAINT `PRIMARY` PRIMARY KEY (`idNewsletter`),
   CONSTRAINT `unique_email` UNIQUE (`email`)
 );
+
+CREATE TABLE `suportePergunta` ( 
+  `idSuportePergunta` INT AUTO_INCREMENT NOT NULL,
+  `nome` VARCHAR(150) NOT NULL,
+  `sobrenome` VARCHAR(150) NOT NULL,
+  `email` VARCHAR(150) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
+  `pergunta` text NOT NULL,
+  CONSTRAINT `PRIMARY` PRIMARY KEY (`idSuportePergunta`)
+);

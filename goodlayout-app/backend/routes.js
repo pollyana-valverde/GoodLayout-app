@@ -159,4 +159,32 @@ router.get('/newsletter', (req, res) => {
 });
 
 
+//////////////////////////////// suporte pergunta /////////////////////////
+// Rota para criar um novo registro
+router.post('/suportePergunta', (req, res) => {
+    const { nome, sobrenome, email, telefone, pergunta } = req.body;
+
+    connection.query('INSERT INTO suportePergunta ( nome, sobrenome, email, telefone, pergunta ) VALUES (?, ?, ?, ?, ?)',
+        [nome, sobrenome, email, telefone, pergunta ], (err, result) => {
+            if (err) {
+                console.error('Erro ao criar o registro:', err);
+                res.status(500).json({ error: 'Erro ao criar o registro' });
+                return;
+            }
+            res.status(201).json({ message: 'Registro criado com sucesso', id: result.insertId });
+        });
+});
+
+// Rota para listar todos os registros
+router.get('/suportePergunta', (req, res) => {
+    connection.query('SELECT * FROM suportePergunta', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
 module.exports = router;

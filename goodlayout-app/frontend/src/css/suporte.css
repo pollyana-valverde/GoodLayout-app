@@ -1,45 +1,44 @@
-.suporteHeader{
-    background-image: url('../imagens/bgSuporte.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: cover;
-    background-position: center;
+.suporteHeader {
+    /* background-image: url('../imagens/bgSuporte.svg'); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* object-fit: cover; */
+    /* background-position: center; */
     display: flex;
     flex-direction: column;
-    justify-content: center ;
-    text-align: center;
+    justify-content: center;
     align-items: center;
 }
 
-.suporteHeader h1{
-    color: var(--white);
+.suporteHeader h1 {
+    color: var(--oliveWood);
+    opacity: 0.6;
 }
 
-.suporteHeader p{
+.suporteHeader p {
     margin: unset;
     color: var(--oliveWood);
+    opacity: 0.5;
 }
 
 
 .suporteContainer {
     z-index: 1;
-    padding: 20px 80px !important;
-    border-radius: 30px;   
-    width:45% !important;
-    /* margin-bottom: 1.5rem !important; */
+    border-radius: 30px;
+    width: 45% !important;
 }
 
-.suporteContainer h2,
+.suporteContainer h5,
 .suporteContainer p {
     color: var(--oliveWood);
 }
 
-.suporteContainer h2{
-    font-size: 30px;
+.suporteContainer h5 {
+    opacity: 0.6;
 }
 
 .suporteContainer p {
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 .suporteContainer label {
@@ -54,9 +53,10 @@
     left: 20px;
 }
 
-.suporteContainer input {
+.suporteContainer input,
+.suporteContainer textarea {
     color: var(--oliveWood);
-    border: 1px solid var(--oliveWood) !important;
+    border: 1px solid var(--oliveWoodLow) !important;
     /* box-shadow: 1px 1px 20px 1px var(--creamyBiscottiDark)inset !important ; */
     border-radius: 50px;
     padding: 8px 15px;
@@ -64,17 +64,25 @@
     transition: all .3s ease;
 }
 
-.suporteContainer input:hover {
-    box-shadow: 1px 1px 20px 1px var(--creamyBiscottiDark)inset !important;
+.suporteContainer textarea {
+    border-radius: 30px;
 }
 
-.suporteContainer input:focus {
+.suporteContainer input:hover,
+.suporteContainer textarea:hover {
+    box-shadow: 1px 1px 20px 1px var(--creamyBiscotti2)inset !important;
+}
+
+.suporteContainer input:focus,
+.suporteContainer textarea:focus {
     outline: none;
     box-shadow: none;
-    background-color: transparent;
+    border: 1px solid var(--oliveWood) !important;
+    background-color: var(--creamyBiscotti2);
 }
 
-.suporteContainer input::placeholder {
+.suporteContainer input::placeholder,
+.suporteContainer textarea::placeholder {
     color: var(--oliveWood);
     opacity: 0.3;
 }
@@ -96,6 +104,10 @@
 .suporteContainer a {
     color: var(--palidRed);
     text-decoration: underline !important;
+}
+
+.suporteContainer i {
+    color: var(--palidRed);
 }
 
 .suporteContainer a:hover {

@@ -83,9 +83,9 @@ const Login = () => {
                         </div>
                     </form>
                 </Col>
-                <Col lg={6}> 
-                <img src={imgLogin} alt='imgLogin' className='z-3  relative' width={550} height={480}/>
-                 </Col>
+                <Col lg={6}>
+                    <img src={imgLogin} alt='imgLogin' className='z-3  relative' width={550} height={480} />
+                </Col>
             </Row>
         </Container>
     );
