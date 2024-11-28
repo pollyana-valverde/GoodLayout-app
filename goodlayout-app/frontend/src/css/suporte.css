@@ -87,6 +87,10 @@
     opacity: 0.3;
 }
 
+.suporteContainer input.errorInputCadastro, .suporteContainer textarea.errorInputCadastro{
+    border-color: var(--tuscanRed) !important;
+}
+
 .suporteContainer button {
     text-decoration: none;
     background-color: var(--tuscanRed);

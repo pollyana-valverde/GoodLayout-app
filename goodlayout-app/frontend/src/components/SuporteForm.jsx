@@ -14,12 +14,27 @@ export default function SuporteForm() {
         pergunta: '',
     });
 
+    const [errors, setErrors] = useState({
+        senhaMatch: false,
+        requiredFields: {}
+    });
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value
         });
+
+        if (errors.requiredFields[name]) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                requiredFields: {
+                    ...prevErrors.requiredFields,
+                    [name]: false
+                }
+            }));
+        }
     };
 
     const handleNumberChange = (e) => {
@@ -33,8 +48,38 @@ export default function SuporteForm() {
         }));
     };
 
+    const validateFields = () => {
+        const requiredFieldsByStep = [
+            'email',
+            'telefone',
+            'pergunta',
+        ];
+        const currentRequiredFields = requiredFieldsByStep;
+        const newErrors = {};
+
+        currentRequiredFields.forEach((field) => {
+            if (!formData[field]) {
+                newErrors[field] = true;
+            }
+        });
+
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            requiredFields: newErrors
+        }));
+
+        return Object.keys(newErrors).length === 0;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!validateFields()) {
+            setErrors((prevErrors) => ({
+                ...prevErrors
+            }));
+            return;
+        }
 
         try {
             await axios.post('http://localhost:3002/suportePergunta', formData);
@@ -64,7 +109,7 @@ export default function SuporteForm() {
             <form onSubmit={handleSubmit} className="w-7 suporteContainer">
                 <Row className=" flex justify-content-center align-items-center">
                     <Col>
-                        <Form.Group controlId="formemail" className="mb-2 relative">
+                        <Form.Group controlId="nome" className="mb-2 relative">
                             <label>Nome</label>
                             <Form.Control
                                 type="text"
@@ -76,7 +121,7 @@ export default function SuporteForm() {
                         </Form.Group>
                     </Col>
                     <Col>
-                        <Form.Group controlId="formemail" className="mb-2 relative">
+                        <Form.Group controlId="sobrenome" className="mb-2 relative">
                             <label>Sobrenome</label>
                             <Form.Control
                                 type="text"
@@ -91,22 +136,24 @@ export default function SuporteForm() {
                 </Row>
                 <Row className=" flex justify-content-center align-items-center">
                     <Col>
-                        <Form.Group controlId="formemail" className="mb-2 relative">
-                            <label>Email</label>
+                        <Form.Group controlId="email" className="mb-2 relative w-12 flex flex-column">
+                            <label className={errors.requiredFields.email ? 'errorText' : ''}>Email</label>
                             <Form.Control
                                 type="text"
                                 name="email"
                                 placeholder="Coloque seu email"
                                 value={formData.email}
                                 onChange={handleChange}
+                                className={errors.requiredFields.email ? 'errorInputCadastro' : ''}
                             />
+                            {errors.requiredFields.email && <small className="errorText">Campo obrigatório</small>}
                         </Form.Group>
                     </Col>
                 </Row>
                 <Row className=" flex justify-content-center align-items-center">
                     <Col>
-                        <Form.Group controlId="formemail" className="mb-2 relative">
-                            <label>Telefone</label>
+                        <Form.Group controlId="telefone" className="mb-2 relative w-12 flex flex-column">
+                            <label className={errors.requiredFields.telefone ? 'errorText' : ''}>Telefone</label>
                             <Form.Control
                                 type="text"
                                 name="telefone"
@@ -114,14 +161,16 @@ export default function SuporteForm() {
                                 value={formData.telefone}
                                 onChange={handleNumberChange}
                                 maxLength="15"
+                                className={errors.requiredFields.telefone ? 'errorInputCadastro' : ''}
                             />
+                            {errors.requiredFields.telefone && <small className="errorText">Campo obrigatório</small>}
                         </Form.Group>
                     </Col>
                 </Row>
                 <Row className=" flex justify-content-center align-items-center">
                     <Col>
-                        <Form.Group className="mb-2 relative" controlId="exampleForm.ControlTextarea1">
-                            <label>Mensagem</label>
+                        <Form.Group className="mb-2 relative w-12 flex flex-column" controlId="pergunta">
+                            <label className={errors.requiredFields.pergunta ? 'errorText' : ''}>Mensagem</label>
                             <Form.Control
                                 as="textarea"
                                 rows={3}
@@ -129,7 +178,9 @@ export default function SuporteForm() {
                                 placeholder="Coloque seu mensagem ou pergunta"
                                 value={formData.pergunta}
                                 onChange={handleChange}
+                                className={errors.requiredFields.pergunta ? 'errorInputCadastro' : ''}
                             />
+                            {errors.requiredFields.pergunta && <small className="errorText">Campo obrigatório</small>}
                         </Form.Group>
                     </Col>
                 </Row>

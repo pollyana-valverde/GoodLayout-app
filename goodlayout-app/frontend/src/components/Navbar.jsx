@@ -21,7 +21,7 @@ export default function Navbar() {
         },
         {
             caminho: "/Suporte",
-            nome: "Suporte",
+            nome: "Contato",
         },
         {
             caminho: "/AboutUs",
