@@ -50,11 +50,11 @@ router.get('/cadastros/:idCadastro', (req, res) => {
 
 // Rota para criar um novo registro
 router.post('/cadastroNovoUsuario', upload.single('imgPerfilCadastro'), (req, res) => {
-    const { nome, sobrenome, email, cpf, endereco, telefone, senha, } = req.body;
+    const { nome, sobrenome, email, cpf, endereco, telefone, senha, tipoUser} = req.body;
     const imgPerfilCadastro = req.file ? `/uploads/${req.file.filename}` : null;
 
-    connection.query('INSERT INTO cadastro (nome, sobrenome, email, cpf, endereco, telefone, senha, imgPerfilCadastro) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-        [nome, sobrenome, email, cpf, endereco, telefone, senha, imgPerfilCadastro], (err, result) => {
+    connection.query('INSERT INTO cadastro (nome, sobrenome, email, cpf, endereco, telefone, senha, tipoUser imgPerfilCadastro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        [nome, sobrenome, email, cpf, endereco, telefone, senha, tipoUser, imgPerfilCadastro], (err, result) => {
             if (err) {
                 console.error('Erro ao criar o registro:', err);
                 res.status(500).json({ error: 'Erro ao criar o registro' });
@@ -67,11 +67,11 @@ router.post('/cadastroNovoUsuario', upload.single('imgPerfilCadastro'), (req, re
 // Rota para atualizar um registro existente pelo ID
 router.put('/cadastros/:idCadastro', upload.single('imgPerfilCadastro'), (req, res) => {
     const { idCadastro } = req.params;
-    const { nome, sobrenome, email, cpf, endereco, telefone, senha, } = req.body;
+    const { nome, sobrenome, email, cpf, endereco, telefone, senha, tipoUser } = req.body;
     const imgPerfilCadastro = req.file ? `/uploads/${req.file.filename}` : null;
 
-    connection.query('UPDATE cadastro SET nome = ?, sobrenome = ?, email = ?, cpf = ?, endereco = ?, telefone = ?, senha = ?, imgPerfilCadastro = ? WHERE idCadastro = ?',
-        [nome, sobrenome, email, cpf, endereco, telefone, senha, imgPerfilCadastro, idCadastro,], (err, result) => {
+    connection.query('UPDATE cadastro SET nome = ?, sobrenome = ?, email = ?, cpf = ?, endereco = ?, telefone = ?, senha = ?, tipoUser = ?,  imgPerfilCadastro = ? WHERE idCadastro = ?',
+        [nome, sobrenome, email, cpf, endereco, telefone, senha,tipoUser, imgPerfilCadastro, idCadastro,], (err, result) => {
             if (err) {
                 console.error('Erro ao atualizar o registro:', err);
                 res.status(500).json({ error: 'Erro ao atualizar o registro' });
@@ -116,19 +116,27 @@ router.delete('/cadastros/:idCadastro', (req, res) => {
 router.post('/login/:email/:senha', (req, res) => {
     const { email, senha } = req.params;
 
-    connection.query('SELECT * FROM cadastro WHERE email = ? and senha = ?', [email, senha], (err, results) => {
+    connection.query('SELECT * FROM cadastro WHERE email = ? AND senha = ?', [email, senha], (err, results) => {
         if (err) {
             console.error('Erro ao buscar o registro do cadastro:', err);
             res.status(500).json({ error: 'Erro ao buscar o cadastro' });
             return;
         }
+
         if (results.length === 0) {
             res.status(404).json({ error: 'Cadastro não encontrado' });
             return;
         }
-        res.json(results);
+
+        const user = results[0];
+        res.json({
+            id: user.id,
+            email: user.email,
+            tipoUser: user.tipoUser,
+        });
     });
 });
+
 
 /////////////////////////// new letter //////////////////////////
 // Rota para criar um novo registro
@@ -165,7 +173,7 @@ router.post('/suportePergunta', (req, res) => {
     const { nome, sobrenome, email, telefone, pergunta } = req.body;
 
     connection.query('INSERT INTO suportePergunta ( nome, sobrenome, email, telefone, pergunta ) VALUES (?, ?, ?, ?, ?)',
-        [nome, sobrenome, email, telefone, pergunta ], (err, result) => {
+        [nome, sobrenome, email, telefone, pergunta], (err, result) => {
             if (err) {
                 console.error('Erro ao criar o registro:', err);
                 res.status(500).json({ error: 'Erro ao criar o registro' });

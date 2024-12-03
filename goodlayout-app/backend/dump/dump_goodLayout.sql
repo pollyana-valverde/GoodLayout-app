@@ -11,6 +11,7 @@ CREATE TABLE `cadastro` (
   `endereco` VARCHAR(250) NOT NULL,
   `imgPerfilCadastro` VARCHAR(255), 
   `senha` VARCHAR(45) NOT NULL,
+  `tipoUser` ENUM('admin', 'cliente') NOT NULL DEFAULT 'cliente',
   CONSTRAINT `PRIMARY` PRIMARY KEY (`idCadastro`),
   CONSTRAINT `unique_email` UNIQUE (`email`),
   CONSTRAINT `unique_cpf` UNIQUE (`cpf`)

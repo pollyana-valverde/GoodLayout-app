@@ -11,6 +11,8 @@ import Suporte from "./Pages/Suporte";
 import AboutUs from "./Pages/AboutUs";
 import Catalogo from "./Pages/Catalogo";
 
+import DashboardAdmin from "./Pages/DashboardAdmin";
+
 import EnterAccount from "./Pages/EnterAccount";
 import Logout from "./Pages/Logout";
 
@@ -37,7 +39,12 @@ const Rotas = () => {
         },
         {
           path: "/Catalogo",
-          element: <Catalogo />
+          element: <Catalogo  />
+        },
+        {
+          path: "/dashboardAdmin",
+          element: 
+            <DashboardAdmin /> 
         },
       ],
     },

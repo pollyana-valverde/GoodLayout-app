@@ -10,6 +10,9 @@ import TagRightHome from "./TagMainRightHome";
 import '../css/home.css';
 
 export default function MainHome() {
+
+
+
     return (
                <>
                 <Col >

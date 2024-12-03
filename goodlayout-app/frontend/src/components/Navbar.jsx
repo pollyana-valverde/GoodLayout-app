@@ -8,6 +8,8 @@ import Rotas from "../Routes";
 
 export default function Navbar() {
     const { tokenGL } = useAuth();
+    const userData = tokenGL ? JSON.parse(tokenGL) : null;
+
 
     // Lista de links públicos
     const [linksPublicos] = useState([
@@ -62,7 +64,7 @@ export default function Navbar() {
             {!tokenGL && (
                 <Row className="flex justify-content-between my-4 align-items-center text-center">
                     <Col lg={3}>
-                        <a style={{color:'var(--oliveWood)'}} className="text-lg font-bold" href="#">RoadGarden</a>
+                        <a style={{ color: 'var(--oliveWood)' }} className="text-lg font-bold" href="#">RoadGarden</a>
                     </Col>
                     <Col lg={3}>
                         <div className="navegacaoLinks">
@@ -89,7 +91,7 @@ export default function Navbar() {
             {tokenGL && (
                 <Row className="flex justify-content-between my-4 align-items-center text-center">
                     <Col lg={3}>
-                    <a style={{color:'var(--oliveWood)'}} className="text-lg font-bold" href="#">RoadGarden</a>
+                        <a style={{ color: 'var(--oliveWood)' }} className="text-lg font-bold" href="#">RoadGarden</a>
                     </Col>
                     <Col lg={3}>
                         <div className="navegacaoLinks">
@@ -103,6 +105,17 @@ export default function Navbar() {
                                     {link.nome}
                                 </a>
                             ))}
+
+                            {userData.tipoUser === 'admin' && (
+                                <a
+                                    key='adm'
+                                    href='/dashboardAdmin'
+                                className={activeLink.nome === link.nome ? "activeLink" : ""}
+                                onClick={() => handleLinkClick('/dashboardAdmin')}
+                                >
+                                    Dashboard
+                                </a>
+                            )}
                         </div>
                     </Col>
                     <Col lg={3}>

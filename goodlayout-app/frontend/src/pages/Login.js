@@ -20,22 +20,29 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+    
         try {
-            const response = await axios.post(`http://localhost:3002/login/${email}/${senha}`, {
-                auth: { email, senha }
-            });
-
-            if (Array.isArray(response.data) && response.data.length > 0) {
-                setToken(JSON.stringify(response.data[0]));
-                navegacao("/EnterAccount");
+            const response = await axios.post(`http://localhost:3002/login/${email}/${senha}`);
+            const userData = response.data;
+    
+            if (userData && userData.tipoUser) {
+                setToken(JSON.stringify(userData)); // Salva os dados do usuário no contexto
+    
+                // Redireciona baseado no tipo de usuário
+                if (userData.tipoUser === "admin") {
+                    navegacao("/EnterAccount");
+                } else {
+                    navegacao("/EnterAccount");
+                }
             } else {
-                console.log("A resposta do servidor não contém os dados esperados.");
+                toast.current.show({ severity: 'error', summary: 'Erro ao entrar.', detail: 'Usuário ou senha incorretos.', life: 3000 });
             }
         } catch (error) {
             console.error('Erro ao autenticar:', error);
-            toast.current.show({ severity: 'error', summary: 'Erro ao entrar.', detail: 'Verifique se os dados estão corretos.', life: 3000 });
+            toast.current.show({ severity: 'error', summary: 'Erro ao entrar.', detail: 'Erro no servidor. Tente novamente.', life: 3000 });
         }
     };
+    
 
     useEffect(() => {
         if (data) {

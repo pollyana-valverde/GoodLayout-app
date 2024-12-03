@@ -5,6 +5,7 @@ import '../css/catalogo.css';
 
 export default function Suporte() {
     const { tokenGL } = useAuth();
+    // const userData = tokenGL ? JSON.parse(tokenGL) : null;
 
     return (
         <>
@@ -23,9 +24,11 @@ export default function Suporte() {
                             <p>Fique por dentro de tudo!</p>
                         </>
                     )}
-                </Row>
-            </Container>
 
+
+                </Row>
+
+            </Container>
         </>
     )
 }
