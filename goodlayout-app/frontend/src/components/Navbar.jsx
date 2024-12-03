@@ -110,7 +110,7 @@ export default function Navbar() {
                                 <a
                                     key='adm'
                                     href='/dashboardAdmin'
-                                className={activeLink.nome === link.nome ? "activeLink" : ""}
+                                className={activeLink === '/dashboardAdmin' ? "activeLink" : ""}
                                 onClick={() => handleLinkClick('/dashboardAdmin')}
                                 >
                                     Dashboard
