@@ -3,14 +3,16 @@ import { useAuth } from '../provider/AuthProvider';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../css/catalogo.css';
 
+import CarroselCatalago from "../components/CarroselCatalogo";
+
 export default function Suporte() {
     const { tokenGL } = useAuth();
     // const userData = tokenGL ? JSON.parse(tokenGL) : null;
 
     return (
         <>
-            <Container fluid className="catalogoHeader p-4">
-                <Row className="flex text-center mt-2">
+            <Container fluid >
+                <Row className="flex text-center mt-2 catalogoHeader p-4">
                     {!tokenGL ? (
                         <>
                             <h1>Conheça um pouco do nosso catálogo</h1>
@@ -24,10 +26,19 @@ export default function Suporte() {
                             <p>Fique por dentro de tudo!</p>
                         </>
                     )}
-
-
                 </Row>
-
+                <Row className="flex text-center mt-2">
+                    <CarroselCatalago />
+                </Row>
+                <Row className="flex text-center mt-2">
+                    <CarroselCatalago />
+                </Row>
+                <Row className="flex text-center mt-2">
+                    <CarroselCatalago />
+                </Row>
+                <Row className="flex text-center mt-2">
+                    <CarroselCatalago />
+                </Row>
             </Container>
         </>
     )
