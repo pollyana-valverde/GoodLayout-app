@@ -136,7 +136,7 @@ export default function SuporteForm() {
                 </Row>
                 <Row className=" flex justify-content-center align-items-center">
                     <Col>
-                        <Form.Group controlId="email" className="mb-2 relative w-12 flex flex-column">
+                        <Form.Group controlId="email" className={errors.requiredFields.email ? 'mb-0 relative w-12 flex flex-column' : 'mb-2 relative w-12 flex flex-column'} >
                             <label className={errors.requiredFields.email ? 'errorText' : ''}>Email</label>
                             <Form.Control
                                 type="text"
@@ -152,7 +152,7 @@ export default function SuporteForm() {
                 </Row>
                 <Row className=" flex justify-content-center align-items-center">
                     <Col>
-                        <Form.Group controlId="telefone" className="mb-2 relative w-12 flex flex-column">
+                        <Form.Group controlId="telefone" className={errors.requiredFields.telefone ? 'mb-0 relative w-12 flex flex-column' : 'mb-2 relative w-12 flex flex-column'} >
                             <label className={errors.requiredFields.telefone ? 'errorText' : ''}>Telefone</label>
                             <Form.Control
                                 type="text"
@@ -169,7 +169,7 @@ export default function SuporteForm() {
                 </Row>
                 <Row className=" flex justify-content-center align-items-center">
                     <Col>
-                        <Form.Group className="mb-2 relative w-12 flex flex-column" controlId="pergunta">
+                        <Form.Group className={errors.requiredFields.pergunta ? 'mb-0 relative w-12 flex flex-column' : 'mb-2 relative w-12 flex flex-column'}  controlId="pergunta">
                             <label className={errors.requiredFields.pergunta ? 'errorText' : ''}>Mensagem</label>
                             <Form.Control
                                 as="textarea"

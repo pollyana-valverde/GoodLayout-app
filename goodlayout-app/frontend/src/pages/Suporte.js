@@ -8,7 +8,7 @@ import SuporteForm from "../components/SuporteForm";
 export default function Suporte() {
     return (
         <>
-            <Container fluid className="suporteHeader ">
+            <Container fluid className="suporteHeader mt-7">
                 <Row className="flex text-center mt-2">
                     <h1>Contate nossa equipe</h1>
                     <p>Tem alguma pergunta específica sobre a nossa marca? Estamos aqui pra ajudar.</p>

@@ -137,7 +137,7 @@ const Cadastro = () => {
         }));
     };
     return (
-        <Container className="cadastro">
+        <Container className="cadastro mt-8">
             <Toast ref={toast} />
             <Row >
                 <Col lg={6}> 

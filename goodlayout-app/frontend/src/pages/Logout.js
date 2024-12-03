@@ -15,8 +15,8 @@ const Logout = () => {
   }, 1 * 1500);
 
   return (
-    <div className="intermediarioPage flex flex-column justify-content-center align-items-center">
-      <div className="flex align-items-center">
+    <div className="intermediarioPage flex flex-column justify-content-center align-items-center mt-8">
+      <div className="flex align-items-center gap-2">
         <h4>Saindo da sua conta</h4>
         <i className="pi pi-spin pi-spinner-dotted" style={{ fontSize: '2rem' }}></i>
       </div>

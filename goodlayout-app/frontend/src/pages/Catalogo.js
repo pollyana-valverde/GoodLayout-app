@@ -11,7 +11,7 @@ export default function Suporte() {
 
     return (
         <>
-            <Container fluid >
+            <Container fluid className="mt-8">
                 <Row className="flex text-center mt-2 catalogoHeader p-4">
                     {!tokenGL ? (
                         <>

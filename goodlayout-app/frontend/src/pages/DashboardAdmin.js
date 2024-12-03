@@ -5,7 +5,7 @@ import React from "react";
 
 export default function DashboardAdmin () {
     return (
-    <div>Bem-vindo, Administrador!</div>
+    <div  className="mt-8">Bem-vindo, Administrador!</div>
 );
   };
   

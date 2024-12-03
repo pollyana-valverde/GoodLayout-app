@@ -10,7 +10,7 @@ import '../css/home.css';
 
 export default function Home() {
     return (
-        <Container fluid>
+        <Container fluid className="mt-8">
             <Row className="flex my-4">
                 <MainHome />
             </Row>

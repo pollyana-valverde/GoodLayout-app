@@ -1,17 +1,41 @@
+.navFixed{
+    transition: all .4s ease;
+}
+
+.navScroll{
+    padding: 2px;
+    background-color: var(--tuscanRed);
+    border-radius: 50px;
+}
+
+.navScroll a{
+color: var(--creamyBiscotti) !important;
+}
+
+.navScroll .navegacaoLinks a:hover{
+    border-color: var(--creamyBiscotti);
+}
+
+.navScroll .navegacaoLinks a.activeLink{
+    border-color: var(--creamyBiscotti);
+    background-color: transparent;
+}
+
+.navScroll .navegacaoLinks a.activeLink::before {
+    background-color: var(--creamyBiscotti);
+}
+
 .navegacaoLinks {
     border: 1px solid var(--tuscanRed);
     backdrop-filter: blur(10px);
-    position: fixed;
-    left: 30%;
-    right: 30%;
-    top: 1rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    margin: 0 auto;
     padding: 4px;
+    width: fit-content;
     border-radius: 50px;
-    z-index: 9;
-}
+    }
 
 .navegacaoLinks a {
     text-decoration: none;
@@ -31,7 +55,7 @@
 .navegacaoLinks a.activeLink {
     position: relative;
     padding-left: 20px;
-    background-color: var(--creamyBiscotti);
+    background-color: transparent;
     border: 1px solid var(--tuscanRed);
 }
 
