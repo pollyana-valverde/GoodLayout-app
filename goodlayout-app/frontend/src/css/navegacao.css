@@ -3,7 +3,7 @@
 }
 
 .navScroll {
-    padding: 2px;
+    padding: 6px 0;
     background-color: var(--tuscanRed);
     border-radius: 50px;
 }
@@ -166,6 +166,68 @@
     font-size: 10px;
     margin-right: 2px;
 }
+
+
+.navScroll .navegacaoBusca{
+    box-shadow: 1px 1px 20px 1px var(--palidRedDark) inset;
+}
+
+.navScroll .navegacaoBusca input::placeholder{
+    color: var(--creamyBiscotti);
+}
+
+.navScroll .navegacaoBusca p{
+    box-shadow: 1px 1px 10px 1px var(--palidRedDark) ;
+
+}
+
+.navegacaoBusca {
+    border: 1px solid var(--tuscanRed);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 4px;
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.navegacaoBusca input{
+    border-radius: 50px;
+    border: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 0 10px;
+}
+
+.navegacaoBusca input:focus{
+    outline: none;
+}
+
+.navegacaoBusca input::placeholder{
+    font-size: 13px;
+    color: var(--tuscanRed);
+    opacity: 0.6;
+}
+
+.navegacaoBusca p {
+    color: var(--creamyBiscotti);
+    background-color: var(--tuscanRed);
+    border-radius: 50px;
+    margin: 0 ;
+    font-size: 15px;
+    padding: 4px 15px;
+    border: 1px solid transparent;
+    transition: all .4s;
+}
+
+.navegacaoBusca p:hover {
+    background-color: var(--palidRedDark);
+}
+
 
 
 @media (max-width: 700px) {

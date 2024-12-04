@@ -30,10 +30,6 @@ const Rotas = () => {
       element: <ProtectedRoute />,
       children: [
         {
-          path: "/",
-          element: < Home />
-        },
-        {
           path: '/EnterAccount',
           element: <EnterAccount />,
         },
@@ -42,7 +38,7 @@ const Rotas = () => {
           element: <Logout />,
         },
         {
-          path: "/Catalogo",
+          path: "/",
           element: <Catalogo  />
         },
         {

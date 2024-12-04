@@ -123,63 +123,67 @@ export default function Navbar() {
                             href="/"
                             onClick={() => handleLinkClick("/")}>RoadGarden</a>
                     </Col>
-                    <Col lg={5}>
-                        <div className="navegacaoLinks">
-                            {linksAutenticados.map((link) => (
-                                <a
-                                    key={link.nome}
-                                    href={link.caminho}
-                                    className={activeLink.nome === link.nome ? "activeLink" : ""}
-                                    onClick={() => handleLinkClick(link)}
-                                >
-                                    {link.nome}
-                                </a>
-                            ))}
-
-                            {userData.tipoUser === 'admin' && (
-                                <a
-                                    key='adm'
-                                    href='/dashboardAdmin'
-                                    className={activeLink === '/dashboardAdmin' ? "activeLink" : ""}
-                                    onClick={() => handleLinkClick('/dashboardAdmin')}
-                                >
-                                    Dashboard
-                                </a>
-                            )}
-                        </div>
-                    </Col>
-                    <Col lg={3}>
-                        <div className="navegacaoCliente flex gap-4 justify-content-center align-items-center">
-                            {userData.tipoUser === 'cliente' && (
-                                <>
-                                    <div className="flex gap-2">
-                                        <a href="/listaDesejo"><i className="pi pi-heart"></i></a>
-                                        <a href="/carrinhoCompra"><i className="pi pi-shopping-bag"></i></a>
+                    {userData.tipoUser === 'cliente' && (
+                        <>
+                            <Col lg={5}>
+                                <div className="navegacaoBusca flex flex-nowrap align-items-center w-12">
+                                    <input type="text" placeholder="Procure produtos aqui..."  
+                                     />
+                                    <div >
+                                        <p className="text-xs">Buscar</p>
                                     </div>
 
-                                    <div className="flex navegacaoDrop relative gap-2 align-items-center">
-                                        <img src={userData.imgPerfilCadastro ? `http://localhost:3001${userData.imgPerfilCadastro}` : noImage} alt='perfilFoto' />
-                                        <div className="flex flex-column text-left line-height-2">
-                                            <p className="text-xs opacity-40">Olá, {userData.nome}</p>
-                                            <div className="flex gap-2 align-items-center">
-                                                <p className="text-sm font-medium">{userData.nome} {userData.sobrenome}</p>
-                                                <i className="pi pi-angle-down" onClick={toggleDropCliente}></i>
-                                            </div>
-                                            {showToggleDropCliente && (
-                                                <div className="navegacaoDropShow">
-                                                    <a href="/config">Configurações</a>
-                                                    <a href="/meusPedidos"> Meus pedidos</a>
-                                                    <div style={{ borderTop: '1px solid var(--tuscanRed)', margin: '3px 0' }}></div>
-                                                    <a href="/Logout" > <i className="pi pi-sign-out"></i> Sair</a>
-                                                </div>
-                                            )}
+                                </div>
+                            </Col>
+                            <Col lg={3}>
+                                <div className="navegacaoCliente flex gap-3 justify-content-center align-items-center">
+
+                                    <>
+                                        <div className="flex gap-2">
+                                            <a href="/listaDesejo"><i className="pi pi-heart"></i></a>
+                                            <a href="/carrinhoCompra"><i className="pi pi-shopping-bag"></i></a>
                                         </div>
-                                    </div>
-                                </>
-                            )}
 
-                        </div>
-                    </Col>
+                                        <div className="flex navegacaoDrop relative gap-2 align-items-center">
+                                            <img src={userData.imgPerfilCadastro ? `http://localhost:3001${userData.imgPerfilCadastro}` : noImage} alt='perfilFoto' />
+                                            <div className="flex flex-column text-left line-height-2">
+                                                <p className="text-xs opacity-40">Olá, {userData.nome}</p>
+                                                <div className="flex gap-2 align-items-center">
+                                                    <p className="text-sm font-medium">{userData.nome} {userData.sobrenome}</p>
+                                                    <i className="pi pi-angle-down" onClick={toggleDropCliente}></i>
+                                                </div>
+                                                {showToggleDropCliente && (
+                                                    <div className="navegacaoDropShow line-height-3">
+                                                        <a href="/config">Configurações</a>
+                                                        <a href="/meusPedidos"> Meus pedidos</a>
+                                                        <div style={{ borderTop: '1px solid var(--tuscanRed)', margin: '3px 0' }}></div>
+                                                        <a href="/Logout" > <i className="pi pi-sign-out"></i> Sair</a>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </>
+
+
+                                </div>
+                            </Col>
+                        </>
+                    )}
+                    {userData.tipoUser === 'admin' && (
+                        <>
+                            <a
+                                key='adm'
+                                href='/dashboardAdmin'
+                                className={activeLink === '/dashboardAdmin' ? "activeLink" : ""}
+                                onClick={() => handleLinkClick('/dashboardAdmin')}
+                            >
+                                Dashboard
+                            </a>
+                            <a href="/Logout" > <i className="pi pi-sign-out"></i> Sair</a>
+                        </>
+
+                    )}
+
                 </Row>
             )}
             <Col ><Rotas /></Col>
