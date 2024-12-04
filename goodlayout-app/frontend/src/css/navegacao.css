@@ -1,22 +1,22 @@
-.navFixed{
+.navFixed {
     transition: all .4s ease;
 }
 
-.navScroll{
+.navScroll {
     padding: 2px;
     background-color: var(--tuscanRed);
     border-radius: 50px;
 }
 
-.navScroll a{
-color: var(--creamyBiscotti) !important;
+.navScroll a {
+    color: var(--creamyBiscotti) !important;
 }
 
-.navScroll .navegacaoLinks a:hover{
+.navScroll .navegacaoLinks a:hover {
     border-color: var(--creamyBiscotti);
 }
 
-.navScroll .navegacaoLinks a.activeLink{
+.navScroll .navegacaoLinks a.activeLink {
     border-color: var(--creamyBiscotti);
     background-color: transparent;
 }
@@ -35,7 +35,7 @@ color: var(--creamyBiscotti) !important;
     padding: 4px;
     width: fit-content;
     border-radius: 50px;
-    }
+}
 
 .navegacaoLinks a {
     text-decoration: none;
@@ -82,6 +82,91 @@ color: var(--creamyBiscotti) !important;
 .navegacaoLogin a:hover {
     box-shadow: 1px 1px 10px 1px var(--tuscanRed);
 }
+
+.navScroll .navegacaoCliente a .pi.pi-shopping-bag,
+.navScroll .navegacaoCliente a .pi.pi-heart{
+    border-color: var(--creamyBiscotti);
+    color: var(--creamyBiscotti);
+}
+
+.navScroll .navegacaoCliente a .pi.pi-shopping-bag:hover,
+.navScroll .navegacaoCliente a .pi.pi-heart:hover{
+    background-color: var(--creamyBiscottiLow);
+}
+
+.navegacaoCliente a .pi.pi-shopping-bag,
+.navegacaoCliente a .pi.pi-heart {
+    text-decoration: none;
+    border-radius: 50px;
+    padding: 8px;
+    transition: all .3s;
+}
+
+.navegacaoCliente a .pi.pi-shopping-bag {
+    color: var(--slateBlue);
+    border: 2px dashed var(--slateBlue);
+}
+
+.navegacaoCliente a .pi.pi-shopping-bag:hover {
+    background-color: var(--slateBlueLow);
+}
+
+.navegacaoCliente a .pi.pi-heart {
+    color: var(--tuscanRed);
+    border: 2px dashed var(--tuscanRed);
+}
+
+.navegacaoCliente a .pi.pi-heart:hover {
+    background-color: var(--tuscanRedLow);
+}
+
+.navegacaoDrop img {
+    border-radius: 500px;
+    width: 35px;
+    height: 35px;
+}
+
+.navScroll .navegacaoDrop p, .navScroll .navegacaoDrop i {
+    color: var(--creamyBiscotti);
+}
+
+.navegacaoDrop p , .navegacaoDrop i{
+    color: var(--oliveWood);
+    margin: unset;
+}
+
+.navScroll .navegacaoDropShow{
+    background-color: var(--creamyBiscotti);
+}
+
+.navegacaoDropShow {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    border: 1px solid var(--tuscanRed);
+    background-color: var(--tuscanRedLow);
+    backdrop-filter: blur(8px);
+    padding: 7px 13px;
+    border-radius: 10px;
+}
+
+.navegacaoDropShow a {
+    color: var(--tuscanRed) !important;
+    font-size: 12px;
+    transition: all .3s ease;
+}
+
+.navegacaoDropShow a:hover {
+    transform: translateX(3px);
+}
+
+.navegacaoDropShow a i {
+    color: var(--tuscanRed) !important;
+    font-size: 10px;
+    margin-right: 2px;
+}
+
 
 @media (max-width: 700px) {
     .navegacaoLinks {

@@ -10,6 +10,10 @@ import Privacidade from "./Pages/Privacidade";
 import Suporte from "./Pages/Suporte";
 import AboutUs from "./Pages/AboutUs";
 import Catalogo from "./Pages/Catalogo";
+import ListaDesejo from "./Pages/ListaDesejos";
+import CarrinhoCompra from "./Pages/CarrinhoCompra";
+import Config from "./Pages/Config";
+import MeusPedidos from "./Pages/MeusPedidos";
 
 import DashboardAdmin from "./Pages/DashboardAdmin";
 
@@ -40,6 +44,22 @@ const Rotas = () => {
         {
           path: "/Catalogo",
           element: <Catalogo  />
+        },
+        {
+          path: "/listaDesejo",
+          element: <ListaDesejo  />
+        },
+        {
+          path: "/carrinhoCompra",
+          element: <CarrinhoCompra  />
+        },
+        {
+          path: "/config",
+          element: <Config  />
+        },
+        {
+          path: "/meusPedidos",
+          element: <MeusPedidos  />
         },
         {
           path: "/dashboardAdmin",

@@ -50,7 +50,7 @@ router.get('/cadastros/:idCadastro', (req, res) => {
 
 // Rota para criar um novo registro
 router.post('/cadastroNovoUsuario', upload.single('imgPerfilCadastro'), (req, res) => {
-    const { nome, sobrenome, email, cpf, endereco, telefone, senha, tipoUser} = req.body;
+    const { nome, sobrenome, email, cpf, endereco, telefone, senha, tipoUser } = req.body;
     const imgPerfilCadastro = req.file ? `/uploads/${req.file.filename}` : null;
 
     connection.query('INSERT INTO cadastro (nome, sobrenome, email, cpf, endereco, telefone, senha, tipoUser imgPerfilCadastro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
@@ -71,7 +71,7 @@ router.put('/cadastros/:idCadastro', upload.single('imgPerfilCadastro'), (req, r
     const imgPerfilCadastro = req.file ? `/uploads/${req.file.filename}` : null;
 
     connection.query('UPDATE cadastro SET nome = ?, sobrenome = ?, email = ?, cpf = ?, endereco = ?, telefone = ?, senha = ?, tipoUser = ?,  imgPerfilCadastro = ? WHERE idCadastro = ?',
-        [nome, sobrenome, email, cpf, endereco, telefone, senha,tipoUser, imgPerfilCadastro, idCadastro,], (err, result) => {
+        [nome, sobrenome, email, cpf, endereco, telefone, senha, tipoUser, imgPerfilCadastro, idCadastro,], (err, result) => {
             if (err) {
                 console.error('Erro ao atualizar o registro:', err);
                 res.status(500).json({ error: 'Erro ao atualizar o registro' });
@@ -113,10 +113,12 @@ router.delete('/cadastros/:idCadastro', (req, res) => {
 /////////////////////////////////////////////login///////////////////////////////////////////////////
 
 //Rota para buscar o cfp e senha necessários no login
-router.post('/login/:email/:senha', (req, res) => {
+router.post('/login/:email/:senha', upload.single('imgPerfilCadastro'), (req, res) => {
     const { email, senha } = req.params;
+    const imgPerfilCadastro = req.file ? `/uploads/${req.file.filename}` : null;
 
-    connection.query('SELECT * FROM cadastro WHERE email = ? AND senha = ?', [email, senha], (err, results) => {
+
+    connection.query('SELECT * FROM cadastro WHERE email = ? AND senha = ?', [email, senha, imgPerfilCadastro], (err, results) => {
         if (err) {
             console.error('Erro ao buscar o registro do cadastro:', err);
             res.status(500).json({ error: 'Erro ao buscar o cadastro' });
@@ -131,7 +133,14 @@ router.post('/login/:email/:senha', (req, res) => {
         const user = results[0];
         res.json({
             id: user.id,
+            nome: user.nome,
+            sobrenome: user.sobrenome,
             email: user.email,
+            telefone: user.telefone,
+            cpf: user.cpf,
+            endereco: user.endereco,
+            imgPerfilCadastro: imgPerfilCadastro,
+            senha: user.senha,
             tipoUser: user.tipoUser,
         });
     });

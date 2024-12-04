@@ -4,7 +4,6 @@
     --white: #fffbf2;
     --black: #130000;
     --oliveWood: #210706;
-    --oliveWoodLow: #7a6865;
     --tuscanRed: #891D1A;
     --palidRed: #6d2932;
     --palidRedDark: #561c24;
@@ -12,6 +11,12 @@
     --creamyBiscotti: #F1E6D2;
     --creamyBiscotti2: #E8D8C4;
     --creamyBiscottiDark: #c7b7a3;
+
+    --oliveWoodLow: #7a6865;
+    --tuscanRedLow: #891e1a2e;
+    --creamyBiscottiLow: #f1e6d237;
+    --slateBlueLow: #7079982e;
+
 
     --bgMainRightHome: url('../imagens/mainRightHomeBG2.svg');
 }
