@@ -14,7 +14,7 @@ export default function Navbar() {
     const userData = tokenGL ? JSON.parse(tokenGL) : null;
     const [scrollNavegacao, setScrollNavegacao] = useState(false)
     const [showToggleDropCliente, setShowToggleDropCliente] = useState(false)
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -91,34 +91,37 @@ export default function Navbar() {
     return (
         <Container fluid>
             {!tokenGL && (
-                <Row className={`navFixed flex justify-content-between fixed w-12 z-5 align-items-center text-center ${scrollNavegacao ? 'navScroll my-2' : ' my-3 '}`}>
-                    <Col lg={3}>
-                        <a
-                            style={{ color: 'var(--oliveWood)' }}
-                            className="text-lg font-bold"
-                            href="/"
-                            onClick={() => handleLinkClick("/")}>RoadGarden</a>
-                    </Col>
-                    <Col lg={5}>
-                        <div className="navegacaoLinks">
-                            {linksPublicos.map((link) => (
-                                <a
-                                    key={link.nome}
-                                    href={link.caminho}
-                                    className={activeLink.nome === link.nome ? "activeLink" : ""}
-                                    onClick={() => handleLinkClick(link)}
-                                >
-                                    {link.nome}
-                                </a>
-                            ))}
-                        </div>
-                    </Col>
-                    <Col lg={3}>
-                        <div className="navegacaoLogin">
-                            <a href="/login">Login</a>
-                        </div>
-                    </Col>
-                </Row>
+                <>
+                    <Row className={`navFixed flex justify-content-between fixed w-12 z-5 align-items-center text-center ${scrollNavegacao ? 'navScroll my-2' : ' my-3 '}`}>
+                        <Col lg={3}>
+                            <a
+                                style={{ color: 'var(--oliveWood)' }}
+                                className="text-lg font-bold"
+                                href="/"
+                                onClick={() => handleLinkClick("/")}>RoadGarden</a>
+                        </Col>
+                        <Col lg={5}>
+                            <div className="navegacaoLinks">
+                                {linksPublicos.map((link) => (
+                                    <a
+                                        key={link.nome}
+                                        href={link.caminho}
+                                        className={activeLink.nome === link.nome ? "activeLink" : ""}
+                                        onClick={() => handleLinkClick(link)}
+                                    >
+                                        {link.nome}
+                                    </a>
+                                ))}
+                            </div>
+                        </Col>
+                        <Col lg={3}>
+                            <div className="navegacaoLogin">
+                                <a href="/login">Login</a>
+                            </div>
+                        </Col>
+                    </Row>
+                    <Col ><Rotas /></Col>
+                </>
             )}
 
             {tokenGL && (
@@ -189,15 +192,15 @@ export default function Navbar() {
 
                     {userData.tipoUser === 'admin' && (
                         <div className="flex">
-                            <div className={`flex gap-3 justify-content-center  ${isOpen ? 'col-lg-2 col-md-3' : ' '}`}>
-                                {
-                                    isOpen ? (
+                            <div className={`flex gap-3 justify-content-center  ${isOpen ? 'col-lg-2 col-md-3' : 'ml-6 '}`}>
+                                {/* {
+                                    isOpen ? ( */}
                                         <SidebarAdm isOpen={isOpen} toggleSidebar={toggleSidebar} />
-                                    ) : (
-                                        <i onClick={toggleSidebar} className="pi pi-bars border-circle iconClosedProfile fixed left-0 m-2"></i>
-                                    )}
+                                    {/* // ) : (
+                                    //     <i onClick={toggleSidebar} className="pi pi-bars border-circle iconClosedProfile fixed left-0 m-2"></i>
+                                    // )} */}
                             </div>
-                            <div className={`flex gap-3 ${isOpen ? 'col-lg-10 ' : 'col-lg-12'}`}><Rotas /></div>
+                            <div className={`flex gap-3 ${isOpen ? 'col-lg-10 ' : 'col-lg-11'}`}><Rotas /></div>
                         </div>
 
                     )}
