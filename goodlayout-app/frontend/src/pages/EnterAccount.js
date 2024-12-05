@@ -7,7 +7,12 @@ const EnterAccount = () => {
   const navegacao = useNavigate();
 
   const handleLogout = () => {
-    navegacao("/", { replace: true });
+    if (userData.tipoUser === 'admin'){
+    navegacao("/dashboardAdmin", { replace: true });
+    }
+    else{
+      navegacao("/", { replace: true });
+    }
   };
 
   setTimeout(() => {
