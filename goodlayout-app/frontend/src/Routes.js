@@ -10,12 +10,12 @@ import Privacidade from "./Pages/Privacidade";
 import Suporte from "./Pages/Suporte";
 import AboutUs from "./Pages/AboutUs";
 import Catalogo from "./Pages/Catalogo";
-import ListaDesejo from "./Pages/ListaDesejos";
-import CarrinhoCompra from "./Pages/CarrinhoCompra";
+import ListaDesejo from "./Pages/Cliente/ListaDesejos";
+import CarrinhoCompra from "./Pages/Cliente/CarrinhoCompra";
 import Config from "./Pages/Config";
-import MeusPedidos from "./Pages/MeusPedidos";
+import MeusPedidos from "./Pages/Cliente/MeusPedidos";
 
-import DashboardAdmin from "./Pages/DashboardAdmin";
+import DashboardAdmin from "./Pages/Adm/DashboardAdmin";
 
 import EnterAccount from "./Pages/EnterAccount";
 import Logout from "./Pages/Logout";
