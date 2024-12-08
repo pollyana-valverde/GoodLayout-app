@@ -200,7 +200,9 @@ export default function Navbar() {
                                     //     <i onClick={toggleSidebar} className="pi pi-bars border-circle iconClosedProfile fixed left-0 m-2"></i>
                                     // )} */}
                             </div>
-                            <div className={`flex gap-3 ${isOpen ? 'col-lg-10 ' : 'col-lg-11'}`}><Rotas /></div>
+                            <div
+                            className={`flex gap-3  ${isOpen ? 'col-lg-10 ' : ' col-lg-11'}`}
+                            style={{margin:'0 auto'}}><Rotas /></div>
                         </div>
 
                     )}
