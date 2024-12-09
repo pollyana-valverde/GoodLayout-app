@@ -4,129 +4,108 @@ import noImage from '../imagens/noUserProfileImg.webp';
 
 import '../css/sidebarAdm.css';
 
-const ConfigProfile = ({ isOpen, toggleSidebar }) => {
+const ConfigProfile = ({ isOpen, setIsOpen }) => {
     const { tokenGL } = useAuth();
     const userData = tokenGL ? JSON.parse(tokenGL) : null;
-    const [showDashboard, setShowDashboard] = useState(false)
-    const [showOrder, setShowOrder] = useState(false)
-    const [showProducts, setShowProducts] = useState(false)
-    const [showBuyer, setShowBuyer] = useState(false)
-    const [showCustomers, setShowCustomers] = useState(false)
-    const [showInvoices, setShowInvoices] = useState(false)
+    const [showAccordion, setShowAccordion] = useState(null)
 
-    const toggleDashboard = () => {
-        setShowDashboard((prevState) => !prevState);
-    }
+    const toggleSidebar = () => {
+        setShowAccordion(null);
+        setIsOpen(!isOpen);
+    };
 
-    const toggleOrder = () => {
-        setShowOrder((prevState) => !prevState);
-    }
-
-    const toggleProducts = () => {
-        setShowProducts((prevState) => !prevState);
-    }
-
-    const toggleBuyer = () => {
-        setShowBuyer((prevState) => !prevState);
-    }
-
-    const toggleCustomers = () => {
-        setShowCustomers((prevState) => !prevState);
-    }
-
-    const toggleInvoices = () => {
-        setShowInvoices((prevState) => !prevState);
+    const toggleAccordion = (index) => {
+        setShowAccordion((prevState) => (prevState === index ? null : index));
+        setIsOpen(true);
     }
 
     const showAccordions = [
         {
-            icon: 'pi-chart-bar',
-            header: 'Dashboard',
-            constShow: showDashboard,
-            constShowLinks: [
-                {
-                    link: '/dashboardAdmin',
-                    linkName: 'Geral',
-                },
-                {
-                    link: '/meusPedidos',
-                    linkName: 'Pedidos',
-                },
-            ],
-            toggleFunction: toggleDashboard,
-        },
-        {
             icon: 'pi-file-export',
-            header: 'Order',
-            constShow: showOrder,
+            header: 'Pedidos',
             constShowLinks: [
                 {
                     link: '/dashboardAdmin',
-                    linkName: 'Geral',
+                    linkName: 'Todos',
                 },
                 {
                     link: '/meusPedidos',
-                    linkName: 'Pedidos',
+                    linkName: 'Detalhes ',
                 },
                 {
                     link: '/dashboardAdmin',
-                    linkName: 'Geral',
-                },
-                {
-                    link: '/meusPedidos',
-                    linkName: 'Pedidos',
+                    linkName: 'Cancelados',
                 },
             ],
-            toggleFunction: toggleOrder,
         },
         {
             icon: 'pi-sitemap',
-            header: 'Products',
-            constShow: showProducts,
+            header: 'Produtos',
             constShowLinks: [
                 {
-                    link: '',
-                    linkName: '',
-                }
+                    link: '/',
+                    linkName: 'Todos',
+                },
+                {
+                    link: '/',
+                    linkName: 'Adicionar',
+                },
             ],
-            toggleFunction: toggleProducts,
         },
         {
-            icon: 'pi-wallet',
-            header: 'Buyer',
-            constShow: showBuyer,
+            icon: 'pi-users',
+            header: 'Clientes',
             constShowLinks: [
                 {
-                    link: '',
-                    linkName: '',
-                }
+                    link: '/',
+                    linkName: 'Todos',
+                },
+                {
+                    link: '/',
+                    linkName: 'Top buyers',
+                },
+                {
+                    link: '/',
+                    linkName: 'Bloqueados',
+                },
+                {
+                    link: '/',
+                    linkName: 'Grupos',
+                },
             ],
-            toggleFunction: toggleBuyer,
         },
         {
-            icon: 'pi-headphones',
-            header: 'Customers',
-            constShow: showCustomers,
+            icon: 'pi-envelope',
+            header: 'Emails',
             constShowLinks: [
                 {
-                    link: '',
-                    linkName: '',
-                }
-            ],
-            toggleFunction: toggleCustomers,
-        },
-        {
-            icon: 'pi-receipt',
-            header: 'Invoices',
-            constShow: showInvoices,
-            constShowLinks: [
+                    link: '/',
+                    linkName: 'Entrada',
+                },
                 {
-                    link: '',
-                    linkName: '',
-                }
+                    link: '/',
+                    linkName: 'Saída',
+                },
+                {
+                    link: '/',
+                    linkName: 'Suporte',
+                },
+                {
+                    link: '/',
+                    linkName: 'Templates',
+                },
             ],
-            toggleFunction: toggleInvoices,
         },
+        // {
+        //     icon: 'pi-receipt',
+        //     header: 'Invoices',
+        //     constShowLinks: [
+        //         {
+        //             link: '',
+        //             linkName: '',
+        //         }
+        //     ],
+        // },
     ]
 
 
@@ -136,7 +115,7 @@ const ConfigProfile = ({ isOpen, toggleSidebar }) => {
             <div className={`fixed left-0 m-2 sidebarAdm ${isOpen ? 'sidebarAdm-open' : 'sidebarAdm-closed'}`}>
                 <div className={`flex gap-2 ${isOpen ? 'open' : 'closed'}`}>
 
-                    <div className='flex gap-2 align-items-center'>
+                    <div className='flex gap-2 align-items-center headerOpenSidebar'>
                         {isOpen && (
                             <>
                                 <img
@@ -153,22 +132,31 @@ const ConfigProfile = ({ isOpen, toggleSidebar }) => {
                             </>
                         )}
 
-                        <i onClick={toggleSidebar} className={isOpen ? "pi pi-times border-circle" : "pi pi-bars mt-3"}></i>
+
                     </div>
+                    <i onClick={toggleSidebar} className={`iconOpenClose ${isOpen ? "pi pi-arrow-left" : "pi pi-arrow-right "}`}></i>
                 </div>
-                <div className='flex flex-column justify-content-between mt-3 ' style={{ height: '90%' }}>
+                <div className={`flex flex-column justify-content-between  ${isOpen ? 'mt-3' : 'mt-6'}`} style={{ height: '90%' }}>
                     <div className="flex flex-column gap-1">
-                        {showAccordions.map((show) => (
-                            <div className="sidebarAccordion">
-                                <div className="flex align-items-center justify-content-between ">
-                                    <div className="flex align-items-center gap-2 sidebarAccordionHeader">
+                        <div className="sidebarAccordion ml-2">
+                            <div className={`flex align-items-center justify-content-between sidebarAccordionHeader`}>
+                                <div className="flex align-items-center gap-2 ">
+                                    <i className={`pi pi-chart-bar`}></i>
+                                    <p style={{ margin: 'unset' }}>Dashboard</p>
+                                </div>
+                            </div>
+                        </div>
+                        {showAccordions.map((show, index) => (
+                            <div key={index} className="sidebarAccordion ml-2">
+                                <div className={`flex align-items-center justify-content-between sidebarAccordionHeader ${showAccordion === index ? "open" : ""}`} onClick={() => toggleAccordion(index)}>
+                                    <div className="flex align-items-center gap-2 ">
                                         <i className={`pi ${show.icon}`}></i>
                                         <p style={{ margin: 'unset' }}>{show.header}</p>
                                     </div>
-                                    <i className={show.constShow ? "pi pi-angle-up" : "pi pi-angle-down"} onClick={show.toggleFunction}></i>
+                                    <i className={showAccordion === index ? "pi pi-angle-up" : "pi pi-angle-down"} ></i>
                                 </div>
-                                {show.constShow && (
-                                    <ul className="flex flex-column line-height-3">
+                                {showAccordion === index && (
+                                    <ul className="flex flex-column gap-1  sidebarAccordionContent">
                                         {Array.isArray(show.constShowLinks) &&
                                             show.constShowLinks.map((linkGroup, index) => (
                                                 <li>
@@ -183,10 +171,10 @@ const ConfigProfile = ({ isOpen, toggleSidebar }) => {
                     </div>
                     <div className="flex flex-column gap-1 sidebarFooter " >
                         <a href="/#" className="flex align-items-center gap-2">
-                            <i className="pi pi-envelope"></i>
-                            <p style={{ margin: 'unset' }}>Email</p>
+                            <i className="pi pi-cog"></i>
+                            <p style={{ margin: 'unset' }}>Configurações</p>
                         </a>
-                        <a href="/Logout" className="flex align-items-center gap-2">
+                        <a href="/Logout" className="flex align-items-center gap-2 sidebarLogout">
                             <i className="pi pi-sign-out"></i>
                             <p style={{ margin: 'unset' }}>Sair</p>
                         </a>

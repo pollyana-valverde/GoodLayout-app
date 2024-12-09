@@ -16,10 +16,6 @@ export default function Navbar() {
     const [showToggleDropCliente, setShowToggleDropCliente] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
 
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen);
-    };
-
     useEffect(() => {
         const startNavegacaoScroll = () => {
             if (window.scrollY >= 1) {
@@ -191,18 +187,18 @@ export default function Navbar() {
 
 
                     {userData.tipoUser === 'admin' && (
-                        <div className="flex">
+                        <div className="flex" >
                             <div className={`flex gap-3 justify-content-center  ${isOpen ? 'col-lg-2 col-md-3' : 'ml-6 '}`}>
                                 {/* {
                                     isOpen ? ( */}
-                                        <SidebarAdm isOpen={isOpen} toggleSidebar={toggleSidebar} />
+                                        <SidebarAdm isOpen={isOpen} setIsOpen={setIsOpen}/>
                                     {/* // ) : (
                                     //     <i onClick={toggleSidebar} className="pi pi-bars border-circle iconClosedProfile fixed left-0 m-2"></i>
                                     // )} */}
                             </div>
                             <div
-                            className={`flex gap-3  ${isOpen ? 'col-lg-10 ' : ' col-lg-11'}`}
-                            style={{margin:'0 auto'}}><Rotas /></div>
+                            className={`flex gap-3 ${isOpen ? 'col-lg-10 ' : ' col-lg-11'}`}
+                            style={{margin:'0 auto', transition:'ease .7s'}}><Rotas /></div>
                         </div>
 
                     )}

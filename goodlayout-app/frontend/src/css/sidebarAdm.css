@@ -1,113 +1,236 @@
-.sidebarAdm{
+.sidebarAdm {
     background-color: var(--white);
     padding: 10px;
-    /* width: 100px;
-    overflow: hidden; */
-    transition: all .7s;
-    overflow: hidden;
+    transition: all .4s;
     height: 98%;
+    position: relative;
 }
 
-.sidebarAdm.sidebarAdm-open{
-    border-radius: 20px;
-    width: 185.5px;
-    border: 1px solid var(--white);
+.sidebarAdm .iconOpenClose {
+    position: absolute;
+    right: -17px;
+    top: -1px;
+    background-color: var(--oliveWoodLow);
+    color: var(--white);
+    font-size: 17px;
+    padding: 10px 10px 10px 42px;
+    border: 1px solid var(--oliveWoodLow);
+    border-radius: 20px 0;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    transition: all .5s ease;
 }
 
-.sidebarAdm.sidebarAdm-closed{
+.sidebarFooter a,
+.sidebarFooter a i {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--oliveWoodLow);
+    transition: all .5s;
+}
+
+.sidebarLogout {
+    transition: all .2s;
+    background-color: var(--oliveWoodLow);
+}
+
+.sidebarLogout:hover {
+    background-color: var(--oliveWood) !important;
+}
+
+.sidebarLogout i,
+.sidebarLogout p {
+    color: var(--white) !important;
+}
+
+.sidebarAdm.sidebarAdm-closed .sidebarLogout {
+    border-radius: 10px !important;
+
+}
+
+/************************sidebar fechada************************/
+.sidebarAdm.sidebarAdm-closed {
     border-radius: 10px;
-    padding:0 5px;
-    width: 42px;
+    padding: 0 5px;
+    width: 55px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid var(--oliveWoodLow);
 }
 
-.sidebarAccordion{
-    transition: all .3s;
-    padding: 5px 10px;
-    border-radius: 7px;
+.sidebarAdm.sidebarAdm-closed .headerOpenSidebar {
+    background-color: transparent;
+    padding: 0;
+    transition: all .7s ease;
 }
 
-.sidebarAccordion:hover{
-    background-color: var(--slateBlueLow);
-}
-
-.sidebarAdm.sidebarAdm-closed .sidebarAccordion{
+.sidebarAdm.sidebarAdm-closed .sidebarAccordionHeader, .sidebarAdm.sidebarAdm-closed .sidebarAccordion {
     padding: unset !important;
+    margin-left: unset !important;
 }
 
-.sidebarAdm.sidebarAdm-closed .sidebarAccordion:hover{
+.sidebarAdm.sidebarAdm-closed .sidebarAccordionHeader:hover {
     background-color: unset !important;
 }
 
-.sidebarAccordion i.pi.pi-angle-up, .sidebarAccordion i.pi.pi-angle-down{
+.sidebarAdm.sidebarAdm-closed .sidebarAccordionHeader i.pi.pi-angle-up,
+.sidebarAdm.sidebarAdm-closed .sidebarAccordionHeader i.pi.pi-angle-down {
+    transition: all .5s;
+    display: none;
+}
+
+.sidebarAdm.sidebarAdm-closed .sidebarAccordionHeader p {
+    display: none;
+    transition: all .5s;
+}
+
+.sidebarAdm.sidebarAdm-closed .sidebarAccordionHeader i,
+.sidebarAdm.sidebarAdm-closed .sidebarFooter a i {
     color: var(--oliveWoodLow);
-    font-size: 14px;
-    transition: all .5s;
-}
-
-.sidebarAdm.sidebarAdm-closed .sidebarAccordion i.pi.pi-angle-up, .sidebarAdm.sidebarAdm-closed .sidebarAccordion i.pi.pi-angle-down{
-    /* color: transparent; */
-    transition: all .5s;
-    display: none;
-}
-
-.sidebarAccordionHeader i, .sidebarAccordionHeader p{
-    color: var(--oliveWoodLow) ;
-    transition: all .5s;
-    font-size: 13px;
-    font-weight: 500 ;
-}
-
-
-.sidebarAdm.sidebarAdm-closed .sidebarAccordionHeader p{
-    /* color: transparent; */
-    display: none;
-    transition: all .5s;
-}
-
-.sidebarAdm.sidebarAdm-closed .sidebarAccordionHeader i, .sidebarAdm.sidebarAdm-closed .sidebarFooter a i{
-    color: var(--oliveWoodLow) ;
-    font-size: 14px;
-    /* margin-bottom: 10px; */
+    font-size: 19px;
     transition: all .3s;
     padding: 7px;
     border-radius: 7px;
 }
 
 .sidebarAdm.sidebarAdm-closed .sidebarAccordionHeader i:hover,
-.sidebarAdm.sidebarAdm-closed .sidebarFooter a i:hover{
+.sidebarAdm.sidebarAdm-closed .sidebarFooter a i:hover {
     background-color: var(--slateBlueLow);
 }
 
-.sidebarAdm.sidebarAdm-closed .sidebarFooter{
+.sidebarAdm.sidebarAdm-closed .sidebarFooter {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.sidebarAdm.sidebarAdm-open .sidebarFooter a{
-    transition: all .3s;
-    padding: 5px 10px;
-    border-radius: 7px;
+.sidebarAdm.sidebarAdm-closed .sidebarFooter a p {
+    color: transparent;
+    transition: all .5s;
+    display: none;
 }
 
-.sidebarAdm.sidebarAdm-open .sidebarFooter a:hover{
+
+/************************sidebar aberta************************/
+.sidebarAdm.sidebarAdm-open {
+    border-radius: 20px;
+    padding: 10px 0;
+    width: 185.5px;
+    border: 1px solid var(--white);
+}
+
+.sidebarAdm.sidebarAdm-open .iconOpenClose {
+    right: -15px;
+    border-radius: 0;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    top: 10px;
+    padding: 19.2px 15px;
+}
+
+.sidebarAdm.sidebarAdm-open .headerOpenSidebar {
+    background-color: var(--oliveWoodLow);
+    padding: 7px 10px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    color: var(--white);
+    padding-right: 10px;
+    z-index: 9;
+    transition: all .7s ease;
+}
+
+.sidebarAdm.sidebarAdm-open .sidebarFooter a {
+    transition: all .3s;
+    padding: 8px 15px;
+    border-radius: 50px;
+}
+
+.sidebarAdm.sidebarAdm-open .sidebarFooter a:hover {
     background-color: var(--slateBlueLow);
 }
 
-.sidebarFooter a, .sidebarFooter a i{
-    font-size: 13px;
-    font-weight: 500 ;
-    color: var(--oliveWoodLow) ;
+
+
+/************************sidebar acordeão************************/
+.sidebarAccordionHeader.open {
+    background-color: var(--slateBlueLow);
+}
+
+.sidebarAccordionHeader.open i,
+.sidebarAccordionHeader.open p,
+.sidebarAccordionHeader.open i.pi.pi-angle-up {
+    color: var(--oliveWood);
+}
+
+.sidebarAccordionHeader {
+    transition: all .3s;
+    padding: 8px 15px;
+    border-radius: 50px;
+}
+
+.sidebarAccordionHeader:hover {
+    background-color: var(--slateBlueLow);
+}
+
+.sidebarAccordionHeader i,
+.sidebarAccordionHeader p {
+    color: var(--oliveWoodLow);
+    transition: all .5s;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sidebarAccordionHeader i.pi.pi-angle-up,
+.sidebarAccordionHeader i.pi.pi-angle-down {
+    color: var(--oliveWoodLow);
+    font-size: 17px;
     transition: all .5s;
 }
 
+.sidebarAccordionContent {
+    list-style: none;
+    margin-top: 15px;
+    margin-bottom: unset;
+}
 
-.sidebarAdm.sidebarAdm-closed  .sidebarFooter a p{
-    color: transparent ;
-    transition: all .5s;
-    display: none;
+.sidebarAccordionContent li {
+    position: relative;
+    border-radius: 50px;
+    padding: 5px 15px;
+    transition: all .2s ease;
+}
+
+.sidebarAccordionContent li:hover {
+    background-color: var(--slateBlueLow);
+}
+
+.sidebarAccordionContent li a {
+    color: var(--oliveWood);
+    opacity: 0.6;
+}
+
+.sidebarAccordionContent li:hover a {
+    opacity: 1;
+    color: var(--oliveWood);
+}
+
+.sidebarAccordionContent li::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -20px;
+    width: 20px;
+    height: 47px;
+    border-left: 2px solid var(--oliveWood);
+    /* Linha vertical */
+    border-bottom: 2px solid var(--oliveWood);
+    /* Linha horizontal */
+    border-radius: 0 10px;
+    opacity: 0.3;
+}
+
+.sidebarAccordionContent li:first-child::before {
+    height: 25px;
+    top: -7px;
 }
