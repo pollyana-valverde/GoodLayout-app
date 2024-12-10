@@ -25,15 +25,15 @@ const ConfigProfile = ({ isOpen, setIsOpen }) => {
             header: 'Pedidos',
             constShowLinks: [
                 {
-                    link: '/dashboardAdmin',
+                    link: '/AllPedidos',
                     linkName: 'Todos',
                 },
                 {
-                    link: '/meusPedidos',
+                    link: '/DetalhesPedido',
                     linkName: 'Detalhes ',
                 },
                 {
-                    link: '/dashboardAdmin',
+                    link: '/Cancelamentos',
                     linkName: 'Cancelados',
                 },
             ],
@@ -43,11 +43,11 @@ const ConfigProfile = ({ isOpen, setIsOpen }) => {
             header: 'Produtos',
             constShowLinks: [
                 {
-                    link: '/',
+                    link: '/AllProdutos',
                     linkName: 'Todos',
                 },
                 {
-                    link: '/',
+                    link: '/addProduto',
                     linkName: 'Adicionar',
                 },
             ],
@@ -57,19 +57,19 @@ const ConfigProfile = ({ isOpen, setIsOpen }) => {
             header: 'Clientes',
             constShowLinks: [
                 {
-                    link: '/',
+                    link: '/AllClientes',
                     linkName: 'Todos',
                 },
                 {
-                    link: '/',
+                    link: '/TopBuyers',
                     linkName: 'Top buyers',
                 },
                 {
-                    link: '/',
+                    link: '/CompradoresBloqueados',
                     linkName: 'Bloqueados',
                 },
                 {
-                    link: '/',
+                    link: '/GrupoClientes',
                     linkName: 'Grupos',
                 },
             ],
@@ -96,16 +96,6 @@ const ConfigProfile = ({ isOpen, setIsOpen }) => {
                 },
             ],
         },
-        // {
-        //     icon: 'pi-receipt',
-        //     header: 'Invoices',
-        //     constShowLinks: [
-        //         {
-        //             link: '',
-        //             linkName: '',
-        //         }
-        //     ],
-        // },
     ]
 
 
@@ -140,10 +130,12 @@ const ConfigProfile = ({ isOpen, setIsOpen }) => {
                     <div className="flex flex-column gap-1">
                         <div className="sidebarAccordion ml-2">
                             <div className={`flex align-items-center justify-content-between sidebarAccordionHeader`}>
-                                <div className="flex align-items-center gap-2 ">
-                                    <i className={`pi pi-chart-bar`}></i>
-                                    <p style={{ margin: 'unset' }}>Dashboard</p>
-                                </div>
+                                <a href="/dashboardAdmin">
+                                    <div className="flex align-items-center gap-2 ">
+                                        <i className={`pi pi-chart-bar`}></i>
+                                        <p style={{ margin: 'unset' }}>Dashboard</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         {showAccordions.map((show, index) => (
@@ -170,7 +162,7 @@ const ConfigProfile = ({ isOpen, setIsOpen }) => {
                         ))}
                     </div>
                     <div className="flex flex-column gap-1 sidebarFooter " >
-                        <a href="/#" className="flex align-items-center gap-2">
+                        <a href="/config" className="flex align-items-center gap-2">
                             <i className="pi pi-cog"></i>
                             <p style={{ margin: 'unset' }}>Configurações</p>
                         </a>

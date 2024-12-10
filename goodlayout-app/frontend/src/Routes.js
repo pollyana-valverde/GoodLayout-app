@@ -16,6 +16,16 @@ import Config from "./Pages/Config";
 import MeusPedidos from "./Pages/Cliente/MeusPedidos";
 
 import DashboardAdmin from "./Pages/Adm/DashboardAdmin";
+import AddProduto from "./Pages/Adm/AddProduto";
+import AllClientes from "./Pages/Adm/AllClientes";
+import AllPedidos from "./Pages/Adm/AllPedidos";
+import AllProdutos from "./Pages/Adm/AllProdutos";
+import Cancelamentos from "./Pages/Adm/Cancelamentos";
+import CompradoresBloqueados from "./Pages/Adm/CompradoresBloqueados";
+import DetalhesPedido from "./Pages/Adm/DetalhesPedido";
+import GrupoClientes from "./Pages/Adm/GrupoClientes";
+import TopBuyers from "./Pages/Adm/TopBuyers";
+
 
 import EnterAccount from "./Pages/EnterAccount";
 import Logout from "./Pages/Logout";
@@ -57,11 +67,59 @@ const Rotas = () => {
           path: "/meusPedidos",
           element: <MeusPedidos  />
         },
+
+        //Páginas do adm
         {
           path: "/dashboardAdmin",
           element: 
             <DashboardAdmin /> 
         },
+        {
+          path: "/addProduto",
+          element: 
+            <AddProduto /> 
+        },
+        {
+          path: "/AllClientes",
+          element: 
+            <AllClientes /> 
+        },
+        {
+          path: "/AllPedidos",
+          element: 
+            <AllPedidos /> 
+        },
+        {
+          path: "/AllProdutos",
+          element: 
+            <AllProdutos /> 
+        },
+        {
+          path: "/Cancelamentos",
+          element: 
+            <Cancelamentos /> 
+        },
+        {
+          path: "/CompradoresBloqueados",
+          element: 
+            <CompradoresBloqueados /> 
+        },
+        {
+          path: "/DetalhesPedido",
+          element: 
+            <DetalhesPedido /> 
+        },
+        {
+          path: "/GrupoClientes",
+          element: 
+            <GrupoClientes /> 
+        },
+        {
+          path: "/TopBuyers",
+          element: 
+            <TopBuyers /> 
+        },
+        
       ],
     },
   ];

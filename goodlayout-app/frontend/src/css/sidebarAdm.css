@@ -13,9 +13,9 @@
     background-color: var(--oliveWoodLow);
     color: var(--white);
     font-size: 17px;
-    padding: 10px 10px 10px 42px;
+    padding: 10px 10px 10px 43px;
     border: 1px solid var(--oliveWoodLow);
-    border-radius: 20px 0;
+    border-radius: 25px 0;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     transition: all .5s ease;
@@ -155,12 +155,14 @@
 /************************sidebar acordeão************************/
 .sidebarAccordionHeader.open {
     background-color: var(--slateBlueLow);
+    transition: all .3s;
 }
 
 .sidebarAccordionHeader.open i,
 .sidebarAccordionHeader.open p,
 .sidebarAccordionHeader.open i.pi.pi-angle-up {
     color: var(--oliveWood);
+    transition: all .3s;
 }
 
 .sidebarAccordionHeader {

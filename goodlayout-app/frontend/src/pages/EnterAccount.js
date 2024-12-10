@@ -17,14 +17,14 @@ const EnterAccount = () => {
 
   setTimeout(() => {
     handleLogout();
-  }, 1 * 1500);
+  }, 1 * 2500);
 
   return (
-    <div className="intermediarioPage flex flex-column justify-content-center align-items-center mt-8">
+    <div className="intermediarioPage flex flex-column justify-content-center align-items-center">
       <div className="flex align-items-center gap-2">
         {userData.tipoUser === 'cliente' && (<h4>Entrando na sua conta</h4>)}
         {userData.tipoUser === 'admin' && (<h4>Bem-vindo de volta!</h4>)}
-        <i className="pi pi-spin pi-spinner-dotted" style={{ fontSize: '2rem' }}></i>
+        <i className="pi pi-spin pi-spinner" style={{ fontSize: '2rem' }}></i>
       </div>
       <p>Aguarde alguns instantes ...</p>
     </div>
