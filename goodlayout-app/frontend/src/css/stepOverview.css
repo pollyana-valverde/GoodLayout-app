@@ -1,0 +1,40 @@
+.imagePreviewOverview img {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.removeImageOverview {
+    padding: 5px;
+    font-size: 13px;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    background: rgb(207, 15, 57);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.addImageOverview {
+    border: 2px dashed var(--oliveWoodLow);
+    height: 70px;
+    border-radius: 10px;
+    padding: 15px;
+    color: var(--oliveWoodLow);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nomeInputProdutoOverview {
+    background-color: transparent;
+    border: 1.5px solid var(--oliveWoodLow);
+}
+
+.nomeInputProdutoOverview:focus {
+    border-color: var(--oliveWood);
+    box-shadow: none;
+    color: var(--oliveWoodLow);
+}

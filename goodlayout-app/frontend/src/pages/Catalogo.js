@@ -30,7 +30,7 @@ export default function Suporte() {
                 <Row className="flex text-center mt-2">
                     <CarroselCatalago />
                 </Row>
-                <Row className="flex text-center mt-2">
+                {/* <Row className="flex text-center mt-2">
                     <CarroselCatalago />
                 </Row>
                 <Row className="flex text-center mt-2">
@@ -38,7 +38,7 @@ export default function Suporte() {
                 </Row>
                 <Row className="flex text-center mt-2">
                     <CarroselCatalago />
-                </Row>
+                </Row> */}
             </Container>
         </>
     )

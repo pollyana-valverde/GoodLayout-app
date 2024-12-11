@@ -1,0 +1,36 @@
+.p-stepper .p-stepper-header .p-stepper-action {
+    background-color: transparent !important;
+}
+
+.p-stepper .p-stepper-header .p-stepper-action .p-stepper-number {
+    color: var(--oliveWoodLow);
+    border-color: var(--oliveWoodLow);
+    background-color: transparent;
+}
+
+.p-stepper .p-stepper-header .p-stepper-action .p-stepper-title {
+    color: var(--oliveWoodLow);
+}
+
+.p-stepper .p-stepper-header:has(~ .p-highlight) .p-stepper-separator {
+    background-color: var(--oliveWoodLow);
+    opacity: 1;
+}
+
+.p-stepper .p-stepper-separator {
+    background-color: var(--oliveWoodLow);
+    opacity: 0.2;
+}
+
+.p-stepper .p-stepper-header.p-highlight .p-stepper-number {
+    background-color: var(--oliveWoodLow);
+    color: var(--white);
+}
+
+.p-stepper .p-stepper-panels {
+    background-color: transparent !important;
+    color: var(--oliveWoodLow);
+    border: 1px solid var(--oliveWoodLow);
+    border-radius: 20px;
+}
+

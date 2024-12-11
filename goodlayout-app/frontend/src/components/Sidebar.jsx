@@ -98,6 +98,19 @@ const ConfigProfile = ({ isOpen, setIsOpen }) => {
         },
     ]
 
+    const [activeLink, setActiveLink] = useState(() => {
+        // Recupera o link ativo do localStorage, se existir
+        const savedLink = localStorage.getItem("activeLink");
+        return savedLink ? JSON.parse(savedLink) : showAccordion.constShowLinks[0];
+    });
+
+    // Função para atualizar o link ativo e salvar no localStorage
+    const handleLinkClick = (link) => {
+        setActiveLink(link);
+        localStorage.setItem("activeLink", JSON.stringify(link));
+    };
+
+
 
     return (
 
@@ -151,7 +164,10 @@ const ConfigProfile = ({ isOpen, setIsOpen }) => {
                                     <ul className="flex flex-column gap-1  sidebarAccordionContent">
                                         {Array.isArray(show.constShowLinks) &&
                                             show.constShowLinks.map((linkGroup, index) => (
-                                                <li>
+                                                <li
+                                                    // onClick={() => handleLinkClick(linkGroup.link)}
+                                                    // className={activeLink.nome === linkGroup.linkName ? "activeLink" : ""}
+                                                    >
                                                     <a href={linkGroup.link}>{linkGroup.linkName}</a>
                                                 </li>
                                             ))
