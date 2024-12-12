@@ -34,3 +34,16 @@
     border-radius: 20px;
 }
 
+.btnStepPrev {
+    background-color: transparent;
+    color: var(--oliveWoodLow);
+    border-radius: 20px;
+    border: 2px solid var(--oliveWoodLow);
+}
+
+.btnStepNext {
+    background-color: var(--oliveWoodLow);
+    color: var(--white);
+    border-radius: 20px;
+    border-color: var(--oliveWoodLow);
+}

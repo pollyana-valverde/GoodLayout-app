@@ -26,13 +26,7 @@ export default function AddProduto() {
                                 <StepOverview />
                             </div>
                             <div className="flex pt-2 justify-content-end ">
-                                <Button
-                                    style={{
-                                        backgroundColor: 'var(--oliveWoodLow)',
-                                        color: 'var(--white)',
-                                        borderRadius: '20px',
-                                        borderColor: 'var(--oliveWoodLow)'
-                                    }}
+                                <Button className="btnStepNext"
                                     label="Next"
                                     icon="pi pi-arrow-right"
                                     iconPos="right"
@@ -44,25 +38,13 @@ export default function AddProduto() {
                                 <StepDescricoes />
                             </div>
                             <div className="flex pt-2 justify-content-between">
-                                <Button
-                                    style={{
-                                        backgroundColor: 'transparent',
-                                        color: 'var(--oliveWoodLow)',
-                                        borderRadius: '20px',
-                                        border: '2px solid var(--oliveWoodLow)'
-                                    }}
+                                <Button className="btnStepPrev"
                                     label="Back"
                                     severity="secondary"
                                     icon="pi pi-arrow-left"
                                     onClick={() => stepperRef.current.prevCallback()} />
 
-                                <Button
-                                    style={{
-                                        backgroundColor: 'var(--oliveWoodLow)',
-                                        color: 'var(--white)',
-                                        borderRadius: '20px',
-                                        borderColor: 'var(--oliveWoodLow)'
-                                    }}
+                                <Button className="btnStepNext"
                                     label="Next"
                                     icon="pi pi-arrow-right"
                                     iconPos="right"
@@ -74,25 +56,13 @@ export default function AddProduto() {
                                 <StepPreco />
                             </div>
                             <div className="flex pt-2 justify-content-between">
-                                <Button
-                                    style={{
-                                        backgroundColor: 'transparent',
-                                        color: 'var(--oliveWoodLow)',
-                                        borderRadius: '20px',
-                                        border: '2px solid var(--oliveWoodLow)'
-                                    }}
+                                <Button className="btnStepPrev"
                                     label="Back"
                                     severity="secondary"
                                     icon="pi pi-arrow-left"
                                     onClick={() => stepperRef.current.prevCallback()} />
 
-                                <Button
-                                    style={{
-                                        backgroundColor: 'var(--oliveWoodLow)',
-                                        color: 'var(--white)',
-                                        borderRadius: '20px',
-                                        borderColor: 'var(--oliveWoodLow)'
-                                    }}
+                                <Button className="btnStepNext"
                                     label="Next"
                                     icon="pi pi-arrow-right"
                                     iconPos="right"
@@ -104,13 +74,7 @@ export default function AddProduto() {
                                 <StepConfirmacoes />
                             </div>
                             <div className="flex pt-2 justify-content-start">
-                                <Button
-                                    style={{
-                                        backgroundColor: 'transparent',
-                                        color: 'var(--oliveWoodLow)',
-                                        borderRadius: '20px',
-                                        border: '2px solid var(--oliveWoodLow)'
-                                    }}
+                                <Button className="btnStepPrev"
                                     label="Back"
                                     severity="secondary"
                                     icon="pi pi-arrow-left"

@@ -15,7 +15,10 @@ export default function StepOverview() {
     const [images, setImages] = useState([]);
 
     const geralCategories = [
-        'Sofas'
+        'Sofas1',
+        'Sofas2',
+        'Sofas3',
+        'Sofas4',
     ];
 
     const especificCategories = [
@@ -83,7 +86,7 @@ export default function StepOverview() {
                             <>
                                 <div onClick={handleClickInputFile} className="flex w-12 gap-2 align-items-center justify-content-center addImageOverview">
                                     <i className="pi pi-plus text-sm"></i>
-                                    <p style={{ margin: 'unset' }}> adicionar mais ({6 - images.length})</p>
+                                    <p style={{ margin: 'unset' }}> adicionar ({6 - images.length})</p>
                                 </div>
                             </>
                         ) : (<></>)}
@@ -111,7 +114,7 @@ export default function StepOverview() {
                         onChange={(e) => setSelectedGeralCategories(e.value)}
                         options={geralCategories}
                         optionLabel="name"
-                        placeholder="Select a Country"
+                        placeholder="Categoria geral"
                         filter className="w-full " />
                     <Dropdown
                         value={selectedEspecificCategories}
@@ -119,7 +122,7 @@ export default function StepOverview() {
                         onChange={(e) => setSelectedEspecificCategories(e.value)}
                         options={especificCategories}
                         optionLabel="name"
-                        placeholder="Select a Country"
+                        placeholder="Subcategoria"
                         filter className="w-full " />
                 </Col>
             </Col>
@@ -129,7 +132,7 @@ export default function StepOverview() {
                     <p>Breve descrição do produto</p>
                 </Col>
                 <Col lg={8}>
-                    <InputTextarea className="w-12" value={valueTextArea} onChange={(e) => setValueTextArea(e.target.value)} rows={3} />
+                    <InputTextarea className="w-12 descInputProdutoOverview" value={valueTextArea} onChange={(e) => setValueTextArea(e.target.value)} rows={3} />
                 </Col>
             </Col>
         </Row>

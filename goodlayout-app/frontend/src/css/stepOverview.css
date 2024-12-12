@@ -19,22 +19,94 @@
 }
 
 .addImageOverview {
-    border: 2px dashed var(--oliveWoodLow);
+    border: 2px dashed var(--oliveWoodSuperLow);
     height: 70px;
     border-radius: 10px;
     padding: 15px;
     color: var(--oliveWoodLow);
     font-size: 14px;
     font-weight: 500;
+    transition: all .3s;
 }
 
-.nomeInputProdutoOverview {
+.addImageOverview:hover {
+    background-color: var(--oliveWoodSuperLow);
+    border-color: var(--oliveWoodLow);
+}
+
+.nomeInputProdutoOverview,
+.descInputProdutoOverview {
     background-color: transparent;
-    border: 1.5px solid var(--oliveWoodLow);
+    border: 1.5px solid var(--oliveWoodSuperLow);
+    color: var(--oliveWoodLow);
 }
 
-.nomeInputProdutoOverview:focus {
-    border-color: var(--oliveWood);
+.nomeInputProdutoOverview:focus,
+.descInputProdutoOverview:focus {
+    border-color: var(--oliveWoodLow);
     box-shadow: none;
+    color: var(--oliveWood);
+    background-color: var(--oliveWoodSuperLow);
+}
+
+.p-dropdown {
+    background-color: transparent !important;
+    border: 1.5px solid var(--oliveWoodSuperLow);
+}
+
+.p-dropdown:not(.p-disabled).p-focus {
+    border-color: var(--oliveWoodLow);
+    background-color: var(--oliveWoodSuperLow) !important;
+    box-shadow: none !important;
     color: var(--oliveWoodLow);
+}
+
+.p-dropdown .p-dropdown-label.p-placeholder,
+.p-dropdown .p-dropdown-trigger,
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon,
+.p-dropdown .p-dropdown-clear-icon {
+    color: var(--oliveWoodLow) !important;
+}
+
+
+.p-dropdown-panel .p-dropdown-header {
+    padding: 0.75rem !important;
+    color: var(--oliveWood);
+    background-color: var(--oliveWoodSuperLow);
+    border-color: var(--oliveWoodLow) !important;
+}
+
+.p-dropdown-filter.p-inputtext,
+.p-dropdown-label.p-inputtext {
+    border-color: var(--oliveWoodLow) !important;
+    color: var(--oliveWoodLow);
+    background-color: var(--white);
+}
+
+.p-dropdown-filter.p-inputtext:focus {
+    border-color: var(--oliveWood) !important;
+    box-shadow: none !important;
+    color: var(--oliveWoodLow);
+}
+
+.p-dropdown-items {
+    margin: unset;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    color: var(--oliveWoodLow);
+    padding: 5px;
+    font-size: 17px;
+}
+
+.p-dropdown-panel {
+    margin-top: 4px;
+    background-color: var(--white);
+    border: 1px solid var(--oliveWoodLow);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    background-color: transparent;
+    font-weight: 500;
+    color: var(--oliveWood);
 }
