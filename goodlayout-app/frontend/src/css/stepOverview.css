@@ -35,14 +35,14 @@
 }
 
 .nomeInputProdutoOverview,
-.descInputProdutoOverview {
+.descInputProdutoOverview, .basePrecoInput .p-inputnumber-input.p-inputtext {
     background-color: transparent;
     border: 1.5px solid var(--oliveWoodSuperLow);
     color: var(--oliveWoodLow);
 }
 
 .nomeInputProdutoOverview:focus,
-.descInputProdutoOverview:focus {
+.descInputProdutoOverview:focus, .basePrecoInput .p-inputnumber-input.p-inputtext:focus {
     border-color: var(--oliveWoodLow);
     box-shadow: none;
     color: var(--oliveWood);
