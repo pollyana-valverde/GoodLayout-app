@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { Editor } from "primereact/editor";
 
+import '../css/stepDescricoes.css';
+
 export default function BasicDemo() {
     const [text, setText] = useState('');
 
