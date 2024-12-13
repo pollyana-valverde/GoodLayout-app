@@ -45,3 +45,28 @@ CREATE TABLE `suportePergunta` (
   `pergunta` text NOT NULL,
   CONSTRAINT `PRIMARY` PRIMARY KEY (`idSuportePergunta`)
 );
+
+
+CREATE TABLE `produto` ( 
+  `idProduto` INT AUTO_INCREMENT NOT NULL,
+  `nomeProduto` VARCHAR(150) NOT NULL,
+  `descProduto` text NOT NULL,
+  `geralCategoria` VARCHAR(100) NOT NULL,
+  `subCategoria` VARCHAR(100) NOT NULL,
+  `peso` VARCHAR(50) NOT NULL,
+  `altura` VARCHAR(50) NOT NULL,
+  `largura` VARCHAR(50) NOT NULL,
+  `profundidade` VARCHAR(50) NOT NULL,
+  `estoque` VARCHAR(50) NOT NULL, 
+  `madeira` VARCHAR(50) NOT NULL, 
+  `revestimento` VARCHAR(50) NOT NULL, 
+  `ferragem` VARCHAR(50) NOT NULL, 
+  `acabamento` VARCHAR(50) NOT NULL, 
+  `vidro` VARCHAR(50) NOT NULL, 
+  `precoBase` VARCHAR(20) NOT NULL, 
+  `desconto` VARCHAR(50) NOT NULL, 
+  `tipoDesconto` VARCHAR(100) NOT NULL,
+  `grupoDesconto` VARCHAR(100) NOT NULL,
+  `publicacao` VARCHAR(50) NOT NULL,
+  CONSTRAINT `PRIMARY` PRIMARY KEY (`idProduto`)
+);

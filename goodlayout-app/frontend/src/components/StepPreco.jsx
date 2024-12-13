@@ -59,7 +59,7 @@ export default function StepPreco() {
                     </div>
                     {desconto === 'Porcentagem' && (
                         <><div className="flex align-items-center w-12 gap-2 mb-3">
-                            <InputNumber className='basePrecoInput w-12 ' inputId="percent" value={percentageDesconto} onValueChange={(e) => setPercentageDesconto(e.value)} prefix="% " min={0} max={100} maxLength={4} />
+                            <InputNumber className='basePrecoInput w-12 ' inputId="percent" value={percentageDesconto} onValueChange={(e) => setPercentageDesconto(e.value)} prefix="% " min={0} max={100} maxLength={5} />
 
                             <Dropdown
                                 value={selectedDiscountType}

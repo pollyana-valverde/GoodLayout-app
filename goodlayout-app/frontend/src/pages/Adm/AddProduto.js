@@ -19,7 +19,7 @@ export default function AddProduto() {
         <Container >
             <Row className="flex justify-content-center w-12 mt-4">
                 <Col lg={12}>
-                    <h5>Adicionar novo produto</h5>
+                    <h5 className="text-sm" style={{margin:'unset', color: 'var(--oliveWoodLow)'}}>Produtos / <span className="font-semibold">Adicionar o produto</span></h5>
                     <Stepper ref={stepperRef}>
                         <StepperPanel header="Overview">
                             <div className="flex flex-column">
