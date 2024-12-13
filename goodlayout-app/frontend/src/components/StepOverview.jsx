@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { Editor } from "primereact/editor";
 import { Container, Row, Col } from 'react-bootstrap';
 import { Dropdown } from 'primereact/dropdown';
 import { InputText } from "primereact/inputtext";
@@ -7,6 +8,7 @@ import { InputTextarea } from "primereact/inputtextarea";
 import '../css/stepOverview.css';
 
 export default function StepOverview() {
+        const [text, setText] = useState('');
     const [selectedGeralCategories, setSelectedGeralCategories] = useState(null);
     const [selectedEspecificCategories, setSelectedEspecificCategories] = useState(null);
     const [valueInput, setValueInput] = useState('');
@@ -60,8 +62,8 @@ export default function StepOverview() {
                     <h5>Imagens do produto</h5>
                     <p>descrição imagem</p>
                 </Col>
-                <Col lg={8} className="flex gap-2 ">
-                    <div className="flex flex-nowrap gap-2 ">
+                <Col lg={8} className={`flex flex-nowrap  ${images.length === 0 ? 'gap-0' : 'gap-2'}`}>
+                    <div className='flex flex-nowrap gap-2 '>
                         {images.map((image, index) => (
                             <div key={index} className="relative imagePreviewOverview">
                                 <img
@@ -132,7 +134,8 @@ export default function StepOverview() {
                     <p>Breve descrição do produto</p>
                 </Col>
                 <Col lg={8}>
-                    <InputTextarea className="w-12 descInputProdutoOverview" value={valueTextArea} onChange={(e) => setValueTextArea(e.target.value)} rows={3} />
+                    <Editor value={text} onTextChange={(e) => setText(e.htmlValue)} style={{ height: '150px' }} />
+                    {/* <InputTextarea className="w-12 descInputProdutoOverview" value={valueTextArea} onChange={(e) => setValueTextArea(e.target.value)} rows={3} /> */}
                 </Col>
             </Col>
         </Row>

@@ -39,7 +39,7 @@ export default function StepPreco() {
                 </Col>
                 <Col lg={8}>
                     <div className="flex-auto">
-                        <InputNumber className='basePrecoInput w-12' inputId="currency-us" value={basePrice} onValueChange={(e) => setBasePrice(e.value)} mode="currency" currency="BRL" locale="pt-BR" maxLength={18} />
+                        <InputNumber className='basePrecoInput w-12' inputId="currency-us" value={basePrice} onValueChange={(e) => setBasePrice(e.value)} min={0}  mode="currency" currency="BRL" locale="pt-BR" maxLength={18} />
                     </div>
                 </Col>
             </Col>
@@ -59,7 +59,7 @@ export default function StepPreco() {
                     </div>
                     {desconto === 'Porcentagem' && (
                         <><div className="flex align-items-center w-12 gap-2 mb-3">
-                            <InputNumber className='basePrecoInput w-12 ' inputId="percent" value={percentageDesconto} onValueChange={(e) => setPercentageDesconto(e.value)} prefix="%" maxLength={4} />
+                            <InputNumber className='basePrecoInput w-12 ' inputId="percent" value={percentageDesconto} onValueChange={(e) => setPercentageDesconto(e.value)} prefix="% " min={0} max={100} maxLength={4} />
 
                             <Dropdown
                                 value={selectedDiscountType}

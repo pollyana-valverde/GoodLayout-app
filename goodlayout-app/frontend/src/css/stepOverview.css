@@ -35,14 +35,14 @@
 }
 
 .nomeInputProdutoOverview,
-.descInputProdutoOverview, .basePrecoInput .p-inputnumber-input.p-inputtext {
+.descInputProdutoOverview, .basePrecoInput .p-inputnumber-input.p-inputtext, .dimemsoesStepDescricoes input {
     background-color: transparent;
     border: 1.5px solid var(--oliveWoodSuperLow);
     color: var(--oliveWoodLow);
 }
 
 .nomeInputProdutoOverview:focus,
-.descInputProdutoOverview:focus, .basePrecoInput .p-inputnumber-input.p-inputtext:focus {
+.descInputProdutoOverview:focus, .basePrecoInput .p-inputnumber-input.p-inputtext:focus, .dimemsoesStepDescricoes input:focus {
     border-color: var(--oliveWoodLow);
     box-shadow: none;
     color: var(--oliveWood);
@@ -109,4 +109,53 @@
     background-color: transparent;
     font-weight: 500;
     color: var(--oliveWood);
+}
+
+/*estilização do esditor*/
+
+.ql-toolbar.ql-snow {
+    border: 1.5px solid var(--oliveWoodSuperLow) !important;
+    border-radius: 20px 20px 0 0;
+}
+
+.ql-container.ql-snow {
+    border: 1.5px solid var(--oliveWoodSuperLow) !important;
+    border-radius: 0 0 20px 20px;
+}
+
+.ql-snow .ql-picker {
+    color: var(--oliveWoodLow) !important;
+}
+
+.ql-snow .ql-stroke {
+    stroke: var(--oliveWoodLow) !important;
+}
+
+.ql-snow .ql-fill,
+.ql-snow .ql-stroke.ql-fill {
+    fill: var(--oliveWoodLow) !important;
+}
+
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+    border-color: var(--oliveWoodLow) !important;
+    border-radius: 10px 10px 0 0;
+}
+
+.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+    color: var(--oliveWoodSuperLow) !important;
+}
+
+.ql-snow.ql-toolbar .ql-picker-label.ql-active {
+    color: var(--oliveWoodLow) !important;
+}
+
+.ql-snow .ql-picker-options {
+    background-color: var(--white) !important;
+    border-color: var(--oliveWoodLow) !important;
+    border-radius: 0 0 10px 10px !important;
+}
+
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected {
+    color: var(--oliveWood) !important;
+    font-weight: 600;
 }
