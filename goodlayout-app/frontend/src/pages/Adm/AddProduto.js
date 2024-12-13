@@ -27,7 +27,7 @@ export default function AddProduto() {
                             </div>
                             <div className="flex pt-2 justify-content-end ">
                                 <Button className="btnStepNext"
-                                    label="Next"
+                                    label="Próximo"
                                     icon="pi pi-arrow-right"
                                     iconPos="right"
                                     onClick={() => stepperRef.current.nextCallback()} />
@@ -37,15 +37,15 @@ export default function AddProduto() {
                             <div className="flex flex-column">
                                 <StepDescricoes />
                             </div>
-                            <div className="flex pt-2 justify-content-between">
+                            <div className="flex pt-2 justify-content-end gap-2">
                                 <Button className="btnStepPrev"
-                                    label="Back"
+                                    label="Voltar"
                                     severity="secondary"
                                     icon="pi pi-arrow-left"
                                     onClick={() => stepperRef.current.prevCallback()} />
 
                                 <Button className="btnStepNext"
-                                    label="Next"
+                                    label="Próximo"
                                     icon="pi pi-arrow-right"
                                     iconPos="right"
                                     onClick={() => stepperRef.current.nextCallback()} />
@@ -55,15 +55,15 @@ export default function AddProduto() {
                             <div className="flex flex-column">
                                 <StepPreco />
                             </div>
-                            <div className="flex pt-2 justify-content-between">
+                            <div className="flex pt-2 justify-content-end gap-2">
                                 <Button className="btnStepPrev"
-                                    label="Back"
+                                    label="Voltar"
                                     severity="secondary"
                                     icon="pi pi-arrow-left"
                                     onClick={() => stepperRef.current.prevCallback()} />
 
                                 <Button className="btnStepNext"
-                                    label="Next"
+                                    label="Próximo"
                                     icon="pi pi-arrow-right"
                                     iconPos="right"
                                     onClick={() => stepperRef.current.nextCallback()} />
@@ -73,12 +73,17 @@ export default function AddProduto() {
                             <div className="flex flex-column">
                                 <StepConfirmacoes />
                             </div>
-                            <div className="flex pt-2 justify-content-start">
+                            <div className="flex pt-2 justify-content-end gap-2">
                                 <Button className="btnStepPrev"
-                                    label="Back"
+                                    label="Voltar"
                                     severity="secondary"
                                     icon="pi pi-arrow-left"
                                     onClick={() => stepperRef.current.prevCallback()} />
+                                <Button className="btnStepNext"
+                                    label="Concluir"
+                                    icon="pi pi-check"
+                                    iconPos="right"
+                                     />
                             </div>
                         </StepperPanel>
 

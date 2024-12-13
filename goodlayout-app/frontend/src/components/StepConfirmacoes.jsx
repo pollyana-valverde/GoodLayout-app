@@ -86,8 +86,9 @@ export default function StepConfirmacoes() {
                     )}
                 </Col>
             </Col>
-            <br />
-            adicionar uma prévia do produto
+            <Col>
+            <h5>Confira todas as informações antes de publicar ou agendar.</h5>
+            </Col>
         </Row>
     )
 }
