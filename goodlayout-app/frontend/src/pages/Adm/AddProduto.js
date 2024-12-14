@@ -145,7 +145,7 @@ export default function AddProduto() {
         } catch (error) {
 
             console.error('Erro ao publicar produto:', error);
-            if (!formData) {
+            if (formData) {
                 toast.current.show({
                     severity: 'error',
                     summary: 'Erro ao publicar produto',

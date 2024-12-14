@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import axios from "axios";
 import { Editor } from "primereact/editor";
 import { Container, Row, Col } from 'react-bootstrap';
 import { Dropdown } from 'primereact/dropdown';
@@ -9,17 +10,37 @@ import '../css/stepOverview.css';
 
 export default function StepOverview({ formData,setFormData, handleChange }) {
     const inputFileRef = useRef(null);
+    const [geralCategories, setGeralCategories] = useState([]);
+    const [especificCategories, setEspecificCategories] = useState([]);
 
-    const geralCategories = [
-        'Sofas1',
-        'Sofas2',
-        'Sofas3',
-        'Sofas4',
-    ];
 
-    const especificCategories = [
-        'Madeira'
-    ];
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const { data } = await axios.get("http://localhost:3002/categorias_moveis_externos");
+
+                const newProductId = data.map(item => item.nome_categoria);
+                setGeralCategories(newProductId);
+
+                console.log('nome categorias_moveis_externos: ', newProductId);
+            } catch (error) {
+                console.error("Erro ao buscar tipos de madeira:", error);
+            }
+
+            try {
+                const { data } = await axios.get("http://localhost:3002/subcategorias_moveis_externos");
+
+                const newProductId = data.map(item => item.nome_subcategoria);
+                setEspecificCategories(newProductId);
+                
+                console.log('nome subcategorias_moveis_externos: ', newProductId);
+            } catch (error) {
+                console.error("Erro ao buscar tipos de revestimento:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const handleImageChange = (e) => {
         const files = Array.from(e.target.files);

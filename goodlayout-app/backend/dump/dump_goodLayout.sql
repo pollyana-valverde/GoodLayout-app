@@ -38,8 +38,8 @@ CREATE TABLE `newsletter` (
 
 CREATE TABLE `suportePergunta` ( 
   `idSuportePergunta` INT AUTO_INCREMENT NOT NULL,
-  `nome` VARCHAR(150) NOT NULL,
-  `sobrenome` VARCHAR(150) NOT NULL,
+  `nome` VARCHAR(150),
+  `sobrenome` VARCHAR(150) ,
   `email` VARCHAR(150) NOT NULL,
   `telefone` VARCHAR(20) NOT NULL,
   `pergunta` text NOT NULL,
@@ -65,14 +65,14 @@ CREATE TABLE `produto` (
   `vidro` VARCHAR(50) NOT NULL, 
   `precoBase` VARCHAR(20) NOT NULL, 
   `desconto` VARCHAR(50) NOT NULL, 
-  `quantDesconto` VARCHAR(50) NOT NULL, 
-  `tipoDesconto` VARCHAR(100) NOT NULL,
-  `grupoDesconto` VARCHAR(100) NOT NULL,
-  `tipoGrupoDesconto` VARCHAR(100) NOT NULL,
-  `publicacao` VARCHAR(50) NOT NULL,
+  `quantDesconto` VARCHAR(50) , 
+  `tipoDesconto` VARCHAR(100),
+  `grupoDesconto` VARCHAR(100),
+  `tipoGrupoDesconto` VARCHAR(100),
+  `publicacao` VARCHAR(50),
   `rascunho` VARCHAR(50) NOT NULL,
-  `dataPublicacao` VARCHAR(50) NOT NULL,
-  `timePublicacao` VARCHAR(50) NOT NULL,
+  `dataPublicacao` VARCHAR(50),
+  `timePublicacao` VARCHAR(50),
   CONSTRAINT `PRIMARY` PRIMARY KEY (`idProduto`)
 );
 
@@ -98,3 +98,222 @@ CREATE TABLE produtoCorImg (
     FOREIGN KEY (cores_id) REFERENCES coresProduto(idCoresProduto) ON DELETE CASCADE,
     FOREIGN KEY (Img_id) REFERENCES imgProduto(idImgProduto) ON DELETE CASCADE
 );
+
+
+CREATE TABLE tipos_madeiras (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_madeira VARCHAR(255) NOT NULL
+);
+
+INSERT INTO tipos_madeiras (nome_madeira) VALUES
+('Mogno'),
+('Carvalho'),
+('Cedro'),
+('Pinho'),
+('Ipê'),
+('Eucalipto'),
+('Freijó'),
+('Jacarandá'),
+('Teca'),
+('Cumaru'),
+('Angelim'),
+('Amêndola'),
+('Cerejeira'),
+('Imbuia'),
+('Peroba Rosa'),
+('Marfim'),
+('Pau-Brasil'),
+('Tauari'),
+('Bambu'),
+('Pinus');
+
+CREATE TABLE tipos_revestimento (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_revestimento VARCHAR(255) NOT NULL
+);
+
+INSERT INTO tipos_revestimento (nome_revestimento) VALUES
+('Laca'),
+('Verniz fosco'),
+('Verniz brilhante'),
+('Cera'),
+('Melamina'),
+('Fórmica'),
+('Tecido sintético'),
+('Couro natural'),
+('Couro sintético'),
+('Linho'),
+('Veludo'),
+('Microfibra'),
+('Vinil'),
+('Poliéster'),
+('Aço inox escovado'),
+('Pintura PU'),
+('Textura rústica'),
+('Madeira laminada'),
+('Revestimento em vidro'),
+('Pintura UV');
+
+CREATE TABLE tipos_acabamento (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_acabamento VARCHAR(255) NOT NULL
+);
+
+INSERT INTO tipos_acabamento (nome_acabamento) VALUES
+('Fosco'),
+('Semi-brilho'),
+('Alto brilho'),
+('Texturizado'),
+('Natural'),
+('Envernizado'),
+('Laqueado'),
+('Pintado à mão'),
+('Patinado'),
+('Decapê'),
+('Polido'),
+('Rústico'),
+('Escovado'),
+('Carbonizado'),
+('Ebanizado'),
+('Cromado'),
+('Oxidado'),
+('Envelhecido'),
+('Vitrificado'),
+('Cintilante');
+
+CREATE TABLE tipos_vidro (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_vidro VARCHAR(255) NOT NULL
+);
+
+INSERT INTO tipos_vidro (nome_vidro) VALUES
+('Vidro temperado'),
+('Vidro laminado'),
+('Vidro jateado'),
+('Vidro fumê'),
+('Vidro bronze'),
+('Vidro refletivo'),
+('Vidro fosco'),
+('Vidro serigrafado'),
+('Vidro incolor'),
+('Vidro colorido'),
+('Vidro antirreflexo'),
+('Vidro aramado'),
+('Vidro curvo'),
+('Vidro insulado'),
+('Vidro acidado'),
+('Vidro extra-clear'),
+('Vidro espelhado'),
+('Vidro blindado'),
+('Vidro com proteção UV'),
+('Vidro com película de segurança');
+
+CREATE TABLE tipos_ferragens (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_ferragem VARCHAR(255) NOT NULL
+);
+
+INSERT INTO tipos_ferragens (nome_ferragem) VALUES
+('Aço inox'),
+('Aço carbono'),
+('Alumínio'),
+('Bronze'),
+('Latão'),
+('Plástico'),
+('PVC'),
+('Zinco'),
+('Cobre'),
+('Niquelado'),
+('Cromo'),
+('Ferro fundido'),
+('Ferro galvanizado'),
+('Aço galvanizado'),
+('Aço tratado'),
+('Acetal'),
+('Nylon'),
+('Aço inox escovado'),
+('Polipropileno'),
+('Silicone');
+
+
+CREATE TABLE categorias_moveis_externos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_categoria VARCHAR(255) NOT NULL
+);
+
+INSERT INTO categorias_moveis_externos (nome_categoria) VALUES
+('Mesas externas'),
+('Cadeiras externas'),
+('Sofás para área externa'),
+('Espreguiçadeiras'),
+('Bancos de jardim'),
+('Conjuntos de jantar para áreas externas'),
+('Guarda-sóis'),
+('Gazebos'),
+('Churrasqueiras'),
+('Estantes externas'),
+('Armários externos'),
+('Pérgulas'),
+('Jardineiras'),
+('Decoração de parede externa'),
+('Tapetes para áreas externas');
+
+CREATE TABLE subcategorias_moveis_externos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_subcategoria VARCHAR(255) NOT NULL,
+    categoria_id INT NOT NULL,
+    FOREIGN KEY (categoria_id) REFERENCES categorias_moveis_externos(id)
+);
+
+INSERT INTO subcategorias_moveis_externos (nome_subcategoria, categoria_id) VALUES
+('Mesas de madeira', 1),
+('Mesas dobráveis', 1),
+('Cadeiras de madeira', 2),
+('Cadeiras de metal', 2),
+('Sofás modulares', 3),
+('Sofás de vime', 3),
+('Espreguiçadeiras de plástico', 4),
+('Espreguiçadeiras de madeira', 4),
+('Bancos rústicos', 5),
+('Bancos modernos', 5),
+('Conjuntos de jantar com 4 lugares', 6),
+('Conjuntos de jantar com 6 lugares', 6),
+('Guarda-sóis de lona', 7),
+('Guarda-sóis articulados', 7),
+('Gazebos de madeira', 8),
+('Gazebos de metal', 8),
+('Churrasqueiras portáteis', 9),
+('Churrasqueiras embutidas', 9),
+('Estantes decorativas', 10),
+('Estantes funcionais', 10),
+('Armários com acabamento resistente à água', 11),
+('Pérgulas com cobertura de vidro', 12),
+('Pérgulas com cobertura de lona', 12),
+('Jardineiras suspensas', 13),
+('Jardineiras de chão', 13),
+('Decoração com cerâmica', 14),
+('Decoração com madeira', 14),
+('Tapetes antiderrapantes', 15),
+('Tapetes impermeáveis', 15);
+
+
+CREATE TABLE tipos_desconto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_desconto VARCHAR(255) NOT NULL
+);
+
+INSERT INTO tipos_desconto (nome_desconto) VALUES
+('Primeira compra'),
+('Dia do meio ambiente'),
+('Natal'),
+('Ano Novo'),
+('Páscoa'),
+('Dia das Mães'),
+('Dia dos Pais'),
+('Black Friday'),
+('Cyber Monday'),
+('Dia das Crianças'),
+('Dia dos Namorados'),
+('Halloween'),
+('Ação de Graças'),
+('Dia do Trabalhador');

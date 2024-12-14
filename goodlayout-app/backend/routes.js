@@ -316,6 +316,94 @@ router.post('/produtoCorImg', (req, res) => {
     });
 });
 
+////////////////////////////////////rotas dos materiais////////////////////
+router.get('/tipos_madeiras', (req, res) => {
+    connection.query('SELECT * FROM tipos_madeiras', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
+router.get('/tipos_revestimento', (req, res) => {
+    connection.query('SELECT * FROM tipos_revestimento', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
+router.get('/tipos_acabamento', (req, res) => {
+    connection.query('SELECT * FROM tipos_acabamento', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
+router.get('/tipos_vidro', (req, res) => {
+    connection.query('SELECT * FROM tipos_vidro', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
+router.get('/tipos_ferragens', (req, res) => {
+    connection.query('SELECT * FROM tipos_ferragens', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
+router.get('/categorias_moveis_externos', (req, res) => {
+    connection.query('SELECT * FROM categorias_moveis_externos', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
+router.get('/subcategorias_moveis_externos', (req, res) => {
+    connection.query('SELECT * FROM subcategorias_moveis_externos', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
+router.get('/tipos_desconto', (req, res) => {
+    connection.query('SELECT * FROM tipos_desconto', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
+            return;
+        }
+        res.json(results);
+    });
+});
 
 
 module.exports = router;

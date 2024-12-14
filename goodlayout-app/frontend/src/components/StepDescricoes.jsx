@@ -1,5 +1,6 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { InputNumber } from 'primereact/inputnumber';
 import { Row, Col } from 'react-bootstrap';
 import { Dropdown } from 'primereact/dropdown';
@@ -10,36 +11,73 @@ import { Button } from 'primereact/button';
 import '../css/stepDescricoes.css';
 
 export default function StepDescricoes({ formData, setFormData, handleChange }) {
-    const tiposMadeira = [
-        'Ano novo',
-        'Sofas2',
-        'Sofas3',
-        'Sofas4',
-    ];
-    const tiposAcabamento = [
-        'Ano novo',
-        'Sofas2',
-        'Sofas3',
-        'Sofas4',
-    ];
-    const tiposRevestimento = [
-        'Ano novo',
-        'Sofas2',
-        'Sofas3',
-        'Sofas4',
-    ];
-    const tiposFerragen = [
-        'Ano novo',
-        'Sofas2',
-        'Sofas3',
-        'Sofas4',
-    ];
-    const tiposVidro = [
-        'Ano novo',
-        'Sofas2',
-        'Sofas3',
-        'Sofas4',
-    ];
+    const [tiposMadeira, setTiposMadeira] = useState([]);
+    const [tiposAcabamento, setTiposAcabamento] = useState([]);
+    const [tiposRevestimento, setTiposRevestimento] = useState([]);
+    const [tiposVidro, setTiposVidro] = useState([]);
+    const [tiposFerragen, setTiposFerragen] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const { data } = await axios.get("http://localhost:3002/tipos_madeiras");
+
+                const newProductId = data.map(item => item.nome_madeira);
+                setTiposMadeira(newProductId);
+
+                console.log('nome madeira: ', newProductId);
+            } catch (error) {
+                console.error("Erro ao buscar tipos de madeira:", error);
+            }
+
+            try {
+                const { data } = await axios.get("http://localhost:3002/tipos_revestimento");
+
+                const newProductId = data.map(item => item.nome_revestimento);
+                setTiposRevestimento(newProductId);
+                
+                console.log('nome tipos_revestimento: ', newProductId);
+            } catch (error) {
+                console.error("Erro ao buscar tipos de revestimento:", error);
+            }
+
+            try {
+                const { data } = await axios.get("http://localhost:3002/tipos_acabamento");
+
+                const newProductId = data.map(item => item.nome_acabamento);
+                setTiposAcabamento(newProductId);
+                
+                console.log('nome tipos_acabamento: ', newProductId);
+            } catch (error) {
+                console.error("Erro ao buscar tipos de madeira:", error);
+            }
+
+            try {
+                const { data } = await axios.get("http://localhost:3002/tipos_vidro");
+
+                const newProductId = data.map(item => item.nome_vidro);
+                setTiposVidro(newProductId);
+                
+                console.log('nome tipos_vidro: ', newProductId);
+            } catch (error) {
+                console.error("Erro ao buscar tipos de madeira:", error);
+            }
+
+            try {
+                const { data } = await axios.get("http://localhost:3002/tipos_ferragens");
+
+                const newProductId = data.map(item => item.nome_ferragem);
+                setTiposFerragen(newProductId);
+                
+                console.log('nome tipos_ferragens: ', newProductId);
+            } catch (error) {
+                console.error("Erro ao buscar tipos de madeira:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
 
     const [newColor, setNewColor] = useState(); // Estado para a nova cor
 
@@ -133,14 +171,14 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
                 <Col lg={8} className="flex flex-column gap-2 dimemsoesStepDescricoes">
                     <div className="flex gap-2">
                         <Dropdown
-                        name="madeira" value={formData.madeira} onChange={handleChange}
+                            name="madeira" value={formData.madeira} onChange={handleChange}
                             showClear
                             options={tiposMadeira}
                             optionLabel="name"
                             placeholder="Tipos de madeira"
                             filter className="w-full " />
                         <Dropdown
-                        name="ferragem" value={formData.ferragem} onChange={handleChange}
+                            name="ferragem" value={formData.ferragem} onChange={handleChange}
                             showClear
                             options={tiposFerragen}
                             optionLabel="name"
@@ -149,14 +187,14 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
                     </div>
                     <div className="flex gap-2">
                         <Dropdown
-                        name="revestimento" value={formData.revestimento} onChange={handleChange}
+                            name="revestimento" value={formData.revestimento} onChange={handleChange}
                             showClear
                             options={tiposRevestimento}
                             optionLabel="name"
                             placeholder="Tipos revestimento"
                             filter className="w-full " />
                         <Dropdown
-                        name="acabamento" value={formData.acabamento} onChange={handleChange}
+                            name="acabamento" value={formData.acabamento} onChange={handleChange}
                             showClear
                             options={tiposAcabamento}
                             optionLabel="name"

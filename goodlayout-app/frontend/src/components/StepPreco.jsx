@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Row, Col } from 'react-bootstrap';
 import { Dropdown } from 'primereact/dropdown';
 import { InputNumber } from 'primereact/inputnumber';
@@ -7,6 +8,8 @@ import { RadioButton } from "primereact/radiobutton";
 import '../css/stepPreco.css';
 
 export default function StepPreco({ formData, handleChange }) {
+        const [tiposDesconto, setTiposDesconto] = useState([]);
+    
     const gruposClientes = [
         'Sofas1',
         'Sofas2',
@@ -14,12 +17,35 @@ export default function StepPreco({ formData, handleChange }) {
         'Sofas4',
     ];
 
-    const tiposDesconto = [
-        'Ano novo',
-        'Sofas2',
-        'Sofas3',
-        'Sofas4',
-    ];
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const { data } = await axios.get("http://localhost:3002/tipos_desconto");
+
+                const newProductId = data.map(item => item.nome_desconto);
+                setTiposDesconto(newProductId);
+
+                console.log('nome tipos_desconto: ', newProductId);
+            } catch (error) {
+                console.error("Erro ao buscar tipos de madeira:", error);
+            }
+
+            // try {
+            //     const { data } = await axios.get("http://localhost:3002/subcategorias_moveis_externos");
+
+            //     const newProductId = data.map(item => item.nome_subcategoria);
+            //     setEspecificCategories(newProductId);
+                
+            //     console.log('nome subcategorias_moveis_externos: ', newProductId);
+            // } catch (error) {
+            //     console.error("Erro ao buscar tipos de revestimento:", error);
+            // }
+        };
+
+        fetchData();
+    }, []);
 
     return (
         <Row className="flex flex-wrap flex-column">
