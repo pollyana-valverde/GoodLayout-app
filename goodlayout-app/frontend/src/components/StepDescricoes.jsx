@@ -9,20 +9,7 @@ import { Button } from 'primereact/button';
 
 import '../css/stepDescricoes.css';
 
-export default function BasicDemo() {
-    const [text, setText] = useState('');
-    const [peso, setPeso] = useState(5);
-    const [altura, setAltura] = useState(50);
-    const [largura, setLargura] = useState(50);
-    const [profundidade, setProfundidade] = useState(50);
-    const [estoque, setEstoque] = useState(50);
-
-    const [madeira, setMadeira] = useState(null);
-    const [acabamento, setAcabamento] = useState(null);
-    const [revestimento, setRevestimento] = useState(null);
-    const [ferragens, setFerragens] = useState(null);
-    const [vidros, setVidros] = useState(null);
-
+export default function StepDescricoes({ formData, formDataCor, setFormDataCor, handleChange }) {
     const tiposMadeira = [
         'Ano novo',
         'Sofas2',
@@ -56,12 +43,15 @@ export default function BasicDemo() {
 
 
     const [colors, setColors] = useState([]); // Estado para armazenar as cores
-    const [newColor, setNewColor] = useState(''); // Estado para a nova cor
+    const [newColor, setNewColor] = useState(); // Estado para a nova cor
 
     // Função para adicionar a cor
     const addColor = () => {
         if (newColor.trim()) {
             setColors([...colors, newColor]);
+            setFormDataCor({
+                ...formDataCor,
+                nomeCor: [...colors, newColor]});
             setNewColor(''); // Limpa o input após adicionar
         }
     };
@@ -82,12 +72,12 @@ export default function BasicDemo() {
                 </Col>
                 <Col lg={8} className="flex flex-column gap-2 dimemsoesStepDescricoes">
                     <div className="flex gap-2 ">
-                        <InputNumber inputId="peso" className="w-12" value={peso} onValueChange={(e) => setPeso(e.value)} min={0} prefix="Peso " suffix=" Kg" minFractionDigits={2} maxFractionDigits={3} useGrouping={false} />
-                        <InputNumber inputId="altura" className="w-12" value={altura} onValueChange={(e) => setAltura(e.value)} min={0} prefix="Altura " suffix=" cm" minFractionDigits={2} useGrouping={false} />
+                        <InputNumber inputId="peso" className="w-12" name="peso" value={formData.peso} onValueChange={handleChange} min={0} prefix="Peso " suffix=" Kg" minFractionDigits={2} maxFractionDigits={3} useGrouping={false} />
+                        <InputNumber inputId="altura" className="w-12" name="altura" value={formData.altura} onValueChange={handleChange} min={0} prefix="Altura " suffix=" cm" minFractionDigits={2} useGrouping={false} />
                     </div>
                     <div className="flex gap-2">
-                        <InputNumber inputId="largura" className="w-12" value={largura} onValueChange={(e) => setLargura(e.value)} min={0} prefix="Largura " suffix=" cm" minFractionDigits={2} useGrouping={false} />
-                        <InputNumber inputId="profundidade" className="w-12" value={profundidade} onValueChange={(e) => setProfundidade(e.value)} min={0} prefix="Profundidade " suffix=" cm" minFractionDigits={2} useGrouping={false} />
+                        <InputNumber inputId="largura" className="w-12" name="largura" value={formData.largura} onValueChange={handleChange} min={0} prefix="Largura " suffix=" cm" minFractionDigits={2} useGrouping={false} />
+                        <InputNumber inputId="profundidade" className="w-12" name="profundidade" value={formData.profundidade} onValueChange={handleChange} min={0} prefix="Profundidade " suffix=" cm" minFractionDigits={2} useGrouping={false} />
                     </div>
                 </Col>
             </Col>
@@ -117,7 +107,7 @@ export default function BasicDemo() {
                     </div>
                     {colors.length < 11 ? (
                         <div className="flex gap-2 w-12">
-                            <InputText className="w-12" value={newColor} onChange={(e) => setNewColor(e.target.value)} />
+                            <InputText className="w-12" value={newColor} name="nomeCor" onChange={(e) => setNewColor(e.target.value)} />
                             <Button className="addColorBtn"
                                 icon="pi pi-plus"
                                 onClick={addColor} />
@@ -133,17 +123,15 @@ export default function BasicDemo() {
                 <Col lg={8} className="flex flex-column gap-2 dimemsoesStepDescricoes">
                     <div className="flex gap-2">
                         <Dropdown
-                            value={madeira}
+                        name="madeira" value={formData.madeira} onChange={handleChange}
                             showClear
-                            onChange={(e) => setMadeira(e.value)}
                             options={tiposMadeira}
                             optionLabel="name"
                             placeholder="Tipos de madeira"
                             filter className="w-full " />
                         <Dropdown
-                            value={ferragens}
+                        name="ferragem" value={formData.ferragem} onChange={handleChange}
                             showClear
-                            onChange={(e) => setFerragens(e.value)}
                             options={tiposFerragen}
                             optionLabel="name"
                             placeholder="Tipos de ferragem"
@@ -151,26 +139,23 @@ export default function BasicDemo() {
                     </div>
                     <div className="flex gap-2">
                         <Dropdown
-                            value={revestimento}
+                        name="revestimento" value={formData.revestimento} onChange={handleChange}
                             showClear
-                            onChange={(e) => setRevestimento(e.value)}
                             options={tiposRevestimento}
                             optionLabel="name"
                             placeholder="Tipos revestimento"
                             filter className="w-full " />
                         <Dropdown
-                            value={acabamento}
+                        name="acabamento" value={formData.acabamento} onChange={handleChange}
                             showClear
-                            onChange={(e) => setAcabamento(e.value)}
                             options={tiposAcabamento}
                             optionLabel="name"
                             placeholder="Tipos acabamento"
                             filter className="w-full " />
                     </div>
                     <Dropdown
-                        value={vidros}
+                        name="vidro" value={formData.vidro} onChange={handleChange}
                         showClear
-                        onChange={(e) => setVidros(e.value)}
                         options={tiposVidro}
                         optionLabel="name"
                         placeholder="Tipos e detalhes de vidro"
@@ -184,7 +169,7 @@ export default function BasicDemo() {
                     <p>descrição imagem</p>
                 </Col>
                 <Col lg={8} className="flex flex-column dimemsoesStepDescricoes">
-                    <InputNumber inputId="minmax" value={estoque} onValueChange={(e) => setEstoque(e.value)} min={0} />
+                    <InputNumber inputId="minmax" name="estoque" value={formData.estoque} onValueChange={handleChange} min={0} />
                 </Col>
             </Col>
         </Row>

@@ -22,22 +22,31 @@ export default function AddProduto() {
         descProduto: '',
         geralCategoria: null,
         subCategoria: null,
-        peso: '',
-        altura: '',
-        largura: '',
-        profundidade: '',
-        estoque: '',
-        madeira: '',
-        revestimento: '',
-        ferragem: '',
-        acabamento: '',
-        vidro: '',
-        precoBase: '',
+        peso: 0,
+        altura: 0,
+        largura: 0,
+        profundidade: 0,
+        estoque: 0,
+        madeira: null,
+        revestimento: null,
+        ferragem: null,
+        acabamento: null,
+        vidro: null,
+        precoBase: 0,
         desconto: '',
-        tipoDesconto: '',
-        grupoDesconto: '',
+        quantDesconto: 0,
+        tipoDesconto: null,
+        grupoDesconto: null,
         publicacao: '',
+        rascunho: false,
+        dataPublicacao: '',
+        timePublicacao: '',
     });
+
+    const [formDataCor, setFormDataCor] = useState({
+        nomeCor: '',
+        produto_id: ''
+    })
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -47,20 +56,34 @@ export default function AddProduto() {
         });
     };
 
-    const handleEditorChange = (e) => {
-        const { name, value } = e.target.htmlValue;
-        setFormData({
-            descProduto,
-            [name]: value
-        });
-    };
+    // const handleEditorChange = (e) => {
+    //     const {  value } = e.htmlValue;
+    //     setFormData({
+    //         descProduto: value
+    //     });
+    // };
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            await axios.post('http://localhost:3002/produtos', formData);
+            const response = await axios.post('http://localhost:3002/produtos', formData);
+
+            const newProductId = response.data.id;
+
+            console.log('novo produto criado id: ', newProductId);
+
+
+            if (!response) {
+                const corProdutoResponse = await axios.post('http://localhost:3002/coresProduto', {
+                    ...formDataCor,
+                    nomeCor: formDataCor.nomeCor,
+                    produto_id: newProductId
+                });
+                console.log('nova cor de produto criada id: ', corProdutoResponse);
+            }
+
             toast.current.show({
                 severity: 'success',
                 summary: 'Inscrição concluída com sucesso!',
@@ -71,30 +94,42 @@ export default function AddProduto() {
                 descProduto: '',
                 geralCategoria: null,
                 subCategoria: null,
-                peso: '',
-                altura: '',
-                largura: '',
-                profundidade: '',
-                estoque: '',
-                madeira: '',
-                revestimento: '',
-                ferragem: '',
-                acabamento: '',
-                vidro: '',
-                precoBase: '',
+                peso: 0,
+                altura: 0,
+                largura: 0,
+                profundidade: 0,
+                estoque: 0,
+                madeira: null,
+                revestimento: null,
+                ferragem: null,
+                acabamento: null,
+                vidro: null,
+                precoBase: 0,
                 desconto: '',
-                tipoDesconto: '',
-                grupoDesconto: '',
+                quantDesconto: 0,
+                tipoDesconto: null,
+                grupoDesconto: null,
                 publicacao: '',
+                rascunho: false,
+                dataPublicacao: '',
+                timePublicacao: '',
             });
+
+            setFormDataCor({
+                nomeCor: '',
+                produto_id: ''
+            })
+
         } catch (error) {
 
             console.error('Erro ao publicar produto:', error);
-            toast.current.show({
-                severity: 'error',
-                summary: 'Erro ao publicar produto',
-                life: 3000
-            });
+            if (!formData) {
+                toast.current.show({
+                    severity: 'error',
+                    summary: 'Erro ao publicar produto',
+                    life: 3000
+                });
+            }
         }
     };
 
@@ -120,7 +155,7 @@ export default function AddProduto() {
                             </StepperPanel>
                             <StepperPanel header="Descrições">
                                 <div className="flex flex-column">
-                                    <StepDescricoes formData={formData} handleChange={handleChange}/>
+                                    <StepDescricoes formData={formData} handleChange={handleChange} formDataCor={formDataCor} setFormDataCor={setFormDataCor} />
                                 </div>
                                 <div className="flex pt-2 justify-content-end gap-2">
                                     <Button className="btnStepPrev"
@@ -138,7 +173,7 @@ export default function AddProduto() {
                             </StepperPanel>
                             <StepperPanel header="Preço">
                                 <div className="flex flex-column">
-                                    <StepPreco formData={formData} handleChange={handleChange}/>
+                                    <StepPreco formData={formData} handleChange={handleChange} />
                                 </div>
                                 <div className="flex pt-2 justify-content-end gap-2">
                                     <Button className="btnStepPrev"
@@ -156,7 +191,7 @@ export default function AddProduto() {
                             </StepperPanel>
                             <StepperPanel header="Confirmações">
                                 <div className="flex flex-column">
-                                    <StepConfirmacoes formData={formData} handleChange={handleChange}/>
+                                    <StepConfirmacoes formData={formData} handleChange={handleChange} />
                                 </div>
                                 <div className="flex pt-2 justify-content-end gap-2">
                                     <Button className="btnStepPrev"

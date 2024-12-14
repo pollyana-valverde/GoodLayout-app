@@ -7,12 +7,7 @@ import { InputTextarea } from "primereact/inputtextarea";
 
 import '../css/stepOverview.css';
 
-export default function StepOverview({ formData, handleChange, handleEditorChange }) {
-    const [text, setText] = useState('');
-    const [selectedGeralCategories, setSelectedGeralCategories] = useState(null);
-    const [selectedEspecificCategories, setSelectedEspecificCategories] = useState(null);
-    const [valueInput, setValueInput] = useState('');
-    const [valueTextArea, setValueTextArea] = useState('');
+export default function StepOverview({ formData, handleChange }) {
     const inputFileRef = useRef(null);
     const [images, setImages] = useState([]);
 
@@ -132,8 +127,8 @@ export default function StepOverview({ formData, handleChange, handleEditorChang
                     <p>Breve descrição do produto</p>
                 </Col>
                 <Col lg={8}>
-                    <Editor value={text} onChange={handleEditorChange} style={{ height: '150px' }} />
-                    {/* <InputTextarea className="w-12 descInputProdutoOverview" value={valueTextArea} onChange={(e) => setValueTextArea(e.target.value)} rows={3} /> */}
+                    {/* <Editor value={formData.descProduto} name="descProduto" onChange={handleEditorChange} style={{ height: '150px' }} /> */}
+                    <InputTextarea className="w-12 descInputProdutoOverview" value={formData.descProduto} name="descProduto" onChange={handleChange} rows={6} />
                 </Col>
             </Col>
         </Row>

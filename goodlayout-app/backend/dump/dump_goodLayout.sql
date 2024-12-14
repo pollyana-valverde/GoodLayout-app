@@ -65,8 +65,21 @@ CREATE TABLE `produto` (
   `vidro` VARCHAR(50) NOT NULL, 
   `precoBase` VARCHAR(20) NOT NULL, 
   `desconto` VARCHAR(50) NOT NULL, 
+  `quantDesconto` VARCHAR(50) NOT NULL, 
   `tipoDesconto` VARCHAR(100) NOT NULL,
   `grupoDesconto` VARCHAR(100) NOT NULL,
+  `tipoGrupoDesconto` VARCHAR(100) NOT NULL,
   `publicacao` VARCHAR(50) NOT NULL,
+  `rascunho` VARCHAR(50) NOT NULL,
+  `dataPublicacao` VARCHAR(50) NOT NULL,
+  `timePublicacao` VARCHAR(50) NOT NULL,
   CONSTRAINT `PRIMARY` PRIMARY KEY (`idProduto`)
+);
+
+CREATE TABLE `coresProduto` ( 
+  `idCoresProduto` INT AUTO_INCREMENT NOT NULL,
+  `nomeCor` VARCHAR(50) NOT NULL,
+  `produto_id` int,
+  CONSTRAINT `PRIMARY` PRIMARY KEY (`idCoresProduto`),
+   FOREIGN KEY (produto_id) REFERENCES produto(idProduto)
 );
