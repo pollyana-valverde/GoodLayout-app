@@ -79,7 +79,22 @@ CREATE TABLE `produto` (
 CREATE TABLE `coresProduto` ( 
   `idCoresProduto` INT AUTO_INCREMENT NOT NULL,
   `nomeCor` VARCHAR(50) NOT NULL,
-  `produto_id` int,
   CONSTRAINT `PRIMARY` PRIMARY KEY (`idCoresProduto`),
-   FOREIGN KEY (produto_id) REFERENCES produto(idProduto)
+);
+
+CREATE TABLE `imgProduto` (
+`idImgProduto` INT AUTO_INCREMENT NOT NULL,
+`imgCaminho` VARCHAR(255),  
+CONSTRAINT `PRIMARY` PRIMARY KEY (`idImgProduto`)
+);
+
+
+CREATE TABLE produtoCorImg (
+    idProdutoCorImg INT AUTO_INCREMENT PRIMARY KEY,
+    produto_id INT,
+    cores_id INT,
+    Img_id INT,
+    FOREIGN KEY (produto_id) REFERENCES produto(idProduto) ON DELETE CASCADE,
+    FOREIGN KEY (cores_id) REFERENCES coresProduto(idCoresProduto) ON DELETE CASCADE,
+    FOREIGN KEY (Img_id) REFERENCES imgProduto(idImgProduto) ON DELETE CASCADE
 );

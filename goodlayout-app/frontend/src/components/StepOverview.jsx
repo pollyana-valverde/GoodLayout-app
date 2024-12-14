@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Editor } from "primereact/editor";
 import { Container, Row, Col } from 'react-bootstrap';
 import { Dropdown } from 'primereact/dropdown';
@@ -7,9 +7,8 @@ import { InputTextarea } from "primereact/inputtextarea";
 
 import '../css/stepOverview.css';
 
-export default function StepOverview({ formData, handleChange }) {
+export default function StepOverview({ formData,setFormData, handleChange }) {
     const inputFileRef = useRef(null);
-    const [images, setImages] = useState([]);
 
     const geralCategories = [
         'Sofas1',
@@ -24,27 +23,42 @@ export default function StepOverview({ formData, handleChange }) {
 
     const handleImageChange = (e) => {
         const files = Array.from(e.target.files);
-        if (files.length + images.length > 6) {
+    
+        // Limitar o número de imagens a 6
+        if (files.length + formData.imgsProduto.length > 6) {
             alert('Você pode selecionar no máximo 6 imagens.');
             return;
         }
-
+    
+        // Criar objetos com preview
         const newImages = files.map((file) => ({
-            file,
-            preview: URL.createObjectURL(file),
+            preview: URL.createObjectURL(file), // Preview gerado pelo navegador
+            file, // Adicionado caso precise salvar no banco mais tarde
         }));
-
-        setImages((prev) => [...prev, ...newImages]);
+    
+        // Atualizar o estado
+        setFormData((prevData) => ({
+            ...prevData,
+            imgsProduto: [...prevData.imgsProduto, ...newImages],
+        }));
     };
+    
 
     // Função para remover uma imagem
     const removeImage = (index) => {
-        setImages((prev) => {
-            const updatedImages = [...prev];
-            updatedImages.splice(index, 1);
-            return updatedImages;
+        setFormData((prevData) => {
+            const updatedImgs = [...prevData.imgsProduto];
+            const removedImage = updatedImgs.splice(index, 1)[0];
+    
+            // Liberar URL gerada
+            if (removedImage.preview) {
+                URL.revokeObjectURL(removedImage.preview);
+            }
+    
+            return { ...prevData, imgsProduto: updatedImgs };
         });
     };
+    
 
     const handleClickInputFile = () => {
         inputFileRef.current.click();
@@ -57,12 +71,12 @@ export default function StepOverview({ formData, handleChange }) {
                     <h5>Imagens do produto</h5>
                     <p>descrição imagem</p>
                 </Col>
-                <Col lg={8} className={`flex flex-nowrap  ${images.length === 0 ? 'gap-0' : 'gap-2'}`}>
+                <Col lg={8} className={`flex flex-nowrap  ${formData.imgsProduto.length === 0 ? 'gap-0' : 'gap-2'}`}>
                     <div className='flex flex-nowrap gap-2 '>
-                        {images.map((image, index) => (
+                        {formData.imgsProduto.map((image, index) => (
                             <div key={index} className="relative imagePreviewOverview">
                                 <img
-                                    src={image.preview}
+                                    src={image.preview || `http://localhost:3002/${image.imgCaminho}`}
                                     alt={`Preview ${index}`}
                                 />
                                 <i className="pi pi-times removeImageOverview" onClick={() => removeImage(index)}></i>
@@ -77,13 +91,13 @@ export default function StepOverview({ formData, handleChange }) {
                             accept="image/*"
                             multiple
                             onChange={handleImageChange}
-                            disabled={images.length >= 6}
+                            disabled={formData.imgsProduto.length >= 6}
                         />
-                        {images.length != 6 ? (
+                        {formData.imgsProduto.length != 6 ? (
                             <>
                                 <div onClick={handleClickInputFile} className="flex w-12 gap-2 align-items-center justify-content-center addImageOverview">
                                     <i className="pi pi-plus text-sm"></i>
-                                    <p style={{ margin: 'unset' }}> adicionar ({6 - images.length})</p>
+                                    <p style={{ margin: 'unset' }}> adicionar ({6 - formData.imgsProduto.length})</p>
                                 </div>
                             </>
                         ) : (<></>)}

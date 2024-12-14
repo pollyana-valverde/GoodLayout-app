@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
+import React from "react";
+import { Row, Col } from 'react-bootstrap';
 import { Dropdown } from 'primereact/dropdown';
 import { InputNumber } from 'primereact/inputnumber';
-import { InputTextarea } from "primereact/inputtextarea";
 import { RadioButton } from "primereact/radiobutton";
 
 import '../css/stepPreco.css';

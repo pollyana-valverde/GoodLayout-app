@@ -1,9 +1,6 @@
 
-import React, { useEffect, useState, useRef } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
-import { Dropdown } from 'primereact/dropdown';
-import { InputNumber } from 'primereact/inputnumber';
-import { InputTextarea } from "primereact/inputtextarea";
+import React from "react";
+import { Row, Col } from 'react-bootstrap';
 import { RadioButton } from "primereact/radiobutton";
 import { InputSwitch } from "primereact/inputswitch";
 import { Calendar } from 'primereact/calendar';
@@ -11,16 +8,6 @@ import { Calendar } from 'primereact/calendar';
 import '../css/stepPreco.css';
 
 export default function StepConfirmacoes({ formData, handleChange }) {
-    const [selectedGrupoCliente, setSelectedGrupoCliente] = useState(null);
-    const [selectedDiscountType, setSelectedDiscountType] = useState(null);
-    const [basePrice, setBasePrice] = useState(1500);
-    const [checked, setChecked] = useState(false);
-    const [percentageDesconto, setPercentageDesconto] = useState(50);
-    const [valueTextArea, setValueTextArea] = useState('');
-    const [desconto, setDesconto] = useState('');
-    const [descontoGrupo, setDescontoGrupo] = useState('');
-    const [date, setDate] = useState(null);
-    const [time, setTime] = useState(null);
 
     return (
         <Row className="flex flex-wrap flex-column">

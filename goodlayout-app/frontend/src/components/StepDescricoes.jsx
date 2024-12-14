@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { InputNumber } from 'primereact/inputnumber';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { Dropdown } from 'primereact/dropdown';
 import { InputText } from "primereact/inputtext";
 import { Button } from 'primereact/button';
@@ -9,7 +9,7 @@ import { Button } from 'primereact/button';
 
 import '../css/stepDescricoes.css';
 
-export default function StepDescricoes({ formData, formDataCor, setFormDataCor, handleChange }) {
+export default function StepDescricoes({ formData, setFormData, handleChange }) {
     const tiposMadeira = [
         'Ano novo',
         'Sofas2',
@@ -41,25 +41,35 @@ export default function StepDescricoes({ formData, formDataCor, setFormDataCor, 
         'Sofas4',
     ];
 
-
-    const [colors, setColors] = useState([]); // Estado para armazenar as cores
     const [newColor, setNewColor] = useState(); // Estado para a nova cor
 
     // Função para adicionar a cor
     const addColor = () => {
-        if (newColor.trim()) {
-            setColors([...colors, newColor]);
-            setFormDataCor({
-                ...formDataCor,
-                nomeCor: [...colors, newColor]});
+        if (newColor && formData.coresProduto.length < 11) {
+            // setColors([...colors, newColor]);
+            setFormData(prevData => ({
+                ...prevData,
+                coresProduto: [...prevData.coresProduto, { nomeCor: newColor }],
+            }));
             setNewColor(''); // Limpa o input após adicionar
         }
     };
 
+    const handleAddColor = (e) => {
+        if (e.key === 'Enter' && newColor) {
+            e.preventDefault();
+            addColor();
+        }
+    };
+
+
     // Função para remover uma cor
     const removeColor = (index) => {
-        const updatedColors = colors.filter((_, i) => i !== index);
-        setColors(updatedColors);
+        const updatedColors = formData.coresProduto.filter((_, i) => i !== index);
+        setFormData(prevData => ({
+            ...prevData,
+            coresProduto: updatedColors,
+        }));
     };
 
 
@@ -86,16 +96,16 @@ export default function StepDescricoes({ formData, formDataCor, setFormDataCor, 
                     <h5>Cores</h5>
                     <p>descrição imagem</p>
                 </Col>
-                <Col lg={8} className={`flex dimemsoesStepDescricoes ${colors.length === 0 ? 'gap-0' : 'gap-2'}`}>
+                <Col lg={8} className={`flex dimemsoesStepDescricoes ${formData.coresProduto.length === 0 ? 'gap-0' : 'gap-2'}`}>
 
                     <div className="flex gap-2 flex-nowrap align-items-center">
-                        {colors.map((color, index) => (
+                        {formData.coresProduto.map((color, index) => (
                             <div className="relative border-circle"
                                 key={index}
                                 style={{
                                     width: '50px',
                                     height: '50px',
-                                    backgroundColor: color,
+                                    backgroundColor: color.nomeCor,
                                     border: '1px solid var(--oliveWoodLow)',
                                 }}
                             >
@@ -105,9 +115,9 @@ export default function StepDescricoes({ formData, formDataCor, setFormDataCor, 
                             </div>
                         ))}
                     </div>
-                    {colors.length < 11 ? (
+                    {formData.coresProduto.length < 11 ? (
                         <div className="flex gap-2 w-12">
-                            <InputText className="w-12" value={newColor} name="nomeCor" onChange={(e) => setNewColor(e.target.value)} />
+                            <InputText className="w-12" value={newColor} onKeyDown={handleAddColor} onChange={(e) => setNewColor(e.target.value)} />
                             <Button className="addColorBtn"
                                 icon="pi pi-plus"
                                 onClick={addColor} />

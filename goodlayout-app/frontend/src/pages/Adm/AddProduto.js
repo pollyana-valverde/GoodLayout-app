@@ -41,6 +41,8 @@ export default function AddProduto() {
         rascunho: false,
         dataPublicacao: '',
         timePublicacao: '',
+        coresProduto: [],
+        imgsProduto: [],
     });
 
     const [formDataCor, setFormDataCor] = useState({
@@ -68,20 +70,38 @@ export default function AddProduto() {
         e.preventDefault();
 
         try {
+
             const response = await axios.post('http://localhost:3002/produtos', formData);
 
-            const newProductId = response.data.id;
+            const newProductId = response.data.idProduto;
 
             console.log('novo produto criado id: ', newProductId);
 
-
-            if (!response) {
+            for (const corProduto of formData.coresProduto) {
                 const corProdutoResponse = await axios.post('http://localhost:3002/coresProduto', {
-                    ...formDataCor,
-                    nomeCor: formDataCor.nomeCor,
-                    produto_id: newProductId
+                    nomeCor: corProduto.nomeCor,
                 });
-                console.log('nova cor de produto criada id: ', corProdutoResponse);
+
+                const coresProdutoId = corProdutoResponse.data.idCoresProduto;
+
+                for (const imgProduto of formData.imgsProduto) {
+                    const formDataImg = new FormData();
+                    formDataImg.append('image', imgProduto.file); // Adiciona o arquivo original
+
+                    const imgProdutoResponse = await axios.post('http://localhost:3002/imgProduto', formDataImg, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data',
+                        },
+                    });
+
+                    const imgsProdutoId = imgProdutoResponse.data.idImgProduto;
+
+                    await axios.post('http://localhost:3002/produtoCorImg', {
+                        produto_id: newProductId,
+                        cores_id: coresProdutoId,
+                        Img_id: imgsProdutoId
+                    });
+                }
             }
 
             toast.current.show({
@@ -113,12 +133,14 @@ export default function AddProduto() {
                 rascunho: false,
                 dataPublicacao: '',
                 timePublicacao: '',
+                coresProduto: [],
+                imgsProduto: []
             });
 
-            setFormDataCor({
-                nomeCor: '',
-                produto_id: ''
-            })
+            // setTimeout(() => {
+            //     window.location.reload(false);
+            //   }, 1000);
+
 
         } catch (error) {
 
@@ -143,7 +165,7 @@ export default function AddProduto() {
                         <Stepper ref={stepperRef}>
                             <StepperPanel header="Overview">
                                 <div className="flex flex-column">
-                                    <StepOverview formData={formData} handleChange={handleChange} />
+                                    <StepOverview formData={formData} handleChange={handleChange} setFormData={setFormData} />
                                 </div>
                                 <div className="flex pt-2 justify-content-end ">
                                     <Button className="btnStepNext"
@@ -155,7 +177,7 @@ export default function AddProduto() {
                             </StepperPanel>
                             <StepperPanel header="Descrições">
                                 <div className="flex flex-column">
-                                    <StepDescricoes formData={formData} handleChange={handleChange} formDataCor={formDataCor} setFormDataCor={setFormDataCor} />
+                                    <StepDescricoes formData={formData} handleChange={handleChange} setFormData={setFormData} />
                                 </div>
                                 <div className="flex pt-2 justify-content-end gap-2">
                                     <Button className="btnStepPrev"

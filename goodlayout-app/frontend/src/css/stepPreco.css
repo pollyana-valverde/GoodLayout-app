@@ -56,8 +56,7 @@
 
 
 
-
-/*colocar num css separado depois da academia*/
+/*switch do step confirmações*/
 
 .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover) .p-inputswitch-slider, .p-inputswitch .p-inputswitch-slider{
     background-color: var(--oliveWoodSuperLow);

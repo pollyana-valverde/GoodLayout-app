@@ -219,7 +219,7 @@ router.get('/produtos', (req, res) => {
 });
 
 router.post('/produtos', (req, res) => {
-    const { nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto,quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao} = req.body;
+    const { nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao } = req.body;
 
     connection.query('INSERT INTO produto ( nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
         [nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao], (err, result) => {
@@ -228,7 +228,7 @@ router.post('/produtos', (req, res) => {
                 res.status(500).json({ error: 'Erro ao criar o registro' });
                 return;
             }
-            res.status(201).json({ message: 'Registro criado com sucesso', id: result.insertId });
+            res.status(201).json({ message: 'Registro criado com sucesso', idProduto: result.insertId });
         });
 });
 
@@ -237,7 +237,7 @@ router.put('/produtos/:idProduto', (req, res) => {
     const { nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao } = req.body;
 
     connection.query('UPDATE produto SET nomeProduto = ?, descProduto = ?, geralCategoria = ?, subCategoria = ?, peso = ?, altura = ?, largura = ?, profundidade = ?, estoque = ?, madeira = ?, revestimento = ?, ferragem = ?, acabamento = ?, vidro = ?, precoBase = ?, desconto = ?, quantDesconto = ?, tipoDesconto = ?, grupoDesconto = ?, tipoGrupoDesconto = ?, publicacao = ?, rascunho = ?, dataPublicacao = ?, timePublicacao = ?',
-        [nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto,tipoGrupoDesconto, publicacao, , rascunho, dataPublicacao, timePublicacao, idProduto,], (err, result) => {
+        [nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, , rascunho, dataPublicacao, timePublicacao, idProduto,], (err, result) => {
             if (err) {
                 console.error('Erro ao atualizar o registro:', err);
                 res.status(500).json({ error: 'Erro ao atualizar o registro' });
@@ -273,31 +273,49 @@ router.get('/coresProduto', (req, res) => {
 });
 
 router.post('/coresProduto', (req, res) => {
-    const { nomeCor, produto_id } = req.body;
-
-    if (!Array.isArray(nomeCor) || nomeCor.length === 0) {
-        return res.status(400).json({ error: 'O campo "nomeCor" deve ser um array com pelo menos uma cor.' });
-    }
-
-    const values = nomeCor.map((cor) => [cor, produto_id]);
-
-    connection.query(
-        'INSERT INTO coresProduto (nomeCor, produto_id) VALUES ?',
-        [values],
-        (err, result) => {
-            if (err) {
-                console.error('Erro ao criar os registros:', err);
-                res.status(500).json({ error: 'Erro ao criar os registros' });
-                return;
-            }
-
-            res.status(201).json({
-                message: 'Registros criados com sucesso',
-                affectedRows: result.affectedRows, // Número de registros criados
-            });
-        }
-    );
+    const { nomeCor } = req.body;
+    const query = 'INSERT INTO coresProduto (nomeCor) VALUES (?)';
+    connection.query(query, [nomeCor], (error, results) => {
+        if (error) return res.status(500).send(error);
+        res.status(201).json({ idCoresProduto: results.insertId });
+    });
 });
+
+
+////////////////////////////////////////// imagens produto /////////////////////////////
+router.get('/imgProduto', (req, res) => {
+    connection.query('SELECT * FROM imgProduto', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
+router.post('/imgProduto', upload.single('image'), (req, res) => {
+    const imgCaminho  = `/uploads/${req.file.filename}`;
+    
+    const query = 'INSERT INTO imgProduto (imgCaminho) VALUES (?)';
+    connection.query(query, [imgCaminho], (error, results) => {
+        if (error) return res.status(500).send(error);
+        res.status(201).json({ idImgProduto: results.insertId });
+    });
+});
+
+
+//////////////////////////////////// produtos com cores e imagens ////////////////////
+// Rota para inserir dados na tabela produtoCorImg
+router.post('/produtoCorImg', (req, res) => {
+    const { produto_id, cores_id, Img_id } = req.body;
+    const query = 'INSERT INTO produtoCorImg (produto_id, cores_id, Img_id) VALUES (?, ?, ?)';
+    connection.query(query, [produto_id, cores_id, Img_id], (error, results) => {
+        if (error) return res.status(500).send(error);
+        res.status(201).json({ idProdutoCorImg: results.insertId });
+    });
+});
+
 
 
 module.exports = router;
