@@ -7,8 +7,8 @@ import { InputTextarea } from "primereact/inputtextarea";
 
 import '../css/stepOverview.css';
 
-export default function StepOverview() {
-        const [text, setText] = useState('');
+export default function StepOverview({ formData, handleChange, handleEditorChange }) {
+    const [text, setText] = useState('');
     const [selectedGeralCategories, setSelectedGeralCategories] = useState(null);
     const [selectedEspecificCategories, setSelectedEspecificCategories] = useState(null);
     const [valueInput, setValueInput] = useState('');
@@ -101,7 +101,7 @@ export default function StepOverview() {
                     <p>descrição imagem</p>
                 </Col>
                 <Col lg={8}>
-                    <InputText className="w-12 nomeInputProdutoOverview" value={valueInput} onChange={(e) => setValueInput(e.target.value)} />
+                    <InputText className="w-12 nomeInputProdutoOverview" name="nomeProduto" value={formData.nomeProduto} onChange={handleChange} />
                 </Col>
             </Col>
             <Col className="flex flex-wrap align-items-center">
@@ -111,17 +111,15 @@ export default function StepOverview() {
                 </Col>
                 <Col lg={8} className="flex gap-2">
                     <Dropdown
-                        value={selectedGeralCategories}
+                        name="geralCategoria" value={formData.geralCategoria} onChange={handleChange}
                         showClear
-                        onChange={(e) => setSelectedGeralCategories(e.value)}
                         options={geralCategories}
                         optionLabel="name"
                         placeholder="Categoria geral"
                         filter className="w-full " />
                     <Dropdown
-                        value={selectedEspecificCategories}
+                        name="subCategoria" value={formData.subCategoria} onChange={handleChange}
                         showClear
-                        onChange={(e) => setSelectedEspecificCategories(e.value)}
                         options={especificCategories}
                         optionLabel="name"
                         placeholder="Subcategoria"
@@ -134,7 +132,7 @@ export default function StepOverview() {
                     <p>Breve descrição do produto</p>
                 </Col>
                 <Col lg={8}>
-                    <Editor value={text} onTextChange={(e) => setText(e.htmlValue)} style={{ height: '150px' }} />
+                    <Editor value={text} onChange={handleEditorChange} style={{ height: '150px' }} />
                     {/* <InputTextarea className="w-12 descInputProdutoOverview" value={valueTextArea} onChange={(e) => setValueTextArea(e.target.value)} rows={3} /> */}
                 </Col>
             </Col>
