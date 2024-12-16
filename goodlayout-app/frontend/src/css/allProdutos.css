@@ -1,0 +1,26 @@
+.cardAllProdutos{
+    background-color: var(--white);
+    border: 1.5px solid var(--oliveWoodSuperLow);
+}
+
+.cardAllProdutos h5{
+    color: var(--oliveWoodLow);
+}
+
+.cardAllProdutos p{
+    color: var(--oliveWoodLow);
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+.cardAllProdutosActions{
+    color: var(--oliveWoodLow);
+    border: 2px dashed var(--oliveWoodSuperLow);
+    transition: all .3s ease;
+}
+
+.cardAllProdutosActions:hover{
+    background-color: var(--oliveWoodSuperLow);
+    border-color: var(--oliveWoodLow);
+}
