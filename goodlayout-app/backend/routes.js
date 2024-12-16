@@ -295,8 +295,8 @@ router.get('/imgProduto', (req, res) => {
 });
 
 router.post('/imgProduto', upload.single('image'), (req, res) => {
-    const imgCaminho  = `/uploads/${req.file.filename}`;
-    
+    const imgCaminho = `/uploads/${req.file.filename}`;
+
     const query = 'INSERT INTO imgProduto (imgCaminho) VALUES (?)';
     connection.query(query, [imgCaminho], (error, results) => {
         if (error) return res.status(500).send(error);
@@ -315,6 +315,99 @@ router.post('/produtoCorImg', (req, res) => {
         res.status(201).json({ idProdutoCorImg: results.insertId });
     });
 });
+
+
+// Rota para buscar os dados do TextAreaForum com tags associadas
+router.get('/produtoCorImg', (req, res) => {
+    const query = `
+        SELECT 
+            p.idProduto,
+            p.nomeProduto,
+            p.descProduto, 
+            p.geralCategoria, 
+            p.subCategoria,
+            p.peso, 
+            p.altura, 
+            p.largura, 
+            p.profundidade, 
+            p.estoque, 
+            p.madeira,
+            p.revestimento, 
+            p.ferragem, 
+            p.acabamento, 
+            p.vidro, 
+            p.precoBase,
+            p.desconto, 
+            p.quantDesconto,
+            p.tipoDesconto, 
+            p.grupoDesconto, 
+            p.tipoGrupoDesconto, 
+            p.publicacao, 
+            p.rascunho, 
+            p.dataPublicacao, 
+            p.timePublicacao,
+            cp.nomeCor, 
+            ip.imgCaminho
+        FROM 
+            produto p
+        LEFT JOIN 
+            produtoCorImg pci ON p.idProduto = pci.produto_id
+        LEFT JOIN 
+            coresProduto cp ON pci.cores_id = cp.idCoresProduto
+        LEFT JOIN 
+            imgProduto ip ON pci.Img_id = ip.idImgProduto
+        ORDER BY 
+            p.idProduto
+    `;
+
+    connection.query(query, (error, results) => {
+        if (error) return res.status(500).send(error);
+
+        // Agrupando os resultados por idTextAreaForum
+        const formattedResults = results.reduce((acc, curr) => {
+            const existingEntry = acc.find(item => item.idProduto === curr.idProduto);
+
+            if (existingEntry) {
+                existingEntry.coresProduto.push({ nomeCor: curr.nomeCor });
+                existingEntry.imgProduto.push({ imgCaminho: curr.imgCaminho });
+            } else {
+                acc.push({
+                    idProduto: curr.idProduto,
+                    nomeProduto: curr.nomeProduto,
+                    descProduto: curr.descProduto,
+                    geralCategoria: curr.geralCategoria,
+                    subCategoria: curr.subCategoria,
+                    peso: curr.peso,
+                    altura: curr.altura,
+                    largura: curr.largura,
+                    profundidade: curr.profundidade,
+                    estoque: curr.estoque,
+                    madeira: curr.madeira,
+                    revestimento: curr.revestimento,
+                    ferragem: curr.ferragem,
+                    acabamento: curr.acabamento,
+                    vidro: curr.vidro,
+                    precoBase: curr.precoBase,
+                    desconto: curr.desconto,
+                    quantDesconto: curr.quantDesconto,
+                    tipoDesconto: curr.tipoDesconto,
+                    grupoDesconto: curr.grupoDesconto,
+                    tipoGrupoDesconto: curr.tipoGrupoDesconto,
+                    publicacao: curr.publicacao,
+                    rascunho: curr.rascunho,
+                    dataPublicacao: curr.dataPublicacao,
+                    timePublicacao: curr.timePublicacao,
+                    coresProduto: curr.nomeCor ? [{ nomeCor: curr.nomeCor }] : [],
+                    imgProduto: curr.imgCaminho ? [{ imgCaminho: curr.imgCaminho }] : [],
+                });
+            }
+            return acc;
+        }, []);
+
+        res.status(200).json(formattedResults);
+    });
+});
+
 
 ////////////////////////////////////rotas dos materiais////////////////////
 router.get('/tipos_madeiras', (req, res) => {
