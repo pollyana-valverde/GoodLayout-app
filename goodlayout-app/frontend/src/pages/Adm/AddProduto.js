@@ -106,9 +106,14 @@ export default function AddProduto() {
 
             toast.current.show({
                 severity: 'success',
-                summary: 'Inscrição concluída com sucesso!',
+                summary: 'Produto adicionado com sucesso!',
                 life: 3000
             });
+
+            setTimeout(() => {
+                window.location.reload(false);
+            }, 200);
+
             setFormData({
                 nomeProduto: '',
                 descProduto: '',

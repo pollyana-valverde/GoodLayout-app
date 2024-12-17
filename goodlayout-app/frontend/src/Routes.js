@@ -80,6 +80,10 @@ const Rotas = () => {
             <AddProduto /> 
         },
         {
+          path: "/produto/:idProduto",
+          element: <AddProduto />,
+        },
+        {
           path: "/AllClientes",
           element: 
             <AllClientes /> 

@@ -4,6 +4,7 @@ import axios from "axios";
 import { InputNumber } from 'primereact/inputnumber';
 import { Row, Col } from 'react-bootstrap';
 import { Dropdown } from 'primereact/dropdown';
+import { useLocation } from 'react-router-dom';
 import { InputText } from "primereact/inputtext";
 import { Button } from 'primereact/button';
 // import { Editor } from "primereact/editor";
@@ -16,6 +17,8 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
     const [tiposRevestimento, setTiposRevestimento] = useState([]);
     const [tiposVidro, setTiposVidro] = useState([]);
     const [tiposFerragen, setTiposFerragen] = useState([]);
+    const location = useLocation();
+    const { peso, altura, largura, profundidade, estoque, coresProduto, nomeCor, madeira, revestimento, ferragem, acabamento, vidro } = location.state || {};
 
     useEffect(() => {
         const fetchData = async () => {
@@ -35,7 +38,7 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
 
                 const newProductId = data.map(item => item.nome_revestimento);
                 setTiposRevestimento(newProductId);
-                
+
                 console.log('nome tipos_revestimento: ', newProductId);
             } catch (error) {
                 console.error("Erro ao buscar tipos de revestimento:", error);
@@ -46,7 +49,7 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
 
                 const newProductId = data.map(item => item.nome_acabamento);
                 setTiposAcabamento(newProductId);
-                
+
                 console.log('nome tipos_acabamento: ', newProductId);
             } catch (error) {
                 console.error("Erro ao buscar tipos de madeira:", error);
@@ -57,7 +60,7 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
 
                 const newProductId = data.map(item => item.nome_vidro);
                 setTiposVidro(newProductId);
-                
+
                 console.log('nome tipos_vidro: ', newProductId);
             } catch (error) {
                 console.error("Erro ao buscar tipos de madeira:", error);
@@ -68,7 +71,7 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
 
                 const newProductId = data.map(item => item.nome_ferragem);
                 setTiposFerragen(newProductId);
-                
+
                 console.log('nome tipos_ferragens: ', newProductId);
             } catch (error) {
                 console.error("Erro ao buscar tipos de madeira:", error);
@@ -120,12 +123,12 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
                 </Col>
                 <Col lg={8} className="flex flex-column gap-2 dimemsoesStepDescricoes">
                     <div className="flex gap-2 ">
-                        <InputNumber inputId="peso" className="w-12" name="peso" value={formData.peso} onValueChange={handleChange} min={0} prefix="Peso " suffix=" Kg" minFractionDigits={2} maxFractionDigits={3} useGrouping={false} />
-                        <InputNumber inputId="altura" className="w-12" name="altura" value={formData.altura} onValueChange={handleChange} min={0} prefix="Altura " suffix=" cm" minFractionDigits={2} useGrouping={false} />
+                        <InputNumber inputId="peso" className="w-12" name="peso" value={formData.peso || peso} onValueChange={handleChange} min={0} prefix="Peso " suffix=" Kg" minFractionDigits={2} maxFractionDigits={3} useGrouping={false} />
+                        <InputNumber inputId="altura" className="w-12" name="altura" value={formData.altura || altura} onValueChange={handleChange} min={0} prefix="Altura " suffix=" cm" minFractionDigits={2} useGrouping={false} />
                     </div>
                     <div className="flex gap-2">
-                        <InputNumber inputId="largura" className="w-12" name="largura" value={formData.largura} onValueChange={handleChange} min={0} prefix="Largura " suffix=" cm" minFractionDigits={2} useGrouping={false} />
-                        <InputNumber inputId="profundidade" className="w-12" name="profundidade" value={formData.profundidade} onValueChange={handleChange} min={0} prefix="Profundidade " suffix=" cm" minFractionDigits={2} useGrouping={false} />
+                        <InputNumber inputId="largura" className="w-12" name="largura" value={formData.largura || largura} onValueChange={handleChange} min={0} prefix="Largura " suffix=" cm" minFractionDigits={2} useGrouping={false} />
+                        <InputNumber inputId="profundidade" className="w-12" name="profundidade" value={formData.profundidade || profundidade} onValueChange={handleChange} min={0} prefix="Profundidade " suffix=" cm" minFractionDigits={2} useGrouping={false} />
                     </div>
                 </Col>
             </Col>
@@ -134,10 +137,24 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
                     <h5>Cores</h5>
                     <p>descrição imagem</p>
                 </Col>
-                <Col lg={8} className={`flex dimemsoesStepDescricoes ${formData.coresProduto.length === 0 ? 'gap-0' : 'gap-2'}`}>
+                <Col lg={8} className={`flex dimemsoesStepDescricoes ${formData.coresProduto.length === 0 ? 'gap-0' : 'gap-2'} ${coresProduto?.length === 0 ? 'gap-0' : 'gap-2'}`}>
 
                     <div className="flex gap-2 flex-nowrap align-items-center">
-                        {formData.coresProduto.map((color, index) => (
+                            {formData.coresProduto.map((color, index) => (
+                            <div className="relative border-circle"
+                                key={index}
+                                style={{
+                                    width: '50px',
+                                    height: '50px',
+                                    backgroundColor: color.nomeCor ,
+                                    border: '1px solid var(--oliveWoodLow)',
+                                }}
+                            >
+                                <div className=" removeColorDescricoes flex align-items-center justify-content-center">
+                                    <i className="pi pi-times text-xs" onClick={() => removeColor(index)}></i>
+                                </div>
+                            </div>
+                        ))}  {coresProduto?.map((color, index) => (
                             <div className="relative border-circle"
                                 key={index}
                                 style={{
@@ -171,14 +188,14 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
                 <Col lg={8} className="flex flex-column gap-2 dimemsoesStepDescricoes">
                     <div className="flex gap-2">
                         <Dropdown
-                            name="madeira" value={formData.madeira} onChange={handleChange}
+                            name="madeira" value={formData.madeira || madeira} onChange={handleChange}
                             showClear
                             options={tiposMadeira}
                             optionLabel="name"
                             placeholder="Tipos de madeira"
                             filter className="w-full " />
                         <Dropdown
-                            name="ferragem" value={formData.ferragem} onChange={handleChange}
+                            name="ferragem" value={formData.ferragem || ferragem} onChange={handleChange}
                             showClear
                             options={tiposFerragen}
                             optionLabel="name"
@@ -187,14 +204,14 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
                     </div>
                     <div className="flex gap-2">
                         <Dropdown
-                            name="revestimento" value={formData.revestimento} onChange={handleChange}
+                            name="revestimento" value={formData.revestimento || revestimento} onChange={handleChange}
                             showClear
                             options={tiposRevestimento}
                             optionLabel="name"
                             placeholder="Tipos revestimento"
                             filter className="w-full " />
                         <Dropdown
-                            name="acabamento" value={formData.acabamento} onChange={handleChange}
+                            name="acabamento" value={formData.acabamento || acabamento} onChange={handleChange}
                             showClear
                             options={tiposAcabamento}
                             optionLabel="name"
@@ -202,7 +219,7 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
                             filter className="w-full " />
                     </div>
                     <Dropdown
-                        name="vidro" value={formData.vidro} onChange={handleChange}
+                        name="vidro" value={formData.vidro || vidro} onChange={handleChange}
                         showClear
                         options={tiposVidro}
                         optionLabel="name"
@@ -217,7 +234,7 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
                     <p>descrição imagem</p>
                 </Col>
                 <Col lg={8} className="flex flex-column dimemsoesStepDescricoes">
-                    <InputNumber inputId="minmax" name="estoque" value={formData.estoque} onValueChange={handleChange} min={0} />
+                    <InputNumber inputId="minmax" name="estoque" value={formData.estoque || estoque} onValueChange={handleChange} min={0} />
                 </Col>
             </Col>
         </Row>

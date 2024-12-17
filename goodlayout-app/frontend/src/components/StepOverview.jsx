@@ -1,8 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
-import { Editor } from "primereact/editor";
-import { Container, Row, Col } from 'react-bootstrap';
+// import { Editor } from "primereact/editor";
+import {  Row, Col } from 'react-bootstrap';
 import { Dropdown } from 'primereact/dropdown';
+import { useLocation } from 'react-router-dom';
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 
@@ -12,6 +13,8 @@ export default function StepOverview({ formData,setFormData, handleChange }) {
     const inputFileRef = useRef(null);
     const [geralCategories, setGeralCategories] = useState([]);
     const [especificCategories, setEspecificCategories] = useState([]);
+    const location = useLocation();
+    const { nomeProduto, geralCategoria, subCategoria, descProduto,imgsProduto } = location.state || {};
 
 
     useEffect(() => {
@@ -131,7 +134,7 @@ export default function StepOverview({ formData,setFormData, handleChange }) {
                     <p>descrição imagem</p>
                 </Col>
                 <Col lg={8}>
-                    <InputText className="w-12 nomeInputProdutoOverview" name="nomeProduto" value={formData.nomeProduto} onChange={handleChange} />
+                    <InputText className="w-12 nomeInputProdutoOverview" name="nomeProduto" value={formData.nomeProduto || nomeProduto} onChange={handleChange} />
                 </Col>
             </Col>
             <Col className="flex flex-wrap align-items-center">
@@ -141,14 +144,14 @@ export default function StepOverview({ formData,setFormData, handleChange }) {
                 </Col>
                 <Col lg={8} className="flex gap-2">
                     <Dropdown
-                        name="geralCategoria" value={formData.geralCategoria} onChange={handleChange}
+                        name="geralCategoria" value={formData.geralCategoria || geralCategoria} onChange={handleChange}
                         showClear
                         options={geralCategories}
                         optionLabel="name"
                         placeholder="Categoria geral"
                         filter className="w-full " />
                     <Dropdown
-                        name="subCategoria" value={formData.subCategoria} onChange={handleChange}
+                        name="subCategoria" value={formData.subCategoria || subCategoria} onChange={handleChange}
                         showClear
                         options={especificCategories}
                         optionLabel="name"
@@ -163,7 +166,7 @@ export default function StepOverview({ formData,setFormData, handleChange }) {
                 </Col>
                 <Col lg={8}>
                     {/* <Editor value={formData.descProduto} name="descProduto" onChange={handleEditorChange} style={{ height: '150px' }} /> */}
-                    <InputTextarea className="w-12 descInputProdutoOverview" value={formData.descProduto} name="descProduto" onChange={handleChange} rows={6} />
+                    <InputTextarea className="w-12 descInputProdutoOverview" value={formData.descProduto || descProduto} name="descProduto" onChange={handleChange} rows={6} />
                 </Col>
             </Col>
         </Row>
