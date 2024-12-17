@@ -14,7 +14,7 @@ export default function StepOverview({ formData,setFormData, handleChange }) {
     const [geralCategories, setGeralCategories] = useState([]);
     const [especificCategories, setEspecificCategories] = useState([]);
     const location = useLocation();
-    const { nomeProduto, geralCategoria, subCategoria, descProduto,imgsProduto } = location.state || {};
+    const { nomeProduto, geralCategoria, subCategoria, descProduto,imgsProduto, imgCaminho } = location.state || {};
 
 
     useEffect(() => {
@@ -98,6 +98,15 @@ export default function StepOverview({ formData,setFormData, handleChange }) {
                 <Col lg={8} className={`flex flex-nowrap  ${formData.imgsProduto.length === 0 ? 'gap-0' : 'gap-2'}`}>
                     <div className='flex flex-nowrap gap-2 '>
                         {formData.imgsProduto.map((image, index) => (
+                            <div key={index} className="relative imagePreviewOverview">
+                                <img
+                                    src={image.preview || `http://localhost:3002/${image.imgCaminho}`}
+                                    alt={`Preview ${index}`}
+                                />
+                                <i className="pi pi-times removeImageOverview" onClick={() => removeImage(index)}></i>
+                            </div>
+                        ))}
+                        {imgsProduto?.map((image, index) => (
                             <div key={index} className="relative imagePreviewOverview">
                                 <img
                                     src={image.preview || `http://localhost:3002/${image.imgCaminho}`}

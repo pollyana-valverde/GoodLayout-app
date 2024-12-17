@@ -170,7 +170,7 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
                             </div>
                         ))}
                     </div>
-                    {formData.coresProduto.length < 11 ? (
+                    {formData.coresProduto.length < 11 || coresProduto?.length < 11 ? (
                         <div className="flex gap-2 w-12">
                             <InputText className="w-12" value={newColor} onKeyDown={handleAddColor} onChange={(e) => setNewColor(e.target.value)} />
                             <Button className="addColorBtn"

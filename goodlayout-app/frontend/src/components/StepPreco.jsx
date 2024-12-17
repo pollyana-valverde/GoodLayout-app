@@ -9,10 +9,10 @@ import { RadioButton } from "primereact/radiobutton";
 import '../css/stepPreco.css';
 
 export default function StepPreco({ formData, handleChange }) {
-        const [tiposDesconto, setTiposDesconto] = useState([]);    
-        const location = useLocation();
-        const { precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto } = location.state || {};
-    
+    const [tiposDesconto, setTiposDesconto] = useState([]);
+    const location = useLocation();
+    const { precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto } = location.state || {};
+
     const gruposClientes = [
         'Sofas1',
         'Sofas2',
@@ -40,7 +40,7 @@ export default function StepPreco({ formData, handleChange }) {
 
             //     const newProductId = data.map(item => item.nome_subcategoria);
             //     setEspecificCategories(newProductId);
-                
+
             //     console.log('nome subcategorias_moveis_externos: ', newProductId);
             // } catch (error) {
             //     console.error("Erro ao buscar tipos de revestimento:", error);
@@ -59,7 +59,7 @@ export default function StepPreco({ formData, handleChange }) {
                 </Col>
                 <Col lg={8}>
                     <div className="flex-auto">
-                        <InputNumber className='basePrecoInput w-12' inputId="currency-us" name="precoBase" value={formData.precoBase || precoBase} onValueChange={handleChange} min={0}  mode="currency" currency="BRL" locale="pt-BR" maxLength={18} />
+                        <InputNumber className='basePrecoInput w-12' inputId="currency-us" name="precoBase" value={formData.precoBase || precoBase} onValueChange={handleChange} min={0} mode="currency" currency="BRL" locale="pt-BR" maxLength={18} />
                     </div>
                 </Col>
             </Col>
@@ -69,20 +69,20 @@ export default function StepPreco({ formData, handleChange }) {
                     <p>descrição imagem</p>
                 </Col>
                 <Col lg={8} className="flex flex-wrap gap-2">
-                    <div className={`flex align-items-center radioStepPreco  ${formData.desconto === 'SemDesconto' ? 'selecionado' : ''}`}>
-                        <RadioButton inputId="Desconto1" name="desconto" value="SemDesconto" onChange={handleChange} checked={formData.desconto === 'SemDesconto' || desconto === 'SemDesconto' } />
+                    <div className={`flex align-items-center radioStepPreco  ${formData.desconto === 'SemDesconto' ? 'selecionado' : ''} ${desconto === 'SemDesconto' ? 'selecionado' : ''}`}>
+                        <RadioButton inputId="Desconto1" name="desconto" value="SemDesconto" onChange={handleChange} checked={formData.desconto === 'SemDesconto' || desconto === 'SemDesconto'} />
                         <label htmlFor="Desconto1" className="ml-2">Sem desconto</label>
                     </div>
-                    <div className={`flex align-items-center radioStepPreco  ${formData.desconto === 'Porcentagem' ? 'selecionado' : ''}`}>
-                        <RadioButton inputId="Desconto2" name="desconto" value="Porcentagem" onChange={handleChange} checked={formData.desconto === 'Porcentagem' || desconto === 'Porcentagem' } />
+                    <div className={`flex align-items-center radioStepPreco  ${formData.desconto === 'Porcentagem' ? 'selecionado' : ''} ${desconto === 'Porcentagem' ? 'selecionado' : ''}`}>
+                        <RadioButton inputId="Desconto2" name="desconto" value="Porcentagem" onChange={handleChange} checked={formData.desconto === 'Porcentagem' || desconto === 'Porcentagem'} />
                         <label htmlFor="Desconto2" className="ml-2">Porcentagem %</label>
                     </div>
-                    {formData.desconto === 'Porcentagem' || desconto === 'Porcentagem'  && (
+                    {formData.desconto === 'Porcentagem' || desconto === 'Porcentagem' && (
                         <><div className="flex align-items-center w-12 gap-2 mb-3">
-                            <InputNumber className='basePrecoInput w-12 ' inputId="percent" name="quantDesconto" value={formData.quantDesconto} onValueChange={handleChange} prefix="% " min={0} max={100} maxLength={5} />
+                            <InputNumber className='basePrecoInput w-12 ' inputId="percent" name="quantDesconto" value={formData.quantDesconto || quantDesconto} onValueChange={handleChange} prefix="% " min={0} max={100} maxLength={5} />
 
                             <Dropdown
-                        name="tipoDesconto" value={formData.tipoDesconto} onChange={handleChange}
+                                name="tipoDesconto" value={formData.tipoDesconto || tipoDesconto} onChange={handleChange}
                                 showClear
                                 options={tiposDesconto}
                                 optionLabel="name"
@@ -95,25 +95,25 @@ export default function StepPreco({ formData, handleChange }) {
 
                 </Col>
             </Col>
-            {formData.desconto === 'Porcentagem' && (
+            {formData.desconto === 'Porcentagem' || desconto === 'Porcentagem' && (
                 <Col className="flex flex-wrap align-items-start">
                     <Col lg={4} className="flex flex-column">
                         <h5>Grupo de clientes</h5>
                         <p>Breve descrição do produto</p>
                     </Col>
                     <Col lg={8} className="flex flex-wrap gap-2">
-                        <div className={`flex align-items-center radioStepPreco ${formData.grupoDesconto === 'GrupoGeral' ? 'selecionado' : ''}`}>
-                            <RadioButton inputId="Desconto3" name="grupoDesconto" value="GrupoGeral" onChange={handleChange} checked={formData.grupoDesconto === 'GrupoGeral'} />
+                        <div className={`flex align-items-center radioStepPreco ${formData.grupoDesconto === 'GrupoGeral' ? 'selecionado' : ''} ${grupoDesconto === 'GrupoGeral' ? 'selecionado' : ''}`}>
+                            <RadioButton inputId="Desconto3" name="grupoDesconto" value="GrupoGeral" onChange={handleChange} checked={formData.grupoDesconto === 'GrupoGeral' ||grupoDesconto === 'GrupoGeral'} />
                             <label htmlFor="Desconto3" className="ml-2">Desconto para todos os grupos</label>
                         </div>
-                        <div className={`flex align-items-center radioStepPreco ${formData.grupoDesconto === 'GrupoEspecifico' ? 'selecionado' : ''}`}>
-                            <RadioButton inputId="Desconto3" name="grupoDesconto" value="GrupoEspecifico" onChange={handleChange} checked={formData.grupoDesconto === 'GrupoEspecifico'} />
+                        <div className={`flex align-items-center radioStepPreco ${formData.grupoDesconto === 'GrupoEspecifico' ? 'selecionado' : ''} ${grupoDesconto === 'GrupoEspecifico' ? 'selecionado' : ''}`}>
+                            <RadioButton inputId="Desconto3" name="grupoDesconto" value="GrupoEspecifico" onChange={handleChange} checked={formData.grupoDesconto === 'GrupoEspecifico' || grupoDesconto === 'GrupoEspecifico' } />
                             <label htmlFor="Desconto3" className="ml-2">Desconto para um grupo específico</label>
                         </div>
-                        {formData.grupoDesconto === 'GrupoEspecifico' && (
+                        {formData.grupoDesconto === 'GrupoEspecifico' || grupoDesconto === 'GrupoEspecifico' && (
                             <div className="flex align-items-center w-12">
                                 <Dropdown
-                                name="tipoGrupoDesconto" value={formData.tipoGrupoDesconto} onChange={handleChange}
+                                    name="tipoGrupoDesconto" value={formData.tipoGrupoDesconto || tipoGrupoDesconto} onChange={handleChange}
                                     showClear
                                     options={gruposClientes}
                                     optionLabel="name"
