@@ -45,11 +45,6 @@ export default function AddProduto() {
         imgsProduto: [],
     });
 
-    const [formDataCor, setFormDataCor] = useState({
-        nomeCor: '',
-        produto_id: ''
-    })
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({

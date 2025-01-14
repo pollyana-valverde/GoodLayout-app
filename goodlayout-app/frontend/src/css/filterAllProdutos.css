@@ -1,0 +1,12 @@
+.filterAllProdutos{
+    color: var(--oliveWoodLow);
+    border: 1.5px dashed var(--oliveWoodSuperLow);
+    border-radius: 20px;
+    padding: 10px 5px ;
+    margin: 0 auto;
+}
+
+.filterAllProdutos p {
+    font-size: 12px;
+    margin: unset;
+}

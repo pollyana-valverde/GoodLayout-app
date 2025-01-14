@@ -72,7 +72,7 @@ export default function TabelaAllProdutos() {
             <Row>
                 <div className="flex flex-column align-item-center">
                     {allProdutos.map((produto, index) => (
-                        <Col key={index} className="flex align-items-center gap-2 cardAllProdutos w-9 p-2 border-round-xl mx-2 my-1">
+                        <Col key={index} className="flex align-items-center gap-2 cardAllProdutos w-12 p-2 border-round-xl mx-2 my-1">
                             {Array.isArray(produto.imgProduto) && produto.imgProduto.length > 0 && (
                                 <img
                                     style={{ objectFit: 'cover' }}

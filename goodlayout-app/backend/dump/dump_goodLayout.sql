@@ -79,7 +79,7 @@ CREATE TABLE `produto` (
 CREATE TABLE `coresProduto` ( 
   `idCoresProduto` INT AUTO_INCREMENT NOT NULL,
   `nomeCor` VARCHAR(50) NOT NULL,
-  CONSTRAINT `PRIMARY` PRIMARY KEY (`idCoresProduto`),
+  CONSTRAINT `PRIMARY` PRIMARY KEY (`idCoresProduto`)
 );
 
 CREATE TABLE `imgProduto` (
