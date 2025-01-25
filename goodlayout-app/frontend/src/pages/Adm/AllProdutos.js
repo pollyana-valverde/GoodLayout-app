@@ -84,10 +84,14 @@ export default function AllProdutos() {
                     <h5 className="text-sm font-semibold" style={{ margin: 'unset', color: 'var(--oliveWoodLow)' }}>Todos os produtos</h5>
                 </Col>
                 <Col lg={12} className="flex align-items-center justify-content-between gap-4 m-2  headerAllProdutos_filterAll">
-                    <input
-                        onChange={(e) => setProdutoNome(e.value)}
-                        name="produtoNome"
-                        style={{ margin: 'unset', color: 'var(--oliveWoodLow)' }} />
+                    <div className="filterAll align-items-center flex">
+                        <input
+                            onChange={(e) => setProdutoNome(e.value)}
+                            placeholder="Pesquise pelo nome do produto..."
+                            name="produtoNome"
+                            style={{ margin: 'unset', color: 'var(--oliveWoodLow)' }} />
+                        <button className="text-sm ">Buscar</button>
+                    </div>
                     <a href="/addProduto" >
                         <button className="text-sm ">Adicionar produto</button>
                     </a>

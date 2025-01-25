@@ -52,7 +52,7 @@
 }
 
 /*filtro header do all produtos*/
-.headerAllProdutos_filterAll input{
+.filterAll{
     border: 1px solid var(--oliveWoodLow);
     background-color: var(--oliveWoodSuperLow);
     width: 40%;
@@ -60,13 +60,37 @@
     box-shadow: 1px 1px 5px 1px var(--oliveWoodSuperLow) inset;
     border: 1.5px solid var(--oliveWoodSuperLow); */
     border-radius: 50px;
+    padding: 3px ;
+    font-size: 13px;
+}
+
+.filterAll.focus{
+    outline: none;
+    border: 1.5px solid var(--oliveWoodLow);
+}
+
+.filterAll input{
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    border-radius: 50px;
     padding: 4px 13px;
     font-size: 13px;
 }
 
-.headerAllProdutos_filterAll input:focus{
+.filterAll input:focus{
     outline: none;
-    border: 1.5px solid var(--oliveWoodLow);
+}
+
+.filterAll input::placeholder{
+    color: var(--oliveWoodLow);
+}
+
+.filterAll button{
+    background-color: var(--oliveWoodLow) !important;
+    color: var(--oliveWoodSuperLow) !important;
+    border-radius: 50px !important;
+
 }
 
 .headerAllProdutos_filterAll button{
