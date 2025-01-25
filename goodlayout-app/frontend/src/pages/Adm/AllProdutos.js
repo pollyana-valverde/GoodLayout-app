@@ -77,6 +77,25 @@ export default function AllProdutos() {
         setItensFiltrados(allProdutos);
     };
 
+    const workFilterNome = () => {
+        const normalizeString = (str) =>
+            str ? str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
+    
+        const produtoNomeNormalized = produtoNome ? normalizeString(produtoNome.trim()) : "";
+    
+        const filtroMostra = allProdutos.filter((produto) =>
+            normalizeString(produto.nomeProduto || "").includes(produtoNomeNormalized)
+        );
+    
+        setItensFiltrados(filtroMostra);
+    };
+    
+    //filtrar enquanto o user digita, elimina o uso do botão
+    useEffect(() => {
+        workFilterNome();
+    }, [produtoNome]);
+    
+
     return (
         <Container >
             <Row className="flex justify-content-center w-12 mt-4">
@@ -84,14 +103,12 @@ export default function AllProdutos() {
                     <h5 className="text-sm font-semibold" style={{ margin: 'unset', color: 'var(--oliveWoodLow)' }}>Todos os produtos</h5>
                 </Col>
                 <Col lg={12} className="flex align-items-center justify-content-between gap-4 m-2  headerAllProdutos_filterAll">
-                    <div className="filterAll align-items-center flex">
                         <input
-                            onChange={(e) => setProdutoNome(e.value)}
+                            onChange={(e) => setProdutoNome(e.target.value)}
                             placeholder="Pesquise pelo nome do produto..."
+                            value={produtoNome}
                             name="produtoNome"
                             style={{ margin: 'unset', color: 'var(--oliveWoodLow)' }} />
-                        <button className="text-sm ">Buscar</button>
-                    </div>
                     <a href="/addProduto" >
                         <button className="text-sm ">Adicionar produto</button>
                     </a>

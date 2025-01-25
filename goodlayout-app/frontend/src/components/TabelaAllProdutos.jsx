@@ -53,8 +53,6 @@ export default function TabelaAllProdutos({itensFiltrados, setItensFiltrados}) {
             <Row>
                 <div className="flex flex-column align-item-center">
                     {itensFiltrados.length > 0 ? (
-
-                    
                     itensFiltrados.map((produto, index) => (
                         <Col key={index} className="flex align-items-center gap-2 cardAllProdutos w-12 p-2 border-round-xl mx-2 my-1">
                             {Array.isArray(produto.imgProduto) && produto.imgProduto.length > 0 && (

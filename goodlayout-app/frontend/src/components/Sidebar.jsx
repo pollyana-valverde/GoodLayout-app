@@ -39,20 +39,6 @@ const ConfigProfile = ({ isOpen, setIsOpen }) => {
             ],
         },
         {
-            icon: 'pi-sitemap',
-            header: 'Produtos',
-            constShowLinks: [
-                {
-                    link: '/AllProdutos',
-                    linkName: 'Todos',
-                },
-                {
-                    link: '/addProduto',
-                    linkName: 'Adicionar',
-                },
-            ],
-        },
-        {
             icon: 'pi-users',
             header: 'Clientes',
             constShowLinks: [
@@ -147,6 +133,16 @@ const ConfigProfile = ({ isOpen, setIsOpen }) => {
                                     <div className="flex align-items-center gap-2 ">
                                         <i className={`pi pi-chart-bar`}></i>
                                         <p style={{ margin: 'unset' }}>Dashboard</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div className="sidebarAccordion ml-2">
+                            <div className={`flex align-items-center justify-content-between sidebarAccordionHeader`}>
+                                <a href="/AllProdutos">
+                                    <div className="flex align-items-center gap-2 ">
+                                        <i className={`pi pi-sitemap`}></i>
+                                        <p style={{ margin: 'unset' }}>Produtos</p>
                                     </div>
                                 </a>
                             </div>
