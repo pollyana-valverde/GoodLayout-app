@@ -5,7 +5,7 @@ import '../css/catalogo.css';
 
 import CarroselCatalago from "../components/CarroselCatalogo";
 
-export default function Suporte() {
+export default function Catalogo() {
     const { tokenGL } = useAuth();
     // const userData = tokenGL ? JSON.parse(tokenGL) : null;
 
@@ -30,15 +30,6 @@ export default function Suporte() {
                 <Row className="flex text-center mt-2">
                     <CarroselCatalago />
                 </Row>
-                {/* <Row className="flex text-center mt-2">
-                    <CarroselCatalago />
-                </Row>
-                <Row className="flex text-center mt-2">
-                    <CarroselCatalago />
-                </Row>
-                <Row className="flex text-center mt-2">
-                    <CarroselCatalago />
-                </Row> */}
             </Container>
         </>
     )

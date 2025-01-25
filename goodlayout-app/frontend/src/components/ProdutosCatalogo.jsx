@@ -7,7 +7,7 @@ import '../css/tabContentMediumHome.css';
 export default function ProdutosCatalago({ itensFiltrados, categoria }) {
     return (
         <div className="flex flex-wrap tabContentMediumHome">
-            {itensFiltrados.length > 0 ? (
+            {Array.isArray(itensFiltrados) && itensFiltrados.length > 0 ? (
                 itensFiltrados.map((produto, index) => (
                     produto.geralCategoria === categoria ? (
                         <Col key={index} className="flex flex-wrap justify-content-center">
