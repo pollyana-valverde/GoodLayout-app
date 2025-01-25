@@ -161,7 +161,7 @@ export default function AddProduto() {
             <form onSubmit={handleSubmit}>
                 <Row className="flex justify-content-center w-12 mt-4">
                     <Col lg={12}>
-                        <h5 className="text-sm" style={{ margin: 'unset', color: 'var(--oliveWoodLow)' }}>Produtos / <span className="font-semibold">Adicionar o produto</span></h5>
+                        <h5 className="text-sm" style={{ margin: 'unset', color: 'var(--oliveWoodLow)' }}><a href='/AllProdutos' style={{ color: 'var(--oliveWoodLow)' }}>Todos os produtos</a> / <span className="font-semibold">Adicionar o produto</span></h5>
                         <Stepper ref={stepperRef}>
                             <StepperPanel header="Overview">
                                 <div className="flex flex-column">

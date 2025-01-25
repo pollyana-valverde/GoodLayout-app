@@ -8,29 +8,10 @@ import imgTeste from '../imagens/jardim2.avif';
 
 import '../css/allProdutos.css';
 
-export default function TabelaAllProdutos() {
+export default function TabelaAllProdutos({itensFiltrados, setItensFiltrados}) {
     const toast = useRef(null);
-    const [allProdutos, setAllProdutos] = useState([]);
     const navigate = useNavigate();
     const [showActionProdutos, setShowActionProdutos] = useState(false)
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const { data } = await axios.get("http://localhost:3002/produtoCorImg");
-                const dataOrdenada = data.reverse();
-
-                setAllProdutos(dataOrdenada);
-
-                console.log('todos os produtos:', dataOrdenada)
-
-            } catch (error) {
-                console.error("Erro ao buscar produtos:", error);
-            }
-        };
-
-        fetchData();
-    }, []);
 
     const toggleProdutoAction = (index) => {
         setShowActionProdutos((prevState) => (prevState === index ? null : index));
@@ -54,7 +35,7 @@ export default function TabelaAllProdutos() {
             });
 
             const dataOrdenada = response.data.reverse();
-            setAllProdutos(dataOrdenada);
+            setItensFiltrados(dataOrdenada);
 
         } catch (error) {
             console.error("Erro ao excluir usuário:", error);
@@ -71,7 +52,10 @@ export default function TabelaAllProdutos() {
             <Toast ref={toast} style={{ zIndex: '99999' }} />
             <Row>
                 <div className="flex flex-column align-item-center">
-                    {allProdutos.map((produto, index) => (
+                    {itensFiltrados.length > 0 ? (
+
+                    
+                    itensFiltrados.map((produto, index) => (
                         <Col key={index} className="flex align-items-center gap-2 cardAllProdutos w-12 p-2 border-round-xl mx-2 my-1">
                             {Array.isArray(produto.imgProduto) && produto.imgProduto.length > 0 && (
                                 <img
@@ -125,7 +109,10 @@ export default function TabelaAllProdutos() {
                                 </div>
                             </div>
                         </Col>
-                    ))}
+                    ))) : (
+                    <>
+                   <p style={{color:'var(--oliveWoodLow)'}}> Nenhum produto encontrado.</p>
+                    </>) }
 
                 </div>
             </Row>
