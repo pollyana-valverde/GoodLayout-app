@@ -11,7 +11,7 @@ export default function Catalogo() {
 
     return (
         <>
-            <Container fluid className="mt-8">
+            <Container fluid className="mt-7">
                 <Row className="flex text-center mt-2 catalogoHeader p-4">
                     {!tokenGL ? (
                         <>

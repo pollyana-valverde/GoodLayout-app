@@ -14,6 +14,7 @@ import ListaDesejo from "./Pages/Cliente/ListaDesejos";
 import CarrinhoCompra from "./Pages/Cliente/CarrinhoCompra";
 import Config from "./Pages/Config";
 import MeusPedidos from "./Pages/Cliente/MeusPedidos";
+import DetalhesProduto from "./Pages/Cliente/DetalhesProduto";
 
 import DashboardAdmin from "./Pages/Adm/DashboardAdmin";
 import AddProduto from "./Pages/Adm/AddProduto";
@@ -67,6 +68,11 @@ const Rotas = () => {
           path: "/meusPedidos",
           element: <MeusPedidos  />
         },
+        {
+          path: "/detalhesProduto",
+          element: <DetalhesProduto  />
+        },
+
 
         //Páginas do adm
         {

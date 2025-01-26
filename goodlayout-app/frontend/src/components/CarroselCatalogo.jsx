@@ -36,9 +36,8 @@ export default function CarroselCatalago() {
         <div className="tagMediumHome">
             {itensFiltrados.map((categoria, index) => (
                 <React.Fragment key={index}>
-                    
-                            <div className="flex justify-content-end mt-3">
-                                <p style={{ margin: 'unset' }}>
+                            <div className="flex justify-content-end mt-2">
+                                <p style={{ margin: 'unset', color:'var(--oliveWoodLow)' }}>
                                     {categoria.geralCategoria}
                                 </p>
                             </div>
