@@ -18,7 +18,7 @@ export default function StepDescricoes({ formData, setFormData, handleChange }) 
     const [tiposVidro, setTiposVidro] = useState([]);
     const [tiposFerragen, setTiposFerragen] = useState([]);
     const location = useLocation();
-    const { peso, altura, largura, profundidade, estoque, coresProduto, nomeCor, madeira, revestimento, ferragem, acabamento, vidro } = location.state || {};
+    const { peso, altura, largura, profundidade, estoque, coresProduto, madeira, revestimento, ferragem, acabamento, vidro } = location.state || {};
 
     useEffect(() => {
         const fetchData = async () => {

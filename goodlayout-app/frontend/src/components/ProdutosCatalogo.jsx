@@ -1,10 +1,17 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import { Col } from 'react-bootstrap';
 import imgTeste from '../imagens/jardim2.avif';
 
 import '../css/produtosCatalago.css';
 
 export default function ProdutosCatalago({ itensFiltrados, categoria }) {
+    const navigate = useNavigate();
+
+    const handleProdutoUpdateClick = (produto) => {
+        navigate(`/detalhesProduto/${produto.idProduto}`, { state: produto });
+    };
+
     return (
         <div className="flex flex-wrap ">
             {itensFiltrados.length > 0 ? (
@@ -16,9 +23,9 @@ export default function ProdutosCatalago({ itensFiltrados, categoria }) {
                                     <h5 className="exclusive">{produto.nomeProduto}</h5>
                                     <p>R${produto.precoBase}</p>
                                 </div>
-                                <a href="/detalhesProduto">
+                                <div onClick={() => handleProdutoUpdateClick(produto)} >
                                     <i className="pi pi-arrow-up-right "></i>
-                                </a>
+                                </div>
                             </div>
                             {Array.isArray(produto.imgProduto) && produto.imgProduto.length > 0 && (
                                 <img

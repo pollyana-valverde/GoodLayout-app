@@ -9,7 +9,7 @@ import { InputTextarea } from "primereact/inputtextarea";
 
 import '../css/stepOverview.css';
 
-export default function StepOverview({ formData,setFormData, handleChange }) {
+export default function StepOverview({ formData, setFormData, handleChange }) {
     const inputFileRef = useRef(null);
     const [geralCategories, setGeralCategories] = useState([]);
     const [especificCategories, setEspecificCategories] = useState([]);

@@ -1,12 +1,14 @@
 import React from "react";
-// import { Container, Row, Col } from 'react-bootstrap';
-
+import { Container, Row, Col } from 'react-bootstrap';
+import GeralDetalhesProduto from "../../components/GeralDetalhesProduto";
 
 
 export default function DetalhesProduto() {
     return (
-        <div className="mt-8">
-        <h1>Detalhes do Produto</h1>
-        </div>
+        <Container className="mt-8 flex flex-column">
+            <Row>
+                <GeralDetalhesProduto />
+            </Row>
+        </Container>
     )
 }
