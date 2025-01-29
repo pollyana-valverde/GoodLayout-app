@@ -52,7 +52,7 @@
 
 
 .corSelecionada, .corNAOSelecionada {
-    border: 2px var(--tuscanRedLow) solid;
+    border: 2px var(--tuscanRed) solid;
     padding: 7px;
 }
 

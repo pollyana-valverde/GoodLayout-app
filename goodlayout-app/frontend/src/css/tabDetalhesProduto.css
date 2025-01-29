@@ -1,0 +1,20 @@
+.p-tabview .p-tabview-nav, .p-tabview .p-tabview-panels, .p-tabview .p-tabview-nav li .p-tabview-nav-link{
+    background: transparent;
+}
+
+.p-tabview .p-tabview-nav, .p-tabview .p-tabview-nav li .p-tabview-nav-link{
+    border-color: red;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link{
+    border-color: blue;
+}
+
+.especificações_produto p{
+    color: var(--oliveWoodLow);
+    font-weight: 500;
+}
+
+.especificações_produto p span{
+    color: var(--oliveWood);
+}
