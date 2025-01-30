@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Col } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
+import { InputNumber } from 'primereact/inputnumber';
 import imgTeste from '../imagens/jardim2.avif';
 import { Rating } from "primereact/rating";
 
@@ -15,6 +16,7 @@ import 'swiper/css/thumbs';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 export default function GeralDetalhesProduto() {
+    const [quantidadeProduto, setQuantidadeProduto] = useState(1);
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const location = useLocation();
     const { nomeProduto, precoBase, coresProduto, descProduto, imgProduto, idProduto } = location.state || {};
@@ -30,13 +32,8 @@ export default function GeralDetalhesProduto() {
         <div className="flex" key={idProduto}>
             <Col lg={5}>
                 <Swiper
-                    style={{
-                        '--swiper-navigation-color': '#fff',
-                        '--swiper-pagination-color': '#fff',
-                    }}
                     loop={true}
                     spaceBetween={10}
-                    navigation={true}
                     thumbs={{ swiper: thumbsSwiper }}
                     modules={[FreeMode, Navigation, Thumbs]}
                     className="mySwiper2"
@@ -48,13 +45,11 @@ export default function GeralDetalhesProduto() {
                                 src={imagemprod.imgCaminho ? `http://localhost:3002${imagemprod.imgCaminho}` : imgTeste}
                                 alt="Produto"
                                 style={{ width: '88%' }}
-                                // height={500}
                             />
                         </SwiperSlide>
                     ))}
                 </Swiper>
                 <Swiper
-                
                     onSwiper={setThumbsSwiper}
                     loop={false}
                     spaceBetween={2}
@@ -64,7 +59,7 @@ export default function GeralDetalhesProduto() {
                     modules={[FreeMode, Navigation, Thumbs]}
                     className="mySwiper"
                 >
-                      {imgProduto?.map((imagemprod, index) => (
+                    {imgProduto?.map((imagemprod, index) => (
                         <SwiperSlide>
                             <img
                                 className="border-round-3xl"
@@ -74,27 +69,23 @@ export default function GeralDetalhesProduto() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-
-                {/* {Array.isArray(imgProduto) && imgProduto.length > 0 && (
-                    <img
-                        className="border-round-3xl"
-                        src={imgProduto[0].imgCaminho ? `http://localhost:3002${imgProduto[0].imgCaminho}` : imgTeste}
-                        alt="Produto"
-                        style={{ width: '88%' }}
-                        height={600}
-                    />
-                )} */}
             </Col>
             <Col lg={7} className="flex flex-column gap-3 justify-content-center geralDetalhesProduto_content">
-                <h1 style={{ margin: 'unset' }}>{nomeProduto}</h1>
-                <p className="descProduto" style={{ margin: 'unset' }}>
-                    {descProduto}
+                <h1 className="white-space-normal" style={{ margin: 'unset' }}>{nomeProduto} 27 caracteres</h1>
+                <p className="descProduto white-space-normal" style={{ margin: 'unset' }}>
+                    {descProduto} pode ser o lorem mesmo
                 </p>
                 <div className="flex gap-2">
                     <Rating value={4} readOnly cancel={false} />
                     <p style={{ margin: 'unset' }}> (quant. avaliação)</p>
                 </div>
                 <h5 style={{ margin: 'unset' }}>R${precoBase}</h5>
+                <div className="flex flex-column gap-2">
+                    <div className="flex gap-2 quantidadeProduto_geralDetalhesProduto">
+                        <InputNumber value={quantidadeProduto} onValueChange={(e) => setQuantidadeProduto(e.value)} showButtons buttonLayout="horizontal" style={{ width: '4rem' }}
+                            decrementButtonClassName="p-button-secondary left" incrementButtonClassName="p-button-secondary right" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
+                    </div>
+                </div>
                 <div className="flex flex-column gap-2">
                     <p className="coresTitle" style={{ margin: 'unset' }}>Cores disponíveis</p>
                     <div className="flex gap-2">
