@@ -1,0 +1,212 @@
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  body {
+    background: #000;
+    color: #000;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .swiper-slide {
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .mySwiper2 {
+    height: 80%;
+    width: 100%;
+  }
+  
+  .mySwiper {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+  }
+  
+  .mySwiper .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+  }
+  
+  .mySwiper .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+
+/*texto*/
+.returnCatalogo_detalhesProdutos a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tuscanRed);
+    border-radius: 50px;
+    transition: ease .3s all;
+}
+
+.returnCatalogo_detalhesProdutos a:hover {
+    padding: 6px 10px;
+    color: var(--white);
+    background-color: var(--tuscanRed);
+}
+
+.geralDetalhesProduto_content h1 {
+    color: var(--oliveWood);
+    font-size: 55px;
+    font-weight: 600;
+}
+
+.geralDetalhesProduto_content p {
+    color: var(--oliveWood);
+}
+
+.geralDetalhesProduto_content p.descProduto {
+    opacity: 0.7;
+}
+
+.geralDetalhesProduto_content h5 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--tuscanRed);
+}
+
+.geralDetalhesProduto_content p.coresTitle {
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.geralDetalhesProduto_actions button,
+.geralDetalhesProduto_actions a button {
+    border: 2px dashed var(--slateBlue);
+    background-color: transparent;
+    color: var(--slateBlue);
+    padding: 8px;
+    border-radius: 10px;
+    transition: .3s all ease;
+    font-weight: 500;
+}
+
+.geralDetalhesProduto_actions button:hover,
+.geralDetalhesProduto_actions a button:hover {
+    background-color: var(--slateBlueLow);
+    border-radius: 20px;
+}
+
+.geralDetalhesProduto_actions a button.buyNow {
+    background-color: var(--tuscanRedLow);
+    color: var(--tuscanRed);
+    border-color: var(--tuscanRed);
+}
+
+.geralDetalhesProduto_content .p-rating-item svg {
+    color: goldenrod;
+}
+
+
+.corSelecionada,
+.corNAOSelecionada {
+    border: 2px var(--tuscanRed) solid;
+    padding: 7px;
+}
+
+.corNAOSelecionada {
+    border-color: transparent;
+}
+
+
+/************TAB DETALHES PRODUTO*****************/
+.tabDetalhesProduto_container {
+    border: 1.5px solid var(--oliveWoodSuperLow);
+    border-radius: 20px;
+    padding: unset !important;
+}
+
+.tabDetalhesProduto_container .p-tabview .p-tabview-nav,
+.tabDetalhesProduto_container .p-tabview .p-tabview-panels,
+.tabDetalhesProduto_container .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    background: transparent;
+    color: var(--tuscanRed);
+}
+
+.tabDetalhesProduto_container .p-tabview .p-tabview-nav,
+.tabDetalhesProduto_container .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    border-color: var(--oliveWoodSuperLow);
+}
+
+.tabDetalhesProduto_container .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    border-color: var(--tuscanRed);
+}
+
+.especificações_produto p {
+    color: var(--oliveWoodLow);
+    font-weight: 500;
+}
+
+.especificações_produto p span {
+    color: var(--oliveWood);
+}
+
+
+/************GARANTIA DETALHES PRODUTO*****************/
+.garantiaDetalhesProduto_container {
+    color: var(--slateBlue);
+    background-color: var(--slateBlueLow);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.garantiaDetalhesProduto_container i {
+    color: var(--slateBlue);
+    border-radius: 50px;
+    background-color: var(--slateBlueLow);
+    padding: 20px;
+}
+
+.garantiaDetalhesProduto_container p {
+    opacity: 0.7;
+    font-size: 15px;
+}
+
+.p-divider.p-divider-vertical:before {
+    border: 1px solid var(--slateBlue) !important;
+    opacity: 0.2;
+}
+
+
+/************RELACIONADOS DETALHES PRODUTO*****************/
+.RelacionadosDetalhesProduto_container p:hover {
+    text-decoration: underline;
+}

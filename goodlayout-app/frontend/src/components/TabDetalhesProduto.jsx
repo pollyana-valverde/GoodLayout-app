@@ -3,7 +3,6 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { TabView, TabPanel } from 'primereact/tabview';
 import { Col } from 'react-bootstrap';
-import '../css/tabDetalhesProduto.css';
 
 export default function TabDetalhesProduto() {
     const location = useLocation();

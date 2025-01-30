@@ -4,11 +4,20 @@ import { useLocation } from 'react-router-dom';
 import imgTeste from '../imagens/jardim2.avif';
 import { Rating } from "primereact/rating";
 
-import '../css/geralDetalhesProduto.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 export default function GeralDetalhesProduto() {
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const location = useLocation();
-    const { nomeProduto, precoBase, coresProduto, geralCategoria, subCategoria, descProduto, imgProduto, idProduto } = location.state || {};
+    const { nomeProduto, precoBase, coresProduto, descProduto, imgProduto, idProduto } = location.state || {};
     const [corGet, setCorGet] = useState(coresProduto[0].nomeCor);
 
     const handleGetColor = (color) => {
@@ -20,7 +29,53 @@ export default function GeralDetalhesProduto() {
     return (
         <div className="flex" key={idProduto}>
             <Col lg={5}>
-                {Array.isArray(imgProduto) && imgProduto.length > 0 && (
+                <Swiper
+                    style={{
+                        '--swiper-navigation-color': '#fff',
+                        '--swiper-pagination-color': '#fff',
+                    }}
+                    loop={true}
+                    spaceBetween={10}
+                    navigation={true}
+                    thumbs={{ swiper: thumbsSwiper }}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper2"
+                >
+                    {imgProduto?.map((imagemprod, index) => (
+                        <SwiperSlide>
+                            <img
+                                className="border-round-3xl"
+                                src={imagemprod.imgCaminho ? `http://localhost:3002${imagemprod.imgCaminho}` : imgTeste}
+                                alt="Produto"
+                                style={{ width: '88%' }}
+                                // height={500}
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+                <Swiper
+                
+                    onSwiper={setThumbsSwiper}
+                    loop={false}
+                    spaceBetween={2}
+                    slidesPerView={5}
+                    freeMode={true}
+                    watchSlidesProgress={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper"
+                >
+                      {imgProduto?.map((imagemprod, index) => (
+                        <SwiperSlide>
+                            <img
+                                className="border-round-3xl"
+                                src={imagemprod.imgCaminho ? `http://localhost:3002${imagemprod.imgCaminho}` : imgTeste}
+                                alt="Produto"
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                {/* {Array.isArray(imgProduto) && imgProduto.length > 0 && (
                     <img
                         className="border-round-3xl"
                         src={imgProduto[0].imgCaminho ? `http://localhost:3002${imgProduto[0].imgCaminho}` : imgTeste}
@@ -28,7 +83,7 @@ export default function GeralDetalhesProduto() {
                         style={{ width: '88%' }}
                         height={600}
                     />
-                )}
+                )} */}
             </Col>
             <Col lg={7} className="flex flex-column gap-3 justify-content-center geralDetalhesProduto_content">
                 <h1 style={{ margin: 'unset' }}>{nomeProduto}</h1>

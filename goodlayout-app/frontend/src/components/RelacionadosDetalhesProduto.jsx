@@ -36,7 +36,7 @@ export default function RelacionadosDetalhesProduto() {
     };
 
     return (
-        <div className="tagMediumHome">
+        <div className="RelacionadosDetalhesProduto_container">
             <React.Fragment>
                 <div className="flex justify-content-between mt-2">
                     <h5 className='m-0' style={{ color: 'var(--oliveWood)' }}>Produtos relacionados</h5>

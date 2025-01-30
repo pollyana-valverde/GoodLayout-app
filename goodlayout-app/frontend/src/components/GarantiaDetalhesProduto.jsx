@@ -1,8 +1,6 @@
 import React from "react";
 import { Col } from "react-bootstrap";
 import { Divider } from 'primereact/divider';
-import '../css/garantiaDetalhesProduto.css';
-
 
 export default function GarantiaDetalhesProduto() {
     return (
