@@ -499,4 +499,33 @@ router.get('/tipos_desconto', (req, res) => {
 });
 
 
+
+
+//////////////////////////////////// carrinho de compra ////////////////////////////
+router.get('/carrinhocompra', (req, res) => {
+    connection.query('SELECT * FROM carrinhocompra', (err, results) => {
+        if (err) {
+            console.error('Erro ao buscar os registros:', err);
+            res.status(500).json({ error: 'Erro ao buscar os registros' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
+router.post('/carrinhocompra', (req, res) => {
+    const { nomeProduto, geralCategoria, precoBase, desconto, quantDesconto, cliente_id, imgProduto, corProduto, quantProduto } = req.body;
+
+    connection.query('INSERT INTO carrinhocompra ( nomeProduto, geralCategoria, precoBase, desconto, quantDesconto, cliente_id, imgProduto, corProduto, quantProduto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? )',
+        [nomeProduto, geralCategoria, precoBase, desconto, quantDesconto, cliente_id, imgProduto, corProduto, quantProduto], (err, result) => {
+            if (err) {
+                console.error('Erro ao criar o registro:', err);
+                res.status(500).json({ error: 'Erro ao criar o registro' });
+                return;
+            }
+            res.status(201).json({ message: 'Registro criado com sucesso', idCarrinhocompra: result.insertId });
+        });
+});
+
+
 module.exports = router;

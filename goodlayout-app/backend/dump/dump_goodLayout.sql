@@ -317,3 +317,35 @@ INSERT INTO tipos_desconto (nome_desconto) VALUES
 ('Halloween'),
 ('Ação de Graças'),
 ('Dia do Trabalhador');
+
+
+CREATE TABLE `carrinhocompra` ( 
+  `idCarrinhocompra` INT AUTO_INCREMENT NOT NULL,
+  `nomeProduto` VARCHAR(150) NOT NULL,
+  `geralCategoria` VARCHAR(100) NOT NULL,
+  `precoBase` VARCHAR(20) NOT NULL, 
+  `desconto` VARCHAR(50) NOT NULL, 
+  `quantDesconto` VARCHAR(50) , 
+  `cliente_id` INT, 
+  `imgProduto`  VARCHAR(255) NOT NULL, 
+  `corProduto` VARCHAR(50) NOT NULL, 
+  `quantProduto` VARCHAR(5) NOT NULL, 
+    FOREIGN KEY (cliente_id) REFERENCES cadastro(idCadastro) ON DELETE CASCADE,
+  CONSTRAINT `PRIMARY` PRIMARY KEY (`idCarrinhocompra`)
+);
+
+ou posso fazer usando apenas os ids
+
+CREATE TABLE `carrinhocompra` ( 
+  `idCarrinhocompra` INT AUTO_INCREMENT NOT NULL,
+  cliente_id INT, 
+  produto_id INT,
+  cores_id INT,
+  Img_id INT,
+  `quantProduto` VARCHAR(5) NOT NULL, 
+  FOREIGN KEY (cliente_id) REFERENCES cadastro(idCadastro) ON DELETE CASCADE,
+  FOREIGN KEY (produto_id) REFERENCES produto(idProduto) ON DELETE CASCADE,
+  FOREIGN KEY (cores_id) REFERENCES coresProduto(idCoresProduto) ON DELETE CASCADE,
+  FOREIGN KEY (Img_id) REFERENCES imgProduto(idImgProduto) ON DELETE CASCADE
+  CONSTRAINT `PRIMARY` PRIMARY KEY (`idCarrinhocompra`)
+);

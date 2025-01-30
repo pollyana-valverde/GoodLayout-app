@@ -129,7 +129,7 @@
     color: var(--oliveWood);
     width: 50px;
     background: transparent;
-    border-radius: 50px 50px 0 0;
+    /* border-radius: 50px 50px 0 0; */
     border: 2px solid var(--oliveWoodSuperLow);
 }
 
@@ -148,11 +148,11 @@
 }
 
 .quantidadeProduto_geralDetalhesProduto .p-button.p-button-secondary.left {
-    border-radius: 50px 50px 0 50px;
+    border-radius: 50px 0 0 50px;
 }
 
 .quantidadeProduto_geralDetalhesProduto .p-button.p-button-secondary.right {
-    border-radius: 50px 50px 50px 0;
+    border-radius: 0 50px 50px 0;
 }
 
 .corSelecionada,

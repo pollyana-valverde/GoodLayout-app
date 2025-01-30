@@ -16,11 +16,30 @@ import 'swiper/css/thumbs';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 export default function GeralDetalhesProduto() {
-    const [quantidadeProduto, setQuantidadeProduto] = useState(1);
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const location = useLocation();
-    const { nomeProduto, precoBase, coresProduto, descProduto, imgProduto, idProduto } = location.state || {};
+    const { nomeProduto, precoBase, geralCategoria, desconto, quantDesconto, coresProduto, descProduto, imgProduto, idProduto } = location.state || {};
     const [corGet, setCorGet] = useState(coresProduto[0].nomeCor);
+
+      const [formData, setFormData] = useState({
+            nomeProduto: nomeProduto,
+            geralCategoria: geralCategoria,
+            precoBase: precoBase,
+            desconto: desconto,
+            quantDesconto: quantDesconto,
+            cliente_id: '',
+            imgProduto: imgProduto.imgCaminho,
+            corProduto: coresProduto.nomeCor,
+            quantProduto: 1,            
+        });
+    
+        const handleChange = (e) => {
+            const { name, value } = e.target;
+            setFormData({
+                ...formData,
+                [name]: value
+            });
+        };
 
     const handleGetColor = (color) => {
         setCorGet(color);
@@ -82,7 +101,7 @@ export default function GeralDetalhesProduto() {
                 <h5 style={{ margin: 'unset' }}>R${precoBase}</h5>
                 <div className="flex flex-column gap-2">
                     <div className="flex gap-2 quantidadeProduto_geralDetalhesProduto">
-                        <InputNumber value={quantidadeProduto} onValueChange={(e) => setQuantidadeProduto(e.value)} showButtons buttonLayout="horizontal" style={{ width: '4rem' }}
+                        <InputNumber name='quantProduto' value={formData.quantProduto} onValueChange={handleChange} showButtons buttonLayout="horizontal" style={{ width: '4rem' }}
                             decrementButtonClassName="p-button-secondary left" incrementButtonClassName="p-button-secondary right" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
                     </div>
                 </div>
