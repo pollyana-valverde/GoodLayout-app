@@ -10,7 +10,7 @@ export default function TabDetalhesProduto() {
     const { geralCategoria, subCategoria, peso, altura, largura, profundidade, madeira, revestimento, ferragem, acabamento, vidro } = location.state || {};
 
     return (
-        <div >
+        <div className='tabDetalhesProduto_container'>
             <TabView>
                 <TabPanel header="Especificações" className='flex'>
                     <Col className='especificações_produto'>

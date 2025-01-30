@@ -1,13 +1,20 @@
-.p-tabview .p-tabview-nav, .p-tabview .p-tabview-panels, .p-tabview .p-tabview-nav li .p-tabview-nav-link{
+.tabDetalhesProduto_container{
+border: 1.5px solid var(--oliveWoodSuperLow);
+border-radius: 20px;
+padding: unset !important;
+}
+
+.tabDetalhesProduto_container .p-tabview .p-tabview-nav, .tabDetalhesProduto_container .p-tabview .p-tabview-panels, .tabDetalhesProduto_container .p-tabview .p-tabview-nav li .p-tabview-nav-link{
     background: transparent;
+    color: var(--tuscanRed);
 }
 
-.p-tabview .p-tabview-nav, .p-tabview .p-tabview-nav li .p-tabview-nav-link{
-    border-color: red;
+.tabDetalhesProduto_container .p-tabview .p-tabview-nav, .tabDetalhesProduto_container .p-tabview .p-tabview-nav li .p-tabview-nav-link{
+    border-color: var(--oliveWoodSuperLow);
 }
 
-.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link{
-    border-color: blue;
+.tabDetalhesProduto_container .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link{
+    border-color: var(--tuscanRed);
 }
 
 .especificações_produto p{
