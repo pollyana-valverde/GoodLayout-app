@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import axios from "axios";
 import { Col } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
+import { useAuth } from "../provider/AuthProvider";
 import { InputNumber } from 'primereact/inputnumber';
 import imgTeste from '../imagens/jardim2.avif';
+import { Toast } from 'primereact/toast';
 import { Rating } from "primereact/rating";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -16,39 +19,81 @@ import 'swiper/css/thumbs';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 export default function GeralDetalhesProduto() {
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const location = useLocation();
-    const { nomeProduto, precoBase, geralCategoria, desconto, quantDesconto, coresProduto, descProduto, imgProduto, idProduto } = location.state || {};
-    const [corGet, setCorGet] = useState(coresProduto[0].nomeCor);
+    const { tokenGL } = useAuth();
+    const userData = tokenGL ? JSON.parse(tokenGL) : null;
 
-      const [formData, setFormData] = useState({
-            nomeProduto: nomeProduto,
-            geralCategoria: geralCategoria,
-            precoBase: precoBase,
-            desconto: desconto,
-            quantDesconto: quantDesconto,
-            cliente_id: '',
-            imgProduto: imgProduto.imgCaminho,
-            corProduto: coresProduto.nomeCor,
-            quantProduto: 1,            
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const toast = useRef(null);
+    const location = useLocation();
+    const { nomeProduto, precoBase, coresProduto, descProduto, imgProduto, idProduto } = location.state || {};
+    const [corGet, setCorGet] = useState(coresProduto[0].nomeCor);
+    const [formData, setFormData] = useState({
+        cliente_id: userData.idCadastro,
+        produto_id: idProduto,
+        cores_id: coresProduto[0]?.nomeCor || '',
+        Img_id: imgProduto[0].imgCaminho,
+        quantProduto: 1,
+    });
+
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
         });
-    
-        const handleChange = (e) => {
-            const { name, value } = e.target;
-            setFormData({
-                ...formData,
-                [name]: value
-            });
-        };
+    };
 
     const handleGetColor = (color) => {
         setCorGet(color);
-        console.log('nome da cor', color);
-    }
+        setFormData((prevData) => ({
+            ...prevData,
+            cores_id: color, // Atualiza apenas a cor selecionada
+        }));
+    };
 
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+
+            const response = await axios.post('http://localhost:3002/carrinhocompra/', formData);
+
+            console.log('novo produto no carrinho: ', response);
+
+            toast.current.show({
+                severity: 'success',
+                summary: 'Produto adicionado ao carrinho!',
+                life: 3000
+            });
+
+            setTimeout(() => {
+                window.location.reload(false);
+            }, 200);
+
+            setFormData({
+                cliente_id: '',
+                produto_id: '',
+                cores_id: '',
+                Img_id: '',
+                quantProduto: 1,
+            });
+
+            // setTimeout(() => {
+            //     window.location.reload(false);
+            //   }, 1000);
+
+
+        } catch (error) {
+
+            console.error('Erro ao publicar produto:', error);
+        }
+    };
 
     return (
         <div className="flex" key={idProduto}>
+            <Toast ref={toast} />
             <Col lg={5}>
                 <Swiper
                     loop={true}
@@ -128,7 +173,7 @@ export default function GeralDetalhesProduto() {
                     <a className="w-6" href="/pagamento">
                         <button className="buyNow w-12" type="button">Comprar agora</button>
                     </a>
-                    <button className="w-6" type="button">Adicionar no carrinho</button>
+                    <button className="w-6" type="button" onClick={handleSubmit}>Adicionar no carrinho</button>
                 </div>
             </Col>
         </div>

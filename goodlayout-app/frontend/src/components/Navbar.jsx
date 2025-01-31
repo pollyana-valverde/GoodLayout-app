@@ -166,7 +166,7 @@ export default function Navbar() {
                                                     </div>
 
                                                     <div className="flex navegacaoDrop relative gap-2 align-items-center">
-                                                        <img src={userData.imgPerfilCadastro ? `http://localhost:3001${userData.imgPerfilCadastro}` : noImage} alt='perfilFoto' />
+                                                        <img src={userData.imgPerfilCadastro ? `http://localhost:3002${userData.imgPerfilCadastro}` : noImage} alt='perfilFoto' />
                                                         <div className="flex flex-column text-left line-height-2">
                                                             <p className="text-xs opacity-40">Olá, {userData.nome}</p>
                                                             <div className="flex gap-2 align-items-center">

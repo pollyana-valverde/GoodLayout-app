@@ -340,12 +340,10 @@ CREATE TABLE `carrinhocompra` (
   `idCarrinhocompra` INT AUTO_INCREMENT NOT NULL,
   cliente_id INT, 
   produto_id INT,
-  cores_id INT,
-  Img_id INT,
+  cores_id VARCHAR(50) not null,
+  Img_id VARCHAR(255) NOT NULL,
   `quantProduto` VARCHAR(5) NOT NULL, 
   FOREIGN KEY (cliente_id) REFERENCES cadastro(idCadastro) ON DELETE CASCADE,
   FOREIGN KEY (produto_id) REFERENCES produto(idProduto) ON DELETE CASCADE,
-  FOREIGN KEY (cores_id) REFERENCES coresProduto(idCoresProduto) ON DELETE CASCADE,
-  FOREIGN KEY (Img_id) REFERENCES imgProduto(idImgProduto) ON DELETE CASCADE
   CONSTRAINT `PRIMARY` PRIMARY KEY (`idCarrinhocompra`)
 );

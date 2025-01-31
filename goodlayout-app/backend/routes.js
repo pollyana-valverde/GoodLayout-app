@@ -113,38 +113,40 @@ router.delete('/cadastros/:idCadastro', (req, res) => {
 /////////////////////////////////////////////login///////////////////////////////////////////////////
 
 //Rota para buscar o cfp e senha necessários no login
-router.post('/login/:email/:senha', upload.single('imgPerfilCadastro'), (req, res) => {
+router.post('/login/:email/:senha', (req, res) => {
     const { email, senha } = req.params;
-    const imgPerfilCadastro = req.file ? `/uploads/${req.file.filename}` : null;
 
+    connection.query(
+        'SELECT * FROM cadastro WHERE email = ? AND senha = ?', 
+        [email, senha], // ✅ Remove imgPerfilCadastro da consulta
+        (err, results) => {
+            if (err) {
+                console.error('Erro ao buscar o registro do cadastro:', err);
+                return res.status(500).json({ error: 'Erro ao buscar o cadastro' });
+            }
 
-    connection.query('SELECT * FROM cadastro WHERE email = ? AND senha = ?', [email, senha, imgPerfilCadastro], (err, results) => {
-        if (err) {
-            console.error('Erro ao buscar o registro do cadastro:', err);
-            res.status(500).json({ error: 'Erro ao buscar o cadastro' });
-            return;
+            if (results.length === 0) {
+                return res.status(404).json({ error: 'Cadastro não encontrado' });
+            }
+
+            const user = results[0];
+
+            res.json({
+                idCadastro: user.idCadastro,  // ✅ Agora deve aparecer corretamente
+                nome: user.nome,
+                sobrenome: user.sobrenome,
+                email: user.email,
+                telefone: user.telefone,
+                cpf: user.cpf,
+                endereco: user.endereco,
+                imgPerfilCadastro: user.imgPerfilCadastro, // ✅ Pegando do banco de dados corretamente
+                senha: user.senha,
+                tipoUser: user.tipoUser,
+            });
         }
-
-        if (results.length === 0) {
-            res.status(404).json({ error: 'Cadastro não encontrado' });
-            return;
-        }
-
-        const user = results[0];
-        res.json({
-            id: user.id,
-            nome: user.nome,
-            sobrenome: user.sobrenome,
-            email: user.email,
-            telefone: user.telefone,
-            cpf: user.cpf,
-            endereco: user.endereco,
-            imgPerfilCadastro: imgPerfilCadastro,
-            senha: user.senha,
-            tipoUser: user.tipoUser,
-        });
-    });
+    );
 });
+
 
 
 /////////////////////////// new letter //////////////////////////
@@ -514,10 +516,10 @@ router.get('/carrinhocompra', (req, res) => {
 });
 
 router.post('/carrinhocompra', (req, res) => {
-    const { nomeProduto, geralCategoria, precoBase, desconto, quantDesconto, cliente_id, imgProduto, corProduto, quantProduto } = req.body;
+    const { cliente_id, produto_id, cores_id, Img_id, quantProduto } = req.body;
 
-    connection.query('INSERT INTO carrinhocompra ( nomeProduto, geralCategoria, precoBase, desconto, quantDesconto, cliente_id, imgProduto, corProduto, quantProduto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? )',
-        [nomeProduto, geralCategoria, precoBase, desconto, quantDesconto, cliente_id, imgProduto, corProduto, quantProduto], (err, result) => {
+    connection.query('INSERT INTO carrinhocompra ( cliente_id, produto_id, cores_id, Img_id, quantProduto) VALUES (?, ?, ?, ?, ?)',
+        [cliente_id, produto_id, cores_id, Img_id, quantProduto], (err, result) => {
             if (err) {
                 console.error('Erro ao criar o registro:', err);
                 res.status(500).json({ error: 'Erro ao criar o registro' });
