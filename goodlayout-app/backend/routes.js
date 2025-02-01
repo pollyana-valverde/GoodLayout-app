@@ -117,7 +117,7 @@ router.post('/login/:email/:senha', (req, res) => {
     const { email, senha } = req.params;
 
     connection.query(
-        'SELECT * FROM cadastro WHERE email = ? AND senha = ?', 
+        'SELECT * FROM cadastro WHERE email = ? AND senha = ?',
         [email, senha], // ✅ Remove imgPerfilCadastro da consulta
         (err, results) => {
             if (err) {
@@ -365,15 +365,11 @@ router.get('/produtoCorImg', (req, res) => {
     connection.query(query, (error, results) => {
         if (error) return res.status(500).send(error);
 
-        // Agrupando os resultados por idTextAreaForum
         const formattedResults = results.reduce((acc, curr) => {
-            const existingEntry = acc.find(item => item.idProduto === curr.idProduto);
+            let existingEntry = acc.find(item => item.idProduto === curr.idProduto);
 
-            if (existingEntry) {
-                existingEntry.coresProduto.push({ nomeCor: curr.nomeCor });
-                existingEntry.imgProduto.push({ imgCaminho: curr.imgCaminho });
-            } else {
-                acc.push({
+            if (!existingEntry) {
+                existingEntry = {
                     idProduto: curr.idProduto,
                     nomeProduto: curr.nomeProduto,
                     descProduto: curr.descProduto,
@@ -399,16 +395,29 @@ router.get('/produtoCorImg', (req, res) => {
                     rascunho: curr.rascunho,
                     dataPublicacao: curr.dataPublicacao,
                     timePublicacao: curr.timePublicacao,
-                    coresProduto: curr.nomeCor ? [{ nomeCor: curr.nomeCor }] : [],
-                    imgProduto: curr.imgCaminho ? [{ imgCaminho: curr.imgCaminho }] : [],
-                });
+                    coresProduto: [],
+                    imgProduto: [],
+                };
+                acc.push(existingEntry);
             }
+
+            // Adiciona a cor ao array, evitando duplicatas
+            if (curr.nomeCor && !existingEntry.coresProduto.some(cor => cor.nomeCor === curr.nomeCor)) {
+                existingEntry.coresProduto.push({ nomeCor: curr.nomeCor });
+            }
+
+            // Adiciona a imagem ao array, evitando duplicatas
+            if (curr.imgCaminho && !existingEntry.imgProduto.some(img => img.imgCaminho === curr.imgCaminho)) {
+                existingEntry.imgProduto.push({ imgCaminho: curr.imgCaminho });
+            }
+
             return acc;
         }, []);
 
         res.status(200).json(formattedResults);
     });
 });
+
 
 
 ////////////////////////////////////rotas dos materiais////////////////////
@@ -505,15 +514,34 @@ router.get('/tipos_desconto', (req, res) => {
 
 //////////////////////////////////// carrinho de compra ////////////////////////////
 router.get('/carrinhocompra', (req, res) => {
-    connection.query('SELECT * FROM carrinhocompra', (err, results) => {
-        if (err) {
-            console.error('Erro ao buscar os registros:', err);
-            res.status(500).json({ error: 'Erro ao buscar os registros' });
-            return;
-        }
-        res.json(results);
+    const query = `
+           SELECT 
+            cc.idCarrinhocompra,
+            cc.cliente_id,
+            cc.cores_id,
+            cc.Img_id,
+            cc.quantProduto,
+            cc.produto_id,
+            p.idProduto,
+            p.nomeProduto,
+            p.geralCategoria, 
+            p.precoBase,
+            p.desconto, 
+            p.quantDesconto
+        FROM 
+            carrinhocompra cc
+        JOIN 
+            produto p ON p.idProduto = cc.produto_id
+        ORDER BY 
+            cc.idCarrinhocompra;
+    `;
+
+    connection.query(query, (error, results) => {
+        if (error) return res.status(500).send(error);
+        res.status(200).json(results);
     });
 });
+
 
 router.post('/carrinhocompra', (req, res) => {
     const { cliente_id, produto_id, cores_id, Img_id, quantProduto } = req.body;
@@ -529,5 +557,17 @@ router.post('/carrinhocompra', (req, res) => {
         });
 });
 
+
+router.delete('/carrinhocompra/:idCarrinhocompra', (req, res) => {
+    const { idCarrinhocompra } = req.params;
+    connection.query('DELETE FROM carrinhocompra WHERE idCarrinhocompra = ?', [idCarrinhocompra], (err, result) => {
+        if (err) {
+            console.error('Erro ao excluir o registro:', err);
+            res.status(500).json({ error: 'Erro ao excluir o registro' });
+            return;
+        }
+        res.json({ message: 'Registro excluído com sucesso' });
+    });
+});
 
 module.exports = router;

@@ -68,15 +68,11 @@ export default function GeralDetalhesProduto() {
                 life: 3000
             });
 
-            setTimeout(() => {
-                window.location.reload(false);
-            }, 200);
-
             setFormData({
-                cliente_id: '',
-                produto_id: '',
-                cores_id: '',
-                Img_id: '',
+                cliente_id: userData.idCadastro,
+                produto_id: idProduto,
+                cores_id: coresProduto[0]?.nomeCor || '',
+                Img_id: imgProduto[0].imgCaminho,
                 quantProduto: 1,
             });
 
@@ -93,7 +89,7 @@ export default function GeralDetalhesProduto() {
 
     return (
         <div className="flex" key={idProduto}>
-            <Toast ref={toast} />
+            <Toast ref={toast} className="mt-5" />
             <Col lg={5}>
                 <Swiper
                     loop={true}
