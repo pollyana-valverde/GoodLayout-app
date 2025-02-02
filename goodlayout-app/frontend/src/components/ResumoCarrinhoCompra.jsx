@@ -1,23 +1,49 @@
 import React from "react";
 
-export default function ResumoCarrinhoCompra({ totalProdutos, TAXA_PADRAO, TAXA_ENTREGA }) {
-    const totalComTaxas = (parseFloat(totalProdutos) || 0) + (parseFloat(TAXA_PADRAO) || 0) + (parseFloat(TAXA_ENTREGA) || 0);
+export default function ResumoCarrinhoCompra({ totalProdutos, TAXA_PADRAO, TAXA_ENTREGA, totalDescontos }) {
+    const totalComDesconto = (parseFloat(totalProdutos) || 0) - (parseFloat(totalDescontos) || 0);
+    const totalFinal = totalComDesconto + TAXA_PADRAO + TAXA_ENTREGA;
 
     return (
-        <div className="flex flex-column gap-2">
+        <div className="flex flex-column gap-1  resumoCarrinhoCompra_corpo justify-content-between">
+            <h5 className="mb-2">Detalhes da compra</h5>
             {totalProdutos ? (
                 <>
-                    <h3>Subtotal: R$ {totalProdutos.toFixed(2)}</h3>
-                    <h3>Taxa Padrão: R$ {TAXA_PADRAO.toFixed(2)}</h3>
-                    <h3>Taxa de Entrega: R$ {TAXA_ENTREGA.toFixed(2)}</h3>
-                    <h3><strong>Total com Taxas: R$ {totalComTaxas.toFixed(2)}</strong></h3>
+                    <div className="flex align-items-center justify-content-between">
+                        <p>Subtotal: </p>
+                        <h5>R$ {totalProdutos.toFixed(2)}</h5>
+                    </div>
+                    <div className="flex align-items-center justify-content-between">
+                        <p>Desconto: </p>
+                        <h5>-R$ {totalDescontos.toFixed(2)}</h5>
+                    </div>
+                    <div className="flex align-items-center justify-content-between">
+                        <p>Subtotal com desconto: </p>
+                        <h5>R$ {totalComDesconto.toFixed(2)}</h5>
+                    </div>
+                    <div className="flex align-items-center justify-content-between">
+                        <p>Taxa Padrão: </p>
+                        <h5>R$ {TAXA_PADRAO.toFixed(2)}</h5>
+                    </div>
+                    <div className="flex align-items-center justify-content-between">
+                        <p>Taxa de Entrega: </p>
+                        <h5>R$ {TAXA_ENTREGA.toFixed(2)}</h5>
+                    </div>
+                    <div className="resumoCarrinhoCompra_total my-3 "></div>
+                    <div className="flex align-items-center justify-content-between ">
+                        <h4>Total: </h4>
+                        <h4>R$ {totalFinal.toFixed(2)}</h4>
+                    </div>
+                    <a href="/pagamento" className="mt-3 ">
+                        <button className="w-12 " type="button">Comprar agora</button>
+                    </a>
                 </>
             ) : (
                 <>
-                    <h3>Subtotal: R$ 0</h3>
-                    <h3>Taxa Padrão: R$ 0</h3>
-                    <h3>Taxa de Entrega: R$ 0</h3>
-                    <h3><strong>Total com Taxas: R$ 0</strong></h3>
+                    <h5>Subtotal: R$ 0</h5>
+                    <h5>Taxa Padrão: R$ 0</h5>
+                    <h5>Taxa de Entrega: R$ 0</h5>
+                    <h5>Total com Taxas: R$ 0</h5>
                 </>
             )}
         </div>

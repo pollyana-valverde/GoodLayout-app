@@ -139,7 +139,7 @@ export default function GeralDetalhesProduto() {
                     <Rating value={4} readOnly cancel={false} />
                     <p style={{ margin: 'unset' }}> (quant. avaliação)</p>
                 </div>
-                <h5 style={{ margin: 'unset' }}>R${precoBase}</h5>
+                <h5 style={{ margin: 'unset' }}>R${(parseFloat(precoBase).toFixed(2))}</h5>
                 <div className="flex flex-column gap-2">
                     <div className="flex gap-2 quantidadeProduto_geralDetalhesProduto">
                         <InputNumber name='quantProduto' value={formData.quantProduto} onValueChange={handleChange} showButtons buttonLayout="horizontal" style={{ width: '4rem' }}

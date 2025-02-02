@@ -1,0 +1,79 @@
+/************************ lista carrinho de compra ***********************/
+.listaCarrinhoCompra_corpo {
+    /* background-color: var(--oliveWoodSuperLow); */
+    /* border-radius: 25px; */
+    padding: 10px;
+    border-bottom: 2px dashed var(--oliveWoodSuperLow);
+}
+
+.listaCarrinhoCompra_corpo h4 {
+    color: var(--oliveWood);
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.listaCarrinhoCompra_corpo p {
+    color: var(--oliveWood);
+    opacity: 0.5;
+    font-size: 15px;
+}
+
+
+.listaCarrinhoCompra_corpo p span {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.listaCarrinhoCompra_corpo i {
+    color: var(--oliveWood);
+    opacity: 0.5;
+    transition: all .3s ease;
+}
+
+.listaCarrinhoCompra_corpo i:hover {
+    opacity: 0.8;
+}
+
+/************************ detalhes da compra carrinho de compra ***********************/
+.resumoCarrinhoCompra_corpo {
+    /* background-color: var(--oliveWoodSuperLow); */
+    border-radius: 25px;
+    padding: 15px 25px;
+}
+
+.resumoCarrinhoCompra_corpo p{
+    margin: unset;
+    color: var(--oliveWood);
+    opacity: 0.5;
+}
+
+.resumoCarrinhoCompra_corpo h5{
+    margin: unset;
+    color: var(--oliveWood);
+    opacity: 0.7;
+    font-size: 18px;
+}
+
+.resumoCarrinhoCompra_total{
+    border-top: 2px dashed var(--oliveWoodLow);
+}
+
+.resumoCarrinhoCompra_corpo h4{
+    margin: unset;
+    color: var(--oliveWood);
+    opacity: 0.7;
+}
+
+.resumoCarrinhoCompra_corpo a button{
+    background-color: var(--oliveWoodSuperLow);
+    border: 2px dashed var(--oliveWoodLow);
+    padding: 10px;
+    color: var(--oliveWoodLow);
+    font-weight: 500;
+    border-radius: 10px;
+    transition: all .5s ease;
+}
+
+.resumoCarrinhoCompra_corpo a button:hover{
+    border-radius: 50px;
+}

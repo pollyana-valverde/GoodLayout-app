@@ -21,7 +21,7 @@ export default function ProdutosCatalago({ itensFiltrados, categoria }) {
                             <div className="flex align-items-center justify-content-between p-1 pb-0 ">
                                 <div className="flex flex-column align-items-start line-height-1">
                                     <h5 className="exclusive">{produto.nomeProduto}</h5>
-                                    <p>R${produto.precoBase}</p>
+                                    <p>R${(parseFloat(produto.precoBase).toFixed(2))}</p>
                                 </div>
                                 <div onClick={() => handleProdutoUpdateClick(produto)} >
                                     <i className="pi pi-arrow-up-right "></i>
