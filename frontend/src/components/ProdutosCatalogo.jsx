@@ -17,10 +17,10 @@ export default function ProdutosCatalago({ itensFiltrados, categoria }) {
             {itensFiltrados.length > 0 ? (
                 itensFiltrados.map((produto, index) => (
                     produto.geralCategoria === categoria ? (
-                        <Col key={index} className="flex flex-column flex-wrap justify-content-center produtosCatalagoCorpo gap-2">
+                        <Col key={index} className="flex flex-column flex-wrap align-items-center justify-content-center produtosCatalagoCorpo gap-2">
                             <div className="flex align-items-center justify-content-between p-1 pb-0 ">
                                 <div className="flex flex-column align-items-start line-height-1">
-                                    <h5 className="exclusive">{produto.nomeProduto}</h5>
+                                    <h5 className="exclusive text-left mb-1" >{produto.nomeProduto}</h5>
                                     <p>R${(parseFloat(produto.precoBase).toFixed(2))}</p>
                                 </div>
                                 <div onClick={() => handleProdutoUpdateClick(produto)} >

@@ -1,5 +1,6 @@
 .produtosCatalagoCorpo {
-    background-color: var(--oliveWoodSuperLow);
+    width: 270px;
+    background-color: var(--creamyBiscotti);
     /* background-color: var(--tuscanRedLow); */
     border-radius: 20px;
 }
@@ -24,7 +25,7 @@
     color: var(--oliveWood);
 }
 
-.produtosCatalagoCorpo p{
+.produtosCatalagoCorpo p {
     opacity: 0.7;
     font-size: 15px;
     margin: unset;

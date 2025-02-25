@@ -88,7 +88,7 @@ export default function GeralDetalhesProduto() {
     };
 
     return (
-        <div className="flex" key={idProduto}>
+        <div className="flex gap-6" key={idProduto}>
             <Toast ref={toast} className="mt-5" />
             <Col lg={5}>
                 <Swiper
@@ -132,7 +132,7 @@ export default function GeralDetalhesProduto() {
             </Col>
             <Col lg={7} className="flex flex-column gap-3 justify-content-center geralDetalhesProduto_content">
                 <h1 className="white-space-normal" style={{ margin: 'unset' }}>{nomeProduto} 27 caracteres</h1>
-                <p className="descProduto white-space-normal" style={{ margin: 'unset' }}>
+                <p className="descProduto" style={{ margin: 'unset', overflowWrap:'anywhere' }}>
                     {descProduto} pode ser o lorem mesmo
                 </p>
                 <div className="flex gap-2">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import carrinhoVazio from '../../imagens/carrinhoVazio.svg';
 import { useAuth } from "../../provider/AuthProvider";
 import { Container, Row, Col } from 'react-bootstrap';
 import ListaCarrinhoCompra from "../../components/ListaCarrinhoCompra";
@@ -75,7 +76,7 @@ export default function CarrinhoCompra() {
 
 
     return (
-        <Container className="mt-8"> 
+        <Container className="mt-8" style={{minHeight:'72vh'}}>
             <Col lg={1} className="returnCatalogo_detalhesProdutos">
                 <a href="/" className="mb-2">
                     <i className="pi pi-arrow-left font-bold mr-2"></i>
@@ -86,14 +87,20 @@ export default function CarrinhoCompra() {
                 <Col lg={7}>
                     <ListaCarrinhoCompra allCarrinhoCompra={allCarrinhoCompra} handleExcluirProduto={handleExcluirProduto} />
                 </Col>
-                <Col lg={5} className="fixed mt-8 top-0 right-0 ">
-                    <ResumoCarrinhoCompra
-                        totalProdutos={totalProdutos}
-                        TAXA_PADRAO={TAXA_PADRAO}
-                        TAXA_ENTREGA={TAXA_ENTREGA}
-                        totalDescontos={totalDescontos}
-                    />
-                </Col>
+                {totalProdutos ? (
+                    <Col lg={5} className="fixed mt-8 top-0 right-0 ">
+                        <ResumoCarrinhoCompra
+                            totalProdutos={totalProdutos}
+                            TAXA_PADRAO={TAXA_PADRAO}
+                            TAXA_ENTREGA={TAXA_ENTREGA}
+                            totalDescontos={totalDescontos}
+                        />
+                    </Col>
+                ) : (
+                    <div className="flex justify-content-center align-items-center">
+                        <img src={carrinhoVazio} alt="" className="w-9 m-4" />
+                    </div>
+                )}
             </Row>
         </Container>
     );
