@@ -1,4 +1,5 @@
 .mainLeftHome {
+    padding: 40px;
     position: relative;
     background-image: url('../imagens/jardim5.avif');
     background-position: center;
@@ -55,6 +56,7 @@
 
 .textLeftHome {
     z-index: 1;
+    line-height: 50px;
 }
 
 .textLeftHome h2,
@@ -63,7 +65,7 @@
 }
 
 .textLeftHome h2 {
-    font-size: 42px;
+    font-size: 52px;
     font-weight: 400;
     margin: unset !important;
 }
@@ -72,16 +74,16 @@
     font-size: 25px;
     font-weight: 200;
     margin-top: unset !important;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .callBacktLeftHome a button {
     text-align: center;
     align-self: center !important;
-    font-size: 14px;
+    font-size: 20px;
     background-color: var(--white);
     color: var(--oliveWood);
-    padding: 6px 12px !important;
+    padding: 0px 12px !important;
     border-radius: 50px;
     border: none;
     transition: all .3s;
@@ -89,10 +91,10 @@
 
 .callBacktLeftHome a i {
     text-align: center;
-    font-size: 14px;
+    font-size: 20px;
     background-color: var(--white);
     color: var(--oliveWood);
-    padding: 10px !important;
+    padding: 16px !important;
     border-radius: 50px;
     border: none;
     transition: all .3s;
@@ -113,26 +115,34 @@
 
 .titleRightHome h1 {
     color: var(--oliveWood);
-    font-size: 40px;
+    font-size: 60px;
     margin: 0 20px;
+    line-height: 70px;
     opacity: 0.6;
     font-weight: 400;
     text-align: left;
 }
 
 .anuncioRightHome {
+    width: 100%;
     display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
     background-color: var(--creamyBiscotti);
     padding: 15px;
     border-radius: 30px;
 }
 
 .anuncioRightHome .exclusive {
-    font-size: 15px;
+    margin: unset;
+    font-size: 20px;
+    font-weight: 700;
     width: fit-content;
     background-color: var(--creamyBiscotti2);
     color: var(--oliveWood);
-    padding: 9px 12px !important;
+    padding: 10px 15px !important;
     border-radius: 50px;
 }
 
@@ -141,26 +151,29 @@
 }
 
 .anuncioRightHomeText h4{
-    font-size: 20px;
+    font-weight: 800;
+    font-size: 37px;
 }
 
 .anuncioRightHomeText p{
     opacity: 0.6;
-    font-size: 14px;
+    font-size: 23px;
 }
 
 .anuncioRightHome img {
     width: 100% !important;
-    height:197px;
+    height: 260px;
     object-fit: cover;
     border-radius: 20px;
 }
 
 .anuncioRightHome a i {
     background-color: var(--creamyBiscotti2);
+    font-weight: 700;
     color: var(--oliveWood);
-    padding: 12px !important;
+    padding: 16px !important;
     border-radius: 40px;
+    font-size: 20px;
     transition: all .3s;
 }
 
