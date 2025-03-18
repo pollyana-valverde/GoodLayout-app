@@ -30,13 +30,20 @@
     z-index: 1;
     margin: unset;
     color: var(--creamyBiscotti);
-    font-size: 15px;
+    font-size: 25px;
 }
 
 .rodape a{
     z-index: 1 !important;
     margin: unset;  
     color: var(--creamyBiscotti);
-    font-size: 14px;
+    font-size: 18px;
     opacity: 0.8;
+    transform: translateX(3px);
+    line-height: 22px;
+    transition: all .3s ease;
+}
+
+.rodape a:hover{
+    transform: translateX(8px);
 }

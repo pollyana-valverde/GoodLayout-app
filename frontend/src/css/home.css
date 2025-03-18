@@ -190,7 +190,7 @@
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     height: 50vh;
     overflow: hidden;
 }
@@ -214,17 +214,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .newsLetterHomeText h2 {
-    font-size: 40px;
-    font-weight: 400;
+    font-size: 50px;
+    font-weight: 500;
     color: var(--creamyBiscotti);
     margin-bottom: 20px;
 }
 
 
 .newsLetterHomeSubscribe input{
+    font-size: 20px;
     background-color: transparent;
     border-radius: 50px;
     backdrop-filter: blur(8px);
@@ -247,7 +249,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     background-color: var(--creamyBiscotti);
     border-radius: 50px;

@@ -28,8 +28,8 @@ export default function BasicExample() {
 
   return (
     <div className='flex flex-column gap-2 faqEndHome'>
-      <h2 style={{ color: 'var(--oliveWood)', opacity: '0.6', fontWeight:'600' }}>Explore nosso Faq para respostas sobre o jardim e nossos produtos</h2>
-      <p style={{ color: 'var(--oliveWood)', opacity: '0.5' }}>Nós estamos aqui para ajudar! Fique à vontade para navegar no nosso FAQ para entroncar todas as respostas que você precisa!</p>
+      <h1>Explore nosso Faq para respostas sobre o jardim e nossos produtos</h1>
+      <h3>Nós estamos aqui para ajudar! Fique à vontade para navegar no nosso FAQ para entroncar todas as respostas que você precisa!</h3>
       <Accordion defaultActiveKey={0} className='flex flex-column gap-3' style={{ width: '100%' }}>
         {faqs.map((faq) => (
           <Accordion.Item eventKey={faq.eventKey}>
