@@ -37,7 +37,7 @@ export default function MainHome() {
                             </Col>
                         </Row>
                         <Row >
-                            <div className="flex flex-column gap-1 mt-4">
+                            <div className="flex flex-column gap-1 mt-4 w-12">
                             <TagRightHome/>
                             </div>
                         </Row>

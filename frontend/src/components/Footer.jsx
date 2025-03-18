@@ -36,7 +36,7 @@ export default function Footer() {
                         </div>
                     </Col>
                     <Col lg={3} >
-                        <a style={{ color: 'var(--creamyBiscotti)', opacity: '1' }} className="text-3xl font-bold " href="/">RoadGarden</a>
+                        <a style={{ color: 'var(--creamyBiscotti)', opacity: '1'}} className="text-3xl font-bold " href="/">RoadGarden</a>
                     </Col>
                     <Col lg={2}>
                         <div className="flex flex-column text-left gap-1">

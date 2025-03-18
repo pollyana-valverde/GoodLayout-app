@@ -7,8 +7,8 @@
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 85vh;
+    justify-content: end;
+    height: 70vh;
     overflow: hidden;
 }
 
@@ -34,6 +34,7 @@
 }
 
 .anuncioEndHomeContent h4 {
+    font-size: 36px;
     color: var(--creamyBiscotti);
     margin: unset;
     font-weight: 400;
@@ -42,14 +43,15 @@
 .anuncioEndHomeContent p{
     margin: unset;
     font-weight: 500;
-    font-size: 13px;
-    line-height: 1.1rem;
+    font-size: 18px;
+    line-height: 1.5rem;
     margin-bottom: 12px;
     color: var(--creamyBiscotti);
     opacity: 0.7;
 }
 
 .anuncioEndHomeContent button{
+    font-size: 20px;
     border-radius: 50px;
     background-color: transparent;
     border: 1px solid var(--creamyBiscotti);
@@ -64,6 +66,22 @@
 }
 
 /* faq end home */
+.faqEndHome h1{
+    color: var(--oliveWood);
+    opacity: 0.6;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 57px;
+}
+
+.faqEndHome h3 {
+    color: var(--oliveWood);
+    opacity: 0.5;
+    font-weight: 400;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
 .faqEndHome .accordion-item {
     border: none;
     border-radius: 50px !important;
@@ -78,7 +96,7 @@
 }
 
 .faqEndHome .accordion-header button.accordion-button {
-    font-size: 20px !important;
+    font-size: 25px !important;
     color: var(--oliveWood);
     font-weight: 600;
     background-color: transparent;
@@ -103,5 +121,6 @@
 }
 
 .faqEndHome .accordion-body {
+font-size: 18px;
     padding-top: unset !important;
 }

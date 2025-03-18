@@ -61,7 +61,7 @@ export default function TagMainRightHome() {
 
     return (
         <>
-            <Col className="flex gap-3 align-content-center justify-content-center tagRightHome">
+            <Col className="flex gap-3 align-content-center justify-content-center tagRightHome w-12">
                 <TabView
                     className='flex flex-column relative overflow-hidden'
                     activeIndex={activeIndex}

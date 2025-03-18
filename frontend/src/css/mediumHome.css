@@ -1,13 +1,16 @@
-.textMediumHome h1, .textMediumHome p{
+.textMediumHome h1,
+.textMediumHome p {
     color: var(--oliveWood);
 }
 
-.textMediumHome h1{
-    font-weight: 400;
+.textMediumHome h1 {
+    font-size: 50px;
+    font-weight: 500;
     opacity: 0.6;
 }
 
-.textMediumHome p{
+.textMediumHome p {
+    font-size: 26px !important;
     opacity: 0.5;
 }
 

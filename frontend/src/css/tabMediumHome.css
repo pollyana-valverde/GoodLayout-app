@@ -1,5 +1,3 @@
-
-
 .tagMediumHome {
     width: 100%;
     display: flex;
@@ -15,8 +13,8 @@
 .tab-header {
     display: flex;
     overflow-x: auto;
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     scroll-behavior: smooth;
     flex-grow: 1;
     background-color: transparent;
@@ -28,7 +26,7 @@
 }
 
 .tab-header::-webkit-scrollbar {
-    display: none; 
+    display: none;
 }
 
 .tab-button {
@@ -39,7 +37,7 @@
     color: var(--creamyBiscottiDark);
     transition: all .3s;
     white-space: nowrap;
-    font-size: 16px;
+    font-size: 19px;
 }
 
 .tab-button.active {
@@ -55,7 +53,7 @@
 
 .scroll-button {
     cursor: pointer;
-    padding:6px 12px;
+    padding: 12px;
     border: none;
     background-color: transparent;
     outline: none;
@@ -63,10 +61,15 @@
     color: var(--palidRedDark);
     transition: all .3s;
     border-radius: 60px;
+    display: flex;
+}
+
+.scroll-button i {
+    font-size: 19px !important;
 }
 
 .scroll-button:hover {
-    background-color:  var(--palidRedDark);
+    background-color: var(--palidRedDark);
     color: var(--creamyBiscotti);
     border-radius: 60px;
 }
@@ -82,7 +85,45 @@
 }
 
 .tab-content {
-    background-color: transparent;
     padding: 15px 0;
-    margin-top: -1px;
+}
+
+.tabContentInterMediumHome {
+    width: 20% !important;
+    transition: all .3s ease;
+}
+
+.tabContentInterMediumHome:hover {
+    transform: translateY(-7px);
+}
+
+.tabContentInterMediumHome h5.exclusive {
+    border-radius: 50px;
+    border: 1.7px dashed var(--creamyBiscotti);
+    padding: 3px 15px;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--creamyBiscotti);
+    backdrop-filter: blur(6px);
+    text-align: center !important;
+}
+
+.tabContentInterMediumHome img {
+    object-fit: cover;
+    width: 100% !important;
+    height: 350px;
+    border-radius: 25px;
+    transition: all .4s ease;
+}
+       
+.tabContentInterMediumHome i {
+    color: var(--oliveWood);
+    background-color: var(--creamyBiscotti);
+    border-radius: 50px;
+    padding: 10px;
+    transition: all .3s ease;
+}
+
+.tabContentInterMediumHome i:hover {
+    background-color: var(--creamyBiscotti2);
 }

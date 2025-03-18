@@ -102,7 +102,7 @@ export default function Navbar() {
                     <Row className={`navFixed flex justify-content-between fixed w-12 z-5 align-items-center text-center ${scrollNavegacao ? 'navScroll my-2' : ' my-3 '}`}>
                         <Col lg={3}>
                             <a
-                                style={{ color: 'var(--oliveWood)' }}
+                                style={{ color: 'var(--tuscanRed)' }}
                                 className="text-lg font-bold"
                                 href="/"
                                 onClick={() => handleLinkClick("/")}>RoadGarden</a>
@@ -139,7 +139,7 @@ export default function Navbar() {
                                 <Row className={`navFixed flex justify-content-between fixed w-12 z-2 align-items-center text-center ${scrollNavegacao ? 'navScroll my-2' : ' my-3 '}`}>
                                     <Col lg={3}>
                                         <a
-                                            style={{ color: 'var(--oliveWood)' }}
+                                            style={{ color: 'var(--tuscanRed)' }}
                                             className="text-lg font-bold"
                                             href="/"
                                             onClick={() => handleLinkClick("/")}>RoadGarden</a>
