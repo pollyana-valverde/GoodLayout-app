@@ -329,3 +329,178 @@ CREATE TABLE `carrinhocompra` (
   FOREIGN KEY (produto_id) REFERENCES produto(idProduto) ON DELETE CASCADE,
   CONSTRAINT `PRIMARY` PRIMARY KEY (`idCarrinhocompra`)
 );
+
+
+INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
+SELECT 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
+    'Mesas externas', 
+    'Mesas de madeira', 
+    CONCAT(FLOOR(RAND() * 80 + 10), 'kg'), 
+    CONCAT(FLOOR(RAND() * 50 + 30), 'cm'), 
+    CONCAT(FLOOR(RAND() * 200 + 50), 'cm'), 
+    CONCAT(FLOOR(RAND() * 100 + 20), 'cm'), 
+    FLOOR(RAND() * 30 + 1), 
+    'Mogno', 
+    'Laca', 
+    'Aço inox', 
+    'Fosco', 
+    'Vidro temperado', 
+    CONCAT(FLOOR(RAND() * 3000 + 500), '.00'), 
+    CONCAT(FLOOR(RAND() * 20), '%'), 
+    CONCAT(FLOOR(RAND() * 400), ''), 
+    'Primeira compra', 
+    'Grupo Aleatório', 
+    'Tipo Grupo', 
+    'Sim', 
+    'Não', 
+    '2025-03-18', 
+    CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
+FROM information_schema.tables
+LIMIT 10;
+
+INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
+SELECT 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
+    'Cadeiras externas', 
+    'Mesas de madeira', 
+    CONCAT(FLOOR(RAND() * 80 + 10), 'kg'), 
+    CONCAT(FLOOR(RAND() * 50 + 30), 'cm'), 
+    CONCAT(FLOOR(RAND() * 200 + 50), 'cm'), 
+    CONCAT(FLOOR(RAND() * 100 + 20), 'cm'), 
+    FLOOR(RAND() * 30 + 1), 
+    'Mogno', 
+    'Laca', 
+    'Aço inox', 
+    'Fosco', 
+    'Vidro temperado', 
+    CONCAT(FLOOR(RAND() * 3000 + 500), '.00'), 
+    CONCAT(FLOOR(RAND() * 20), '%'), 
+    CONCAT(FLOOR(RAND() * 400), ''), 
+    'Primeira compra', 
+    'Grupo Aleatório', 
+    'Tipo Grupo', 
+    'Sim', 
+    'Não', 
+    '2025-03-18', 
+    CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
+FROM information_schema.tables
+LIMIT 10;
+
+INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
+SELECT 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
+    'Espreguiçadeiras', 
+    'Mesas de madeira', 
+    CONCAT(FLOOR(RAND() * 80 + 10), 'kg'), 
+    CONCAT(FLOOR(RAND() * 50 + 30), 'cm'), 
+    CONCAT(FLOOR(RAND() * 200 + 50), 'cm'), 
+    CONCAT(FLOOR(RAND() * 100 + 20), 'cm'), 
+    FLOOR(RAND() * 30 + 1), 
+    'Mogno', 
+    'Laca', 
+    'Aço inox', 
+    'Fosco', 
+    'Vidro temperado', 
+    CONCAT(FLOOR(RAND() * 3000 + 500), '.00'), 
+    CONCAT(FLOOR(RAND() * 20), '%'), 
+    CONCAT(FLOOR(RAND() * 400), ''), 
+    'Primeira compra', 
+    'Grupo Aleatório', 
+    'Tipo Grupo', 
+    'Sim', 
+    'Não', 
+    '2025-03-18', 
+    CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
+FROM information_schema.tables
+LIMIT 10;
+
+INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
+SELECT 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
+    'Guarda-sóis', 
+    'Mesas de madeira', 
+    CONCAT(FLOOR(RAND() * 80 + 10), 'kg'), 
+    CONCAT(FLOOR(RAND() * 50 + 30), 'cm'), 
+    CONCAT(FLOOR(RAND() * 200 + 50), 'cm'), 
+    CONCAT(FLOOR(RAND() * 100 + 20), 'cm'), 
+    FLOOR(RAND() * 30 + 1), 
+    'Mogno', 
+    'Laca', 
+    'Aço inox', 
+    'Fosco', 
+    'Vidro temperado', 
+    CONCAT(FLOOR(RAND() * 3000 + 500), '.00'), 
+    CONCAT(FLOOR(RAND() * 20), '%'), 
+    CONCAT(FLOOR(RAND() * 400), ''), 
+    'Primeira compra', 
+    'Grupo Aleatório', 
+    'Tipo Grupo', 
+    'Sim', 
+    'Não', 
+    '2025-03-18', 
+    CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
+FROM information_schema.tables
+LIMIT 10;
+
+INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
+SELECT 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
+    'Jardineiras', 
+    'Mesas de madeira', 
+    CONCAT(FLOOR(RAND() * 80 + 10), 'kg'), 
+    CONCAT(FLOOR(RAND() * 50 + 30), 'cm'), 
+    CONCAT(FLOOR(RAND() * 200 + 50), 'cm'), 
+    CONCAT(FLOOR(RAND() * 100 + 20), 'cm'), 
+    FLOOR(RAND() * 30 + 1), 
+    'Mogno', 
+    'Laca', 
+    'Aço inox', 
+    'Fosco', 
+    'Vidro temperado', 
+    CONCAT(FLOOR(RAND() * 3000 + 500), '.00'), 
+    CONCAT(FLOOR(RAND() * 20), '%'), 
+    CONCAT(FLOOR(RAND() * 400), ''), 
+    'Primeira compra', 
+    'Grupo Aleatório', 
+    'Tipo Grupo', 
+    'Sim', 
+    'Não', 
+    '2025-03-18', 
+    CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
+FROM information_schema.tables
+LIMIT 10;
+
+INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
+SELECT 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
+    'Pérgulas', 
+    'Mesas de madeira', 
+    CONCAT(FLOOR(RAND() * 80 + 10), 'kg'), 
+    CONCAT(FLOOR(RAND() * 50 + 30), 'cm'), 
+    CONCAT(FLOOR(RAND() * 200 + 50), 'cm'), 
+    CONCAT(FLOOR(RAND() * 100 + 20), 'cm'), 
+    FLOOR(RAND() * 30 + 1), 
+    'Mogno', 
+    'Laca', 
+    'Aço inox', 
+    'Fosco', 
+    'Vidro temperado', 
+    CONCAT(FLOOR(RAND() * 3000 + 500), '.00'), 
+    CONCAT(FLOOR(RAND() * 20), '%'), 
+    CONCAT(FLOOR(RAND() * 400), ''), 
+    'Primeira compra', 
+    'Grupo Aleatório', 
+    'Tipo Grupo', 
+    'Sim', 
+    'Não', 
+    '2025-03-18', 
+    CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
+FROM information_schema.tables
+LIMIT 10;

@@ -20,12 +20,12 @@ export default function CarroselCatalago() {
             .finally(() => setLoading(false));
     }, []);
 
-    const produtosCatalogoRef = useRef(null);
+    const produtosCatalogoRef = useRef([]);
 
-    const scrollTabs = (direction) => {
-        if (produtosCatalogoRef.current) {
+    const scrollTabs = (index, direction) => {
+        if (produtosCatalogoRef.current[index]) {
             const scrollAmount = 700; // Pixels to scroll
-            produtosCatalogoRef.current.scrollBy({
+            produtosCatalogoRef.current[index].scrollBy({
                 left: direction === 'left' ? -scrollAmount : scrollAmount,
                 behavior: 'smooth',
             });
@@ -36,17 +36,18 @@ export default function CarroselCatalago() {
         <div className="tagMediumHome">
             {itensFiltrados.map((categoria, index) => (
                 <React.Fragment key={index}>
-                            <div className="flex justify-content-end mt-2">
-                                <p style={{ margin: 'unset', color:'var(--oliveWoodLow)' }}>
+                            <div className="flex justify-content-center mt-2 tagMediumHomeCategoriaTitulo">
+                                <p>
                                     {categoria.geralCategoria}
                                 </p>
                             </div>
                             <div className="catalogoProdutos-container">
-                                <button className="scroll-button left" onClick={() => scrollTabs('left')}><i className="pi pi-arrow-left" style={{ fontSize: '0.8rem' }}></i></button>
-                                <div className=" catalogoProdutos-content" ref={produtosCatalogoRef}>
+                                <button className="scroll-button left" onClick={() => scrollTabs(index, 'left')}><i className="pi pi-arrow-left" style={{ fontSize: '0.8rem' }}></i></button>
+                                <div className=" catalogoProdutos-content" 
+                                 ref={el => produtosCatalogoRef.current[index] = el} >
                                     <ProdutosCatalago itensFiltrados={itensFiltrados} categoria={categoria.geralCategoria} />
                                 </div>
-                                <button className="scroll-button right" onClick={() => scrollTabs('right')}><i className="pi pi-arrow-right" style={{ fontSize: '0.8rem' }}></i></button>
+                                <button className="scroll-button right" onClick={() => scrollTabs(index, 'right')}><i className="pi pi-arrow-right" style={{ fontSize: '0.8rem' }}></i></button>
                             </div>
 
                             {/* Renderiza um banner após cada 3 carrosséis */}

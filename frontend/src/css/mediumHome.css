@@ -22,3 +22,32 @@
     overscroll-behavior: contain auto;
     position: relative;
 }
+
+.tagMediumHomeCategoriaTitulo p{
+    position: relative;
+    margin: unset;
+    color: var(--oliveWoodLow);
+    font-size: 20px;
+}
+
+.tagMediumHomeCategoriaTitulo p::after{
+    position: absolute;
+    content: '';
+    top: 50%;
+    margin-left: 20px;
+    width: 200px;
+    height: 1px;
+    border-radius: 50px;
+    background: linear-gradient(to right, var(--oliveWoodLow), transparent);
+}
+
+.tagMediumHomeCategoriaTitulo p::before{
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: -220px;
+    width: 200px;
+    height: 1px;
+    border-radius: 50px;
+    background: linear-gradient(to left, var(--oliveWoodLow), transparent);
+}

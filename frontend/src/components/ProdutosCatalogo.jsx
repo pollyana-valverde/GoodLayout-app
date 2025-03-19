@@ -13,12 +13,12 @@ export default function ProdutosCatalago({ itensFiltrados, categoria }) {
     };
 
     return (
-        <div className="flex flex-wrap ">
+        <div className="flex">
             {itensFiltrados.length > 0 ? (
                 itensFiltrados.map((produto, index) => (
                     produto.geralCategoria === categoria ? (
-                        <Col key={index} className="flex flex-column flex-wrap align-items-center justify-content-center produtosCatalagoCorpo gap-2">
-                            <div className="flex align-items-center justify-content-between p-1 pb-0 ">
+                        <Col key={index} className="flex flex-column flex-wrap justify-content-center produtosCatalagoCorpo gap-2 relative">
+                            <div className="flex align-items-center justify-content-between nomeProduto ">
                                 <div className="flex flex-column align-items-start line-height-1">
                                     <h5 className="exclusive text-left mb-1" >{produto.nomeProduto}</h5>
                                     <p>R${(parseFloat(produto.precoBase).toFixed(2))}</p>
@@ -30,7 +30,7 @@ export default function ProdutosCatalago({ itensFiltrados, categoria }) {
                             {Array.isArray(produto.imgProduto) && produto.imgProduto.length > 0 && (
                                 <img
                                     className="border-round-3xl"
-                                    src={produto.imgProduto[0].imgCaminho ? `http://localhost:3002${produto.imgProduto[0].imgCaminho}` : imgTeste}
+                                    src={produto.imgProduto[0].imgCaminho ? `http://localhost:3002/uploads/${produto.imgProduto[0].imgCaminho}` : imgTeste}
                                     alt="Produto"
                                 />
                             )}
