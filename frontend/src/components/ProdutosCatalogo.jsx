@@ -19,7 +19,7 @@ export default function ProdutosCatalago({ itensFiltrados, categoria }) {
                     produto.geralCategoria === categoria ? (
                         <Col key={index} className="flex flex-column flex-wrap justify-content-center produtosCatalagoCorpo gap-2 relative">
                             <div className="flex align-items-center justify-content-between nomeProduto ">
-                                <div className="flex flex-column align-items-start line-height-1">
+                                <div className="flex flex-column align-items-start line-height-3">
                                     <h5 className="exclusive text-left mb-1" >{produto.nomeProduto}</h5>
                                     <p>R${(parseFloat(produto.precoBase).toFixed(2))}</p>
                                 </div>

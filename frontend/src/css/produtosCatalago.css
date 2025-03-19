@@ -6,15 +6,16 @@
 
 .produtosCatalagoCorpo i {
     color: var(--oliveWood);
-    background-color: var(--white);
+    background-color: var(--creamyBiscotti);
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 600;
     padding: 10px;
     transition: all .1s ease;
 }
 
 .produtosCatalagoCorpo i:hover {
-    color: var(--white);
+    color: var(--creamyBiscotti);
     background-color: var(--palidRedDark);
 }
 
@@ -55,11 +56,13 @@
     margin: unset;
     font-size: 20px;
     color: var(--creamyBiscotti);
+    font-weight: 600;
 }
 
 .produtosCatalagoCorpo .nomeProduto p {
     opacity: 0.7;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 17px;
     margin: unset;
     color: var(--creamyBiscotti);
 }
