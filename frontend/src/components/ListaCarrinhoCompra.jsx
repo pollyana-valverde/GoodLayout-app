@@ -10,7 +10,7 @@ export default function ListaCarrinhoCompra({ allCarrinhoCompra, handleExcluirPr
                         <div className="flex gap-3 align-items-center">
                             <img
                                 className="border-round-3xl"
-                                src={`http://localhost:3002${allCarrinho.Img_id}`}
+                                src={`http://localhost:3002/${allCarrinho.Img_id}`}
                                 alt="Produto"
                                 width={140}
                                 height={140}

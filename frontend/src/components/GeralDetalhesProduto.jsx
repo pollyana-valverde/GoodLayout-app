@@ -102,7 +102,7 @@ export default function GeralDetalhesProduto() {
                         <SwiperSlide>
                             <img
                                 className="border-round-3xl"
-                                src={imagemprod.imgCaminho ? `http://localhost:3002/uploads/${imagemprod.imgCaminho}` : imgTeste}
+                                src={imagemprod.imgCaminho ? `http://localhost:3002/${imagemprod.imgCaminho}` : imgTeste}
                                 alt="Produto"
                                 style={{ width: '88%' }}
                             />
@@ -123,7 +123,7 @@ export default function GeralDetalhesProduto() {
                         <SwiperSlide>
                             <img
                                 className="border-round-3xl"
-                                src={imagemprod.imgCaminho ? `http://localhost:3002/uploads/${imagemprod.imgCaminho}` : imgTeste}
+                                src={imagemprod.imgCaminho ? `http://localhost:3002/${imagemprod.imgCaminho}` : imgTeste}
                                 alt="Produto"
                             />
                         </SwiperSlide>

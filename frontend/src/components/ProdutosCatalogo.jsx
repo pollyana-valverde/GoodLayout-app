@@ -30,7 +30,7 @@ export default function ProdutosCatalago({ itensFiltrados, categoria }) {
                             {Array.isArray(produto.imgProduto) && produto.imgProduto.length > 0 && (
                                 <img
                                     className="border-round-3xl"
-                                    src={produto.imgProduto[0].imgCaminho ? `http://localhost:3002/uploads/${produto.imgProduto[0].imgCaminho}` : imgTeste}
+                                    src={produto.imgProduto[0].imgCaminho ? `http://localhost:3002/${produto.imgProduto[0].imgCaminho}` : imgTeste}
                                     alt="Produto"
                                 />
                             )}

@@ -151,7 +151,7 @@ export default function Navbar() {
                                                 <input type="text" placeholder="Procure produtos aqui..."
                                                 />
                                                 <div >
-                                                    <p className="text-xs">Buscar</p>
+                                                    <p className="text-sm">Buscar</p>
                                                 </div>
 
                                             </div>
@@ -184,8 +184,6 @@ export default function Navbar() {
                                                         </div>
                                                     </div>
                                                 </>
-
-
                                             </div>
                                         </Col>
                                     </>
@@ -213,13 +211,13 @@ export default function Navbar() {
                         </div>
 
                     )}
-               
-            
 
-            {userData.tipoUser === 'admin' || userData.tipoUser === 'cliente' && linksSemHeader.some(link => window.location.pathname === link.caminho) && (
-                <div></div>
-            )}
-             </>
+
+
+                    {userData.tipoUser === 'admin' || userData.tipoUser === 'cliente' && linksSemHeader.some(link => window.location.pathname === link.caminho) && (
+                        <div></div>
+                    )}
+                </>
             )}
         </Container>
     );

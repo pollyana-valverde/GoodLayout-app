@@ -333,7 +333,7 @@ CREATE TABLE `carrinhocompra` (
 
 INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
 SELECT 
-    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 10 + 1)), 
     ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
     'Mesas externas', 
     'Mesas de madeira', 
@@ -358,11 +358,11 @@ SELECT
     '2025-03-18', 
     CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
 FROM information_schema.tables
-LIMIT 10;
+LIMIT 6;
 
 INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
 SELECT 
-    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 10 + 1)), 
     ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
     'Cadeiras externas', 
     'Mesas de madeira', 
@@ -387,11 +387,11 @@ SELECT
     '2025-03-18', 
     CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
 FROM information_schema.tables
-LIMIT 10;
+LIMIT 6;
 
 INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
 SELECT 
-    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 10 + 1)), 
     ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
     'Espreguiçadeiras', 
     'Mesas de madeira', 
@@ -416,11 +416,11 @@ SELECT
     '2025-03-18', 
     CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
 FROM information_schema.tables
-LIMIT 10;
+LIMIT 6;
 
 INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
 SELECT 
-    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 10 + 1)), 
     ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
     'Guarda-sóis', 
     'Mesas de madeira', 
@@ -445,11 +445,11 @@ SELECT
     '2025-03-18', 
     CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
 FROM information_schema.tables
-LIMIT 10;
+LIMIT 6;
 
 INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
 SELECT 
-    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 10 + 1)), 
     ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
     'Jardineiras', 
     'Mesas de madeira', 
@@ -474,11 +474,11 @@ SELECT
     '2025-03-18', 
     CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
 FROM information_schema.tables
-LIMIT 10;
+LIMIT 6;
 
 INSERT INTO produto (nomeProduto, descProduto, geralCategoria, subCategoria, peso, altura, largura, profundidade, estoque, madeira, revestimento, ferragem, acabamento, vidro, precoBase, desconto, quantDesconto, tipoDesconto, grupoDesconto, tipoGrupoDesconto, publicacao, rascunho, dataPublicacao, timePublicacao) 
 SELECT 
-    CONCAT('Produto Modelo ', FLOOR(RAND() * 12 + 1)), 
+    CONCAT('Produto Modelo ', FLOOR(RAND() * 10 + 1)), 
     ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit voluptas minima fugit quaerat alias numquam dolorem. Beatae nesciunt est consequatur, accusamus dolore, autem magnam adipisci accusantium tempore voluptate ab.', 
     'Pérgulas', 
     'Mesas de madeira', 
@@ -503,4 +503,51 @@ SELECT
     '2025-03-18', 
     CONCAT(FLOOR(RAND() * 24), ':', FLOOR(RAND() * 60))
 FROM information_schema.tables
-LIMIT 10;
+LIMIT 6;
+
+INSERT INTO coresproduto (nomeCor) 
+VALUES 
+('White'), ('Black'), ('Brown'),('Indianred');
+
+INSERT INTO imgproduto (imgCaminho) 
+VALUES 
+('uploads/1740441459086-947265397.avif'), ('uploads/1740441459080-914161621.avif'), ('uploads/1740441459074-51104940.avif');
+
+INSERT INTO produtocorimg (produto_id, cores_id, Img_id) 
+VALUES 
+(1, 1, 1), (1, 2, 2), 
+(2, 3, 1), (2, 4, 3), 
+(3, 1, 2), (3, 3, 3), 
+(4, 2, 1), (4, 4, 3), 
+(5, 1, 3), (5, 4, 2), 
+(6, 2, 3), (6, 3, 1), 
+(7, 1, 1), (7, 3, 2), 
+(8, 2, 2), (8, 4, 3), 
+(9, 1, 1), (9, 2, 3), 
+(10, 3, 1), (10, 4, 2), 
+(11, 1, 3), (11, 4, 2), 
+(12, 2, 1), (12, 3, 3), 
+(13, 1, 2), (13, 4, 1), 
+(14, 2, 3), (14, 3, 2), 
+(15, 1, 1), (15, 3, 3), 
+(16, 2, 2), (16, 4, 1), 
+(17, 1, 3), (17, 2, 1), 
+(18, 3, 2), (18, 4, 3), 
+(19, 1, 1), (19, 4, 2), 
+(20, 2, 3), (20, 3, 1), 
+(21, 1, 2), (21, 4, 3), 
+(22, 2, 1), (22, 3, 2), 
+(23, 1, 3), (23, 3, 1), 
+(24, 2, 2), (24, 4, 3), 
+(25, 1, 1), (25, 3, 3), 
+(26, 2, 2), (26, 4, 1), 
+(27, 1, 3), (27, 2, 1), 
+(28, 3, 2), (28, 4, 3), 
+(29, 1, 1), (29, 2, 2), 
+(30, 3, 1), (30, 4, 3), 
+(31, 1, 2), (31, 3, 3), 
+(32, 2, 1), (32, 4, 3), 
+(33, 1, 3), (33, 4, 2), 
+(34, 2, 3), (34, 3, 1), 
+(35, 1, 1), (35, 3, 2), 
+(36, 2, 2), (36, 4, 3);
